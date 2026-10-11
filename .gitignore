@@ -1,0 +1,18 @@
+/target
+
+# Local configuration and temporary files
+.env
+.env.*
+*.log
+*.tmp
+*.bak
+*.swp
+.vscode/
+.idea/
+.DS_Store
+
+# Rialo key material: observed CLI layout and CDK default keyring directory
+*.keypair
+/keys/
+/keyrings/
+/.config/rialo/

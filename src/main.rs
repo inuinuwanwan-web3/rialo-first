@@ -1,6 +1,6 @@
 use base64::{Engine as _, engine::general_purpose::STANDARD};
 use rialo_cdk::{
-    RpcClient, TransactionBuilder,
+    RpcClient,
     constants::URL_DEVNET,
     rpc::{HttpRpcClient, types::Pubkey},
 };
@@ -11,7 +11,7 @@ use std::{
     time::{Duration, SystemTime, UNIX_EPOCH},
 };
 type Result<T> = std::result::Result<T, Box<dyn Error>>;
-const AMOUNT: u64 = 1_000_000;
+const AMOUNT: u64 = rialo_first::TRANSFER_AMOUNT;
 #[derive(Debug, PartialEq)]
 enum Mode {
     RpcCheck,
@@ -57,8 +57,7 @@ fn remaining(balance: u64, fee: Option<u64>) -> Result<(u64, u64)> {
 // API 0.18.1 get_fee_for_message.rs:16: base64 bincode VersionedMessage.
 // versions/mod.rs:198: Legacy has no version prefix. Verify canonical bytes.
 fn message(from: Pubkey, to: Pubkey, time: i64, hash: ConfigHashPrefix) -> Result<String> {
-    let mut builder = TransactionBuilder::new(from, time, hash);
-    builder.add_transfer_instruction(&from, &to, AMOUNT);
+    let builder = rialo_first::transfer_builder(from, to, time, hash);
     let bytes = builder.build()?; // Message only: no signatures or transaction envelope.
     let decoded: VersionedMessage = bincode::deserialize(&bytes)?;
     let canonical = decoded.serialize_safe()?;
@@ -129,6 +128,63 @@ mod tests {
     use super::*;
     fn args(a: &[&str]) -> Vec<String> {
         a.iter().map(|s| s.to_string()).collect()
+    }
+    #[test]
+    fn ordinary_invocation_is_prepare_only() {
+        let from = Pubkey::from([1; 32]);
+        let to = Pubkey::from([2; 32]);
+        assert_eq!(
+            parse(&args(&[
+                "--from",
+                &from.to_string(),
+                "--to",
+                &to.to_string()
+            ]))
+            .unwrap(),
+            Mode::Prepare(from, to)
+        );
+    }
+    #[test]
+    fn send_flags_fail_before_rpc_or_key_access() {
+        let from = Pubkey::from([1; 32]).to_string();
+        let to = Pubkey::from([2; 32]).to_string();
+        // Even both flags must stay disabled until CLI/CDK key compatibility is proven.
+        for flags in [
+            vec!["--send"],
+            vec!["--confirm-send"],
+            vec!["--send", "--confirm-send"],
+        ] {
+            let mut input = args(&["--from", &from, "--to", &to]);
+            input.extend(args(&flags));
+            assert!(parse(&input).is_err());
+        }
+    }
+    #[test]
+    fn amount_override_is_rejected() {
+        let from = Pubkey::from([1; 32]).to_string();
+        let to = Pubkey::from([2; 32]).to_string();
+        // Amount is still fixed, not a newly implemented configurable amount.
+        assert!(parse(&args(&["--from", &from, "--to", &to, "--amount", "0"])).is_err());
+    }
+    #[test]
+    fn network_override_cannot_enable_sending() {
+        let from = Pubkey::from([1; 32]).to_string();
+        let to = Pubkey::from([2; 32]).to_string();
+        for network in ["devnet", "mainnet", "testnet"] {
+            assert!(
+                parse(&args(&[
+                    "--from",
+                    &from,
+                    "--to",
+                    &to,
+                    "--network",
+                    network,
+                    "--send",
+                    "--confirm-send"
+                ]))
+                .is_err()
+            );
+        }
     }
     #[test]
     fn inputs_fail_closed() {

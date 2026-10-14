@@ -3301,6 +3301,7 @@ version = "0.1.0"
 dependencies = [
  "base64",
  "bincode",
+ "ed25519-dalek",
  "rialo-cdk",
  "rialo-s-message",
  "tokio",

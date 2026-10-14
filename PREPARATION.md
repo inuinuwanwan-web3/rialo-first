@@ -1,5 +1,9 @@
 # DevNet preparation only
 
+This page describes the CLI executable. The separate [Phase 7B offline library](docs/phase-7b-external-signatures.md)
+can verify external signatures and assemble Testnet transaction bytes, without
+loading keys, signing, or sending. It is not invoked by the CLI.
+
 Run `cargo run -- --from PUBLIC_SOURCE --to PUBLIC_DESTINATION` only after selecting
 both public addresses. No destination is provided by default. Amount is fixed at
 0.001 RLO (1,000,000 kelvin). `--rpc-check` preserves the original read-only

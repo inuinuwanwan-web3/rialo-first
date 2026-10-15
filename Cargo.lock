@@ -3304,6 +3304,8 @@ dependencies = [
  "ed25519-dalek",
  "rialo-cdk",
  "rialo-s-message",
+ "serde_json",
+ "sha2 0.10.9",
  "tokio",
 ]
 

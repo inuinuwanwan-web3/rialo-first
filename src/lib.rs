@@ -1,4 +1,5 @@
-//! Offline external-signature assembly. No wallet, filesystem, RPC or signing access.
+//! External-signature assembly and opt-in read-only pre-sign RPC checks. No wallet access.
+pub mod pre_sign;
 use ed25519_dalek::{Signature, VerifyingKey};
 use rialo_cdk::{TransactionBuilder, rpc::types::Pubkey, transaction::builder::Transaction};
 use rialo_s_message::{ConfigHashPrefix, VersionedMessage};

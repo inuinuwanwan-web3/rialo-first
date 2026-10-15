@@ -30,6 +30,16 @@ Keyring compatibility. See [Phase 7B scope and remaining work](docs/phase-7b-ext
 Send flags remain unsupported. Phase 7B adds an offline external-signature library;
 it does not resolve CLI wallet compatibility or enable sending.
 
+Phase 7C is blocked at design review: the current transfer message does not encode
+the fee or RPC endpoint, and offline inputs do not establish Testnet provenance.
+No signer transport or request/response interface has been enabled.
+See [Phase 7C design and blocker](docs/phase-7c-external-signer-interface.md).
+
+Phase 7D adds opt-in read-only pre-sign checks for Testnet config prefix, the exact
+message's fee estimate, a user-supplied estimate limit, and balance. Offline tests
+cover failure paths; live RPC validation and signing integration remain unperformed.
+See [Phase 7D checks and limitations](docs/phase-7d-pre-sign-checks.md).
+
 ## Separate Testnet E2E evidence
 
 The successful 2026-10-11 Testnet transfer was signed and sent using the existing

@@ -40,6 +40,11 @@ message's fee estimate, a user-supplied estimate limit, and balance. Offline tes
 cover failure paths; live RPC validation and signing integration remain unperformed.
 See [Phase 7D checks and limitations](docs/phase-7d-pre-sign-checks.md).
 
+Phase 7E adds configurable check expiry, injected wall/monotonic clocks, and fresh
+RPC revalidation of the same message before any future signing request. It remains
+unconnected to signing and is tested offline only.
+See [Phase 7E expiry and revalidation](docs/phase-7e-check-expiration.md).
+
 ## Separate Testnet E2E evidence
 
 The successful 2026-10-11 Testnet transfer was signed and sent using the existing

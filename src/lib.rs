@@ -16,8 +16,17 @@ pub fn transfer_builder(
     valid_from: i64,
     hash: ConfigHashPrefix,
 ) -> TransactionBuilder {
+    transfer_builder_with_amount(from, to, valid_from, hash, TRANSFER_AMOUNT)
+}
+fn transfer_builder_with_amount(
+    from: Pubkey,
+    to: Pubkey,
+    valid_from: i64,
+    hash: ConfigHashPrefix,
+    amount: u64,
+) -> TransactionBuilder {
     let mut builder = TransactionBuilder::new(from, valid_from, hash);
-    builder.add_transfer_instruction(&from, &to, TRANSFER_AMOUNT);
+    builder.add_transfer_instruction(&from, &to, amount);
     builder
 }
 
@@ -32,6 +41,7 @@ pub struct ExternalSignature<'a> {
 pub struct PreparedTransfer {
     transaction: Transaction,
     from: Pubkey,
+    amount_kelvin: u64,
 }
 
 impl PreparedTransfer {
@@ -42,6 +52,21 @@ impl PreparedTransfer {
         valid_from: i64,
         hash: ConfigHashPrefix,
     ) -> Result<Self> {
+        Self::new_with_amount(rpc, from, to, valid_from, hash, TRANSFER_AMOUNT)
+    }
+
+    /// Variable amount for read-only preparation; existing lifecycle remains fixed-amount.
+    pub fn new_with_amount(
+        rpc: &str,
+        from: &str,
+        to: &str,
+        valid_from: i64,
+        hash: ConfigHashPrefix,
+        amount_kelvin: u64,
+    ) -> Result<Self> {
+        if amount_kelvin == 0 {
+            return Err("送金額は正のkelvin整数が必要".into());
+        }
         if rpc != TESTNET_RPC {
             return Err("外部署名の組み込みはTestnetのみ対応".into());
         }
@@ -55,7 +80,8 @@ impl PreparedTransfer {
         if key.is_weak() {
             return Err("送金元の署名公開鍵が不正".into());
         }
-        let transaction = transfer_builder(from, to, valid_from, hash).build_transaction()?;
+        let transaction = transfer_builder_with_amount(from, to, valid_from, hash, amount_kelvin)
+            .build_transaction()?;
         let decoded: VersionedMessage = bincode::deserialize(transaction.message())?;
         if decoded.serialize_safe()? != transaction.message() {
             return Err("メッセージ形式不一致".into());
@@ -69,11 +95,15 @@ impl PreparedTransfer {
         {
             return Err("送金元と必要署名者が不一致".into());
         }
-        Ok(Self { transaction, from })
+        Ok(Self {
+            transaction,
+            from,
+            amount_kelvin,
+        })
     }
 
     /// Sign exactly these raw bytes with Ed25519 (no envelope, encoding or prehash).
-    /// Includes sender, recipient, fixed amount, valid_from and config hash prefix.
+    /// Includes sender, recipient, amount, valid_from and config hash prefix.
     pub fn signing_message(&self) -> &[u8] {
         self.transaction.message()
     }

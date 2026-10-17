@@ -15,12 +15,28 @@ const AMOUNT: u64 = rialo_first::TRANSFER_AMOUNT;
 #[derive(Debug, PartialEq)]
 enum Mode {
     RpcCheck,
+    TestnetPrepare(rialo_first::pre_sign::preparation::Input),
+    TestnetReadOnly(Option<Pubkey>),
     Prepare(Pubkey, Pubkey),
     Help,
 }
 fn parse(args: &[String]) -> Result<Mode> {
+    if args.first().map(String::as_str) == Some("--testnet-prepare-transfer") {
+        return Ok(Mode::TestnetPrepare(
+            rialo_first::pre_sign::preparation::Input::parse(&args[1..])?,
+        ));
+    }
     if args == ["--help"] {
         return Ok(Mode::Help);
+    }
+    if args.first().map(String::as_str) == Some("--testnet-readonly") {
+        return match args.len() {
+            1 => Ok(Mode::TestnetReadOnly(None)),
+            3 if args[1] == "--address" => Ok(Mode::TestnetReadOnly(Some(
+                Pubkey::from_str(&args[2]).map_err(|_| "公開アドレスの形式が不正")?,
+            ))),
+            _ => Err("Testnet読み取り専用: --testnet-readonly [--address PUBLIC_KEY]".into()),
+        };
     }
     if args == ["--rpc-check"] {
         return Ok(Mode::RpcCheck);
@@ -66,7 +82,46 @@ fn message(from: Pubkey, to: Pubkey, time: i64, hash: ConfigHashPrefix) -> Resul
     }
     Ok(STANDARD.encode(canonical))
 }
+async fn testnet_readonly(address: Option<Pubkey>) -> Result<()> {
+    let endpoint = rialo_first::TESTNET_RPC;
+    println!("Read-only RPC: {endpoint}");
+    let client = HttpRpcClient::new(endpoint.to_owned());
+    let prefix = client
+        .get_config_hash_prefix()
+        .await
+        .map_err(|_| "Testnet config取得失敗")?;
+    println!("Config hash prefix: {prefix:?} (chain identity未証明)");
+    let height = client
+        .get_block_height()
+        .await
+        .map_err(|_| "Testnet block height取得失敗")?;
+    println!("Block height: {height}");
+    if let Some(address) = address {
+        let balance = client
+            .get_balance(&address)
+            .await
+            .map_err(|_| "Testnet balance取得失敗")?;
+        println!(
+            "Public address: {address}\nBalance: {balance} kelvin ({} RLO)",
+            rlo(balance)
+        );
+    }
+    println!("読み取り完了。署名・送信・状態保存なし。");
+    Ok(())
+}
 async fn run(mode: Mode) -> Result<()> {
+    if let Mode::TestnetPrepare(input) = mode {
+        let report = rialo_first::pre_sign::preparation::prepare(&input).await;
+        println!("{}", report.render(&input));
+        return if report.passed() {
+            Ok(())
+        } else {
+            Err("送金準備の必須条件を満たしていません".into())
+        };
+    }
+    if let Mode::TestnetReadOnly(address) = mode {
+        return testnet_readonly(address).await;
+    }
     let client = HttpRpcClient::new(URL_DEVNET.to_string());
     let height = client.get_block_height().await?;
     let hash = client.get_config_hash_prefix().await?;
@@ -101,14 +156,27 @@ async fn main() {
     let mode = match parse(&std::env::args().skip(1).collect::<Vec<_>>()) {
         Ok(mode) => mode,
         Err(e) => {
+            if std::env::args().nth(1).as_deref() == Some("--testnet-prepare-transfer") {
+                println!(
+                    "Network: Testnet\nRPC: {}\nFrom: UNKNOWN\nTo: UNKNOWN\nAmount: UNKNOWN\nAmount Unit: kelvin\nBalance: UNKNOWN\nBalance Unit: kelvin\nFee Limit: UNKNOWN\nFee Limit Unit: kelvin\nEstimated Fee: UNKNOWN\nValidation Result: PREPARATION BLOCKED\nBlocking Reasons: 入力検証失敗\nSignature Status: NOT EXECUTED\nBroadcast Status: NOT EXECUTED",
+                    rialo_first::TESTNET_RPC
+                );
+            }
             eprintln!("安全停止: {e}");
             std::process::exit(1);
         }
     };
     if mode == Mode::Help {
         println!(
-            "準備専用: rialo-first --from PUBLIC_KEY --to PUBLIC_KEY\nRPC確認: rialo-first --rpc-check\n金額固定0.001 RLO。鍵読取・署名・送信なし。"
+            "Testnet準備: --testnet-prepare-transfer --from PUBLIC_KEY --to PUBLIC_KEY --amount-kelvin INTEGER --fee-limit-kelvin INTEGER\nTestnet読取: rialo-first --testnet-readonly [--address PUBLIC_KEY]\n準備専用: rialo-first --from PUBLIC_KEY --to PUBLIC_KEY\nRPC確認: rialo-first --rpc-check\n従来DevNet準備は金額固定0.001 RLO。Testnet準備はkelvin整数指定。鍵読取・署名・送信なし。"
         );
+        return;
+    }
+    if matches!(mode, Mode::TestnetPrepare(_)) {
+        if let Err(e) = run(mode).await {
+            eprintln!("安全停止: {e}");
+            std::process::exit(1);
+        }
         return;
     }
     match tokio::time::timeout(Duration::from_secs(30), run(mode)).await {
@@ -236,5 +304,65 @@ mod tests {
         let mut expected = 2u32.to_le_bytes().to_vec();
         expected.extend_from_slice(&AMOUNT.to_le_bytes());
         assert_eq!(ix.data, expected);
+    }
+}
+
+#[cfg(test)]
+mod testnet_tests {
+    use super::*;
+    #[test]
+    fn explicit_testnet_readonly_mode() {
+        assert_eq!(
+            parse(&["--testnet-readonly".into()]).unwrap(),
+            Mode::TestnetReadOnly(None)
+        );
+        let address = Pubkey::from([2; 32]);
+        assert_eq!(
+            parse(&[
+                "--testnet-readonly".into(),
+                "--address".into(),
+                address.to_string()
+            ])
+            .unwrap(),
+            Mode::TestnetReadOnly(Some(address))
+        );
+    }
+    #[test]
+    fn testnet_rejects_mutation_flags_and_invalid_address() {
+        for tail in [
+            vec!["--send"],
+            vec!["--confirm-send"],
+            vec!["--address", "invalid"],
+            vec!["--rpc", "https://other.invalid"],
+        ] {
+            let mut args = vec!["--testnet-readonly".to_owned()];
+            args.extend(tail.into_iter().map(str::to_owned));
+            assert!(parse(&args).is_err());
+        }
+    }
+}
+
+#[cfg(test)]
+mod preparation_cli_tests {
+    use super::*;
+    #[test]
+    fn preparation_mode_requires_all_explicit_fields() {
+        let args = [
+            "--testnet-prepare-transfer",
+            "--from",
+            "7viL6ErV1ejDeRKbztqvmUZF9EnNgJ5q14yEMhEsiSQa",
+            "--to",
+            "FAyTs54yLpZ4KRHot8dVpJaoJJAibwkfEi9ck3NjHVc6",
+            "--amount-kelvin",
+            "2000000",
+            "--fee-limit-kelvin",
+            "6000",
+        ]
+        .map(str::to_owned);
+        assert!(matches!(parse(&args).unwrap(), Mode::TestnetPrepare(_)));
+        assert!(parse(&args[..7]).is_err());
+        let mut duplicate = args.to_vec();
+        duplicate.extend(["--from".into(), "unused".into()]);
+        assert!(parse(&duplicate).is_err());
     }
 }

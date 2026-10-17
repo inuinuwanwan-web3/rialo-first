@@ -1,4 +1,6 @@
 //! Read-only checks. No signing or sending; the public entry point is not wired to CLI.
+pub mod lifecycle;
+pub mod preparation;
 use crate::{PreparedTransfer, Result, TESTNET_RPC, TRANSFER_AMOUNT};
 use base64::{Engine as _, engine::general_purpose::STANDARD};
 use rialo_cdk::{
@@ -276,7 +278,8 @@ async fn check_with_rpc_and_clock(
     if fee > limit {
         return Err("手数料見積もり上限超過".into());
     }
-    let total = TRANSFER_AMOUNT
+    let total = transfer
+        .amount_kelvin
         .checked_add(fee)
         .ok_or("必要残高オーバーフロー")?;
     let balance = rpc.balance(&transfer.from).await?;

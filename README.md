@@ -45,6 +45,16 @@ RPC revalidation of the same message before any future signing request. It remai
 unconnected to signing and is tested offline only.
 See [Phase 7E expiry and revalidation](docs/phase-7e-check-expiration.md).
 
+Phase 7F connects fresh revalidation, in-memory signature requests/responses,
+terminal session states, and verified local transaction assembly. Offline lifecycle
+tests pass; no external signer transport, real-wallet integration or sending is enabled.
+See [Phase 7F lifecycle and limitations](docs/phase-7f-signature-lifecycle.md).
+
+Phase 7G adds an opt-in Unix persistent lifecycle journal with exclusive locking,
+durable state transitions, and rejection of every previously registered request ID
+after restart. Offline tests pass; crash recovery and filesystem limits are documented.
+See [Phase 7G persistence and replay prevention](docs/phase-7g-persistent-signature-state.md).
+
 ## Separate Testnet E2E evidence
 
 The successful 2026-10-11 Testnet transfer was signed and sent using the existing
@@ -52,3 +62,21 @@ Rialo CLI, **not this application's Rust code**. RPC results confirmed the trans
 and balance changes; the Playground UI balance update remains unverified.
 
 See [Rialo Testnet Transfer E2E — 2026-10-11](docs/2026-10-11-testnet-transfer-e2e.md).
+
+## Explicit Testnet read-only connection
+
+Run `cargo run --offline --locked -- --testnet-readonly` for Testnet config
+prefix and block height. Optionally add `--address PUBLIC_KEY` for balance.
+This opt-in command performs live read-only RPC; ordinary tests remain offline.
+It does not load a wallet, build/sign/send a transaction, or open signature state.
+The older preparation mode still uses DevNet.
+See [Phase 7L observations and limitations](docs/phase-7l-testnet-readonly.md).
+
+## Testnet transfer preparation
+
+Use `--testnet-prepare-transfer --from PUBLIC_KEY --to PUBLIC_KEY --amount-kelvin INTEGER --fee-limit-kelvin INTEGER`.
+Both numbers must be positive integers. This opt-in command uses live read-only RPC.
+It requires balance to cover amount plus the entire fee limit, and checks the exact
+unsigned message's fee estimate. It never signs, broadcasts, or opens signature state.
+PREPARATION PASSED is not a successful transfer or a guaranteed execution fee cap.
+See [Phase 7N](docs/phase-7n-transfer-preparation.md) for offline results and limitations.

@@ -326,4 +326,45 @@ mod tests {
         m.change = true;
         assert!(!prepare_using(&input, &m, &ClockMock).await.passed());
     }
+
+    #[tokio::test]
+    async fn zero_missing_and_rpc_error_remain_distinct_in_report() {
+        // Memory-only transport double: decode the actual API response type,
+        // then exercise the existing preparation/report path without HTTP.
+        struct FeeCase(Option<&'static str>);
+        impl ReadRpc for FeeCase {
+            async fn prefix(&self) -> Result<ConfigHashPrefix> {
+                Ok(ConfigHashPrefix::new(42))
+            }
+            async fn balance(&self, _: &Pubkey) -> Result<u64> {
+                Ok(2_006_000)
+            }
+            async fn fee(&self, _: &str) -> Result<Option<u64>> {
+                let value = self.0.ok_or("synthetic RPC error")?;
+                let json = format!(r#"{{"version":0,"context":{{"slot":1}},"value":{value}}}"#);
+                let response: rialo_cdk::rpc::types::GetFeeForMessageResponse =
+                    serde_json::from_str(&json)?;
+                Ok(response.value)
+            }
+        }
+        let input = Input::parse(&args()).unwrap();
+        for (value, expected_fee, expected_reason) in [
+            (Some("0"), Some(0), None),
+            (Some("5000"), Some(5000), None),
+            (Some("null"), None, Some("手数料見積もり未取得")),
+            (None, None, Some("手数料RPC取得失敗")),
+        ] {
+            let report = prepare_using(&input, &FeeCase(value), &ClockMock).await;
+            assert_eq!(report.estimated_fee, expected_fee);
+            assert_eq!(report.blocking_reason.as_deref(), expected_reason);
+            assert_eq!(report.passed(), expected_reason.is_none());
+            let output = report.render(&input);
+            let fee_text = expected_fee
+                .map(|fee| fee.to_string())
+                .unwrap_or_else(|| "UNKNOWN".into());
+            assert!(output.contains(&format!("Estimated Fee: {fee_text} kelvin")));
+            assert!(output.contains("Signature Status: NOT EXECUTED"));
+            assert!(output.contains("Broadcast Status: NOT EXECUTED"));
+        }
+    }
 }

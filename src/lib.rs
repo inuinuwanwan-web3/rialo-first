@@ -298,3 +298,6 @@ mod tests {
         );
     }
 }
+
+#[cfg(test)]
+mod unsigned_tests;

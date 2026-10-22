@@ -1,5 +1,6 @@
 //! Read-only, single-snapshot monitor. No wallet, signing, sending or polling.
 pub mod cli;
+pub mod query;
 use crate::Result;
 use rialo_cdk::{
     RpcClient,
@@ -36,10 +37,19 @@ pub enum Execution {
     Unconfirmed,
     Unknown,
 }
+/// Describes SDK evidence, without asserting presence or pending status.
+#[derive(Debug, PartialEq, Serialize)]
+pub enum StatusReason {
+    ExecutedWithoutError,
+    RpcReportedError,
+    NoStatusReturned,
+    UnexecutedOrNotFound,
+}
 #[derive(Debug, Serialize)]
 pub struct TransactionObservation {
     pub signature: String,
     pub execution: Execution,
+    pub status_reason: StatusReason,
 }
 #[derive(Debug, Serialize)]
 pub struct Snapshot {
@@ -68,6 +78,23 @@ pub(super) fn validate_request(
     }
     Ok((address, signatures))
 }
+/// Classifies SDK evidence without inferring pending, absence or finality.
+pub fn observe_status(
+    signature: &Signature,
+    status: Option<SignatureStatus>,
+) -> TransactionObservation {
+    let (execution, status_reason) = match status {
+        None => (Execution::Unknown, StatusReason::NoStatusReturned),
+        Some(s) if s.err.is_some() => (Execution::Failed, StatusReason::RpcReportedError),
+        Some(s) if s.executed => (Execution::Succeeded, StatusReason::ExecutedWithoutError),
+        Some(_) => (Execution::Unknown, StatusReason::UnexecutedOrNotFound),
+    };
+    TransactionObservation {
+        signature: signature.to_string(),
+        execution,
+        status_reason,
+    }
+}
 /// Validates all inputs before any reads; deduplicates TX IDs in input order.
 /// SDK IDs are base58 signatures, not arbitrary hex hashes. Status absence is unknown.
 /// Height and status are separate observations, not an atomic chain snapshot.
@@ -92,19 +119,7 @@ pub async fn snapshot(
         let transactions = signatures
             .iter()
             .zip(statuses)
-            .map(|(signature, status)| {
-                let execution = match status {
-                    None => Execution::Unknown,
-                    Some(s) if s.err.is_some() => Execution::Failed,
-                    Some(s) if s.executed => Execution::Succeeded,
-                    // executed=false also covers potentially absent IDs in this SDK.
-                    Some(_) => Execution::Unknown,
-                };
-                TransactionObservation {
-                    signature: signature.to_string(),
-                    execution,
-                }
-            })
+            .map(|(signature, status)| observe_status(signature, status))
             .collect();
         Ok(Snapshot {
             address: address.to_string(),
@@ -292,5 +307,50 @@ mod tests {
     #[tokio::test]
     async fn malformed_status_count() {
         assert!(read(Mock { mode: 4, ..mock() }).await.is_err());
+    }
+    #[tokio::test]
+    async fn unknown_reasons_preserve_ambiguity() {
+        assert_eq!(
+            read(Mock { mode: 3, ..mock() }).await.unwrap().transactions[0].status_reason,
+            StatusReason::NoStatusReturned
+        );
+        assert_eq!(
+            read(Mock {
+                executed: false,
+                ..mock()
+            })
+            .await
+            .unwrap()
+            .transactions[0]
+                .status_reason,
+            StatusReason::UnexecutedOrNotFound
+        );
+        assert_eq!(
+            read(mock()).await.unwrap().transactions[0].status_reason,
+            StatusReason::ExecutedWithoutError
+        );
+        assert_eq!(
+            read(Mock {
+                failed: true,
+                ..mock()
+            })
+            .await
+            .unwrap()
+            .transactions[0]
+                .status_reason,
+            StatusReason::RpcReportedError
+        );
+    }
+    #[test]
+    fn recorded_live_status_remains_unknown() {
+        // SDK-converted status from 2026-10-22; slot is context, not TX inclusion proof.
+        let status: SignatureStatus =
+            serde_json::from_str(r#"{"slot":1197107,"executed":false,"err":null}"#).unwrap();
+        let observation = observe_status(&Signature::from([1; 64]), Some(status));
+        assert_eq!(observation.execution, Execution::Unknown);
+        assert_eq!(
+            observation.status_reason,
+            StatusReason::UnexecutedOrNotFound
+        );
     }
 }

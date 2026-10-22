@@ -15,12 +15,18 @@ const AMOUNT: u64 = rialo_first::TRANSFER_AMOUNT;
 #[derive(Debug, PartialEq)]
 enum Mode {
     RpcCheck,
+    Monitor(rialo_first::monitor::cli::Options),
     TestnetPrepare(rialo_first::pre_sign::preparation::Input),
     TestnetReadOnly(Option<Pubkey>),
     Prepare(Pubkey, Pubkey),
     Help,
 }
 fn parse(args: &[String]) -> Result<Mode> {
+    if args.first().map(String::as_str) == Some("--testnet-monitor") {
+        return Ok(Mode::Monitor(rialo_first::monitor::cli::Options::parse(
+            &args[1..],
+        )?));
+    }
     if args.first().map(String::as_str) == Some("--testnet-prepare-transfer") {
         return Ok(Mode::TestnetPrepare(
             rialo_first::pre_sign::preparation::Input::parse(&args[1..])?,
@@ -166,9 +172,18 @@ async fn main() {
             std::process::exit(1);
         }
     };
+    if let Mode::Monitor(options) = mode {
+        let output = rialo_first::monitor::cli::run(&options).await;
+        println!("{}", output.stdout);
+        if output.code != 0 {
+            eprintln!("{}", output.stderr);
+            std::process::exit(output.code);
+        }
+        return;
+    }
     if mode == Mode::Help {
         println!(
-            "Testnet準備: --testnet-prepare-transfer --from PUBLIC_KEY --to PUBLIC_KEY --amount-kelvin INTEGER --fee-limit-kelvin INTEGER\nTestnet読取: rialo-first --testnet-readonly [--address PUBLIC_KEY]\n準備専用: rialo-first --from PUBLIC_KEY --to PUBLIC_KEY\nRPC確認: rialo-first --rpc-check\n従来DevNet準備は金額固定0.001 RLO。Testnet準備はkelvin整数指定。鍵読取・署名・送信なし。"
+            "Testnet Monitor (JSON): --testnet-monitor --address PUBLIC_KEY [--tx-hash BASE58_SIGNATURE] [--timeout-secs 1..30] [--rpc https://testnet.rialo.io/]\nTestnet準備: --testnet-prepare-transfer --from PUBLIC_KEY --to PUBLIC_KEY --amount-kelvin INTEGER --fee-limit-kelvin INTEGER\nTestnet読取: rialo-first --testnet-readonly [--address PUBLIC_KEY]\n準備専用: rialo-first --from PUBLIC_KEY --to PUBLIC_KEY\nRPC確認: rialo-first --rpc-check\n従来DevNet準備は金額固定0.001 RLO。Testnet準備はkelvin整数指定。鍵読取・署名・送信なし。"
         );
         return;
     }
@@ -364,5 +379,21 @@ mod preparation_cli_tests {
         let mut duplicate = args.to_vec();
         duplicate.extend(["--from".into(), "unused".into()]);
         assert!(parse(&duplicate).is_err());
+    }
+}
+
+#[cfg(test)]
+mod monitor_cli_tests {
+    use super::*;
+    #[test]
+    fn explicit_monitor_and_existing_modes() {
+        let a = Pubkey::from([1; 32]).to_string();
+        assert!(matches!(
+            parse(&["--testnet-monitor".into(), "--address".into(), a]).unwrap(),
+            Mode::Monitor(_)
+        ));
+        assert_eq!(parse(&["--rpc-check".into()]).unwrap(), Mode::RpcCheck);
+        assert_eq!(parse(&["--help".into()]).unwrap(), Mode::Help);
+        assert!(parse(&["--testnet-monitor".into(), "--send".into()]).is_err());
     }
 }

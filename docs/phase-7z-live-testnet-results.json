@@ -1,0 +1,2171 @@
+{
+  "rpc": "https://testnet.rialo.io/",
+  "started_unix": 1792909623,
+  "synthetic": false,
+  "candidate_limit": 5,
+  "request_limit": 12,
+  "height": 2821115,
+  "feed_schema": "PASS",
+  "feed_returned_count": 5,
+  "status": {
+    "sdk_statuses": [
+      {
+        "slot": 2821129,
+        "executed": true,
+        "err": null
+      },
+      {
+        "slot": 2821129,
+        "executed": true,
+        "err": null
+      },
+      {
+        "slot": 2821129,
+        "executed": true,
+        "err": null
+      },
+      {
+        "slot": 2821129,
+        "executed": true,
+        "err": null
+      },
+      {
+        "slot": 2821129,
+        "executed": true,
+        "err": null
+      }
+    ],
+    "monitor_observations": [
+      {
+        "signature": "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7",
+        "execution": "Succeeded",
+        "status_reason": "ExecutedWithoutError"
+      },
+      {
+        "signature": "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ",
+        "execution": "Succeeded",
+        "status_reason": "ExecutedWithoutError"
+      },
+      {
+        "signature": "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P",
+        "execution": "Succeeded",
+        "status_reason": "ExecutedWithoutError"
+      },
+      {
+        "signature": "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9",
+        "execution": "Succeeded",
+        "status_reason": "ExecutedWithoutError"
+      },
+      {
+        "signature": "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP",
+        "execution": "Succeeded",
+        "status_reason": "ExecutedWithoutError"
+      }
+    ],
+    "retrieved_unix": 1792909626
+  },
+  "candidates": [
+    {
+      "signature": "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7",
+      "feed_slot": 2821117,
+      "feed_block_height": 2821117,
+      "feed_err": null,
+      "source": "https://testnet.rialo.io/",
+      "retrieved_unix": 1792909624
+    },
+    {
+      "signature": "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ",
+      "feed_slot": 2821116,
+      "feed_block_height": 2821116,
+      "feed_err": null,
+      "source": "https://testnet.rialo.io/",
+      "retrieved_unix": 1792909624
+    },
+    {
+      "signature": "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P",
+      "feed_slot": 2821115,
+      "feed_block_height": 2821115,
+      "feed_err": null,
+      "source": "https://testnet.rialo.io/",
+      "retrieved_unix": 1792909624
+    },
+    {
+      "signature": "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9",
+      "feed_slot": 2821114,
+      "feed_block_height": 2821114,
+      "feed_err": null,
+      "source": "https://testnet.rialo.io/",
+      "retrieved_unix": 1792909624
+    },
+    {
+      "signature": "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP",
+      "feed_slot": 2821113,
+      "feed_block_height": 2821113,
+      "feed_err": null,
+      "source": "https://testnet.rialo.io/",
+      "retrieved_unix": 1792909624
+    }
+  ],
+  "details": [
+    {
+      "signature": "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7",
+      "monitor_detail": "PASS",
+      "retrieved_unix": 1792909625,
+      "detail": {
+        "version": 0,
+        "context": {
+          "slot": 2821119,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821117,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623996
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "signature": "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ",
+      "monitor_detail": "PASS",
+      "retrieved_unix": 1792909625,
+      "detail": {
+        "version": 0,
+        "context": {
+          "slot": 2821121,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821116,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623845
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "signature": "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P",
+      "monitor_detail": "PASS",
+      "retrieved_unix": 1792909625,
+      "detail": {
+        "version": 0,
+        "context": {
+          "slot": 2821123,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821115,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623696
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "signature": "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9",
+      "monitor_detail": "PASS",
+      "retrieved_unix": 1792909625,
+      "detail": {
+        "version": 0,
+        "context": {
+          "slot": 2821124,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821114,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623544
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "signature": "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP",
+      "monitor_detail": "PASS",
+      "retrieved_unix": 1792909626,
+      "detail": {
+        "version": 0,
+        "context": {
+          "slot": 2821126,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821113,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623396
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    }
+  ],
+  "histories": [
+    {
+      "address": "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+      "page": {
+        "context_slot": 2821131,
+        "entries": [
+          {
+            "signature": "4Pbpp9kdtaB1oNAYKE21nHE81QrKCaeyc4MGgnjEdgbJM5H1yPBHDmQ6aPj5LnFkaskbyvQdPKTgBkXtbwrggddZ",
+            "blockHeight": 2821131,
+            "blockTime": 1792909626090
+          },
+          {
+            "signature": "2ohTDAoyu6WhQvQSKJN6uDgfZDUTkoxAUXDFoXupCBzFn7SQUBnfBXSzP4txZCQBJB5bwDiMjYU2XJtiaWSDu4L7",
+            "blockHeight": 2821130,
+            "blockTime": 1792909625939
+          }
+        ],
+        "next_before": "2ohTDAoyu6WhQvQSKJN6uDgfZDUTkoxAUXDFoXupCBzFn7SQUBnfBXSzP4txZCQBJB5bwDiMjYU2XJtiaWSDu4L7",
+        "duplicates_removed": 0
+      },
+      "retrieved_unix": 1792909626
+    },
+    {
+      "address": "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+      "page": {
+        "context_slot": 2821133,
+        "entries": [
+          {
+            "signature": "5uZ5ThXi85f46EqkpWirJi38Z3FsuVXb7VMTKw9USNuUETfbmFGiWAhKHBMjTLmLkLCZQEYGYrjkUwZqs1f6RfNP",
+            "blockHeight": 2821129,
+            "blockTime": 1792909625791
+          },
+          {
+            "signature": "2ZoPP12fULca3pE7nJVkpMGzCNNZvqtXDGtm239WkAHaR2N7awSr6S9Xa5ZVJYiVuDDguSYoY8Xnsxkt7f2E1e4o",
+            "blockHeight": 2821128,
+            "blockTime": 1792909625641
+          }
+        ],
+        "next_before": "2ZoPP12fULca3pE7nJVkpMGzCNNZvqtXDGtm239WkAHaR2N7awSr6S9Xa5ZVJYiVuDDguSYoY8Xnsxkt7f2E1e4o",
+        "duplicates_removed": 0
+      },
+      "retrieved_unix": 1792909627
+    }
+  ],
+  "request_count": 10,
+  "calls": [
+    {
+      "method": "getBlockHeight",
+      "params": [
+        {
+          "version": 0
+        }
+      ],
+      "started_unix": 1792909623,
+      "finished_unix": 1792909624,
+      "result": 2821115
+    },
+    {
+      "method": "getTransactions",
+      "params": [
+        {
+          "version": 0,
+          "config": {
+            "limit": 5
+          }
+        }
+      ],
+      "started_unix": 1792909624,
+      "finished_unix": 1792909624,
+      "result": {
+        "context": {
+          "slot": 2821117,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "value": [
+          {
+            "signature": "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7",
+            "slot": 2821117,
+            "blockHeight": 2821117,
+            "blockTime": 1792909623000,
+            "version": "legacy"
+          },
+          {
+            "signature": "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ",
+            "slot": 2821116,
+            "blockHeight": 2821116,
+            "blockTime": 1792909623000,
+            "version": "legacy"
+          },
+          {
+            "signature": "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P",
+            "slot": 2821115,
+            "blockHeight": 2821115,
+            "blockTime": 1792909623000,
+            "version": "legacy"
+          },
+          {
+            "signature": "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9",
+            "slot": 2821114,
+            "blockHeight": 2821114,
+            "blockTime": 1792909623000,
+            "version": "legacy"
+          },
+          {
+            "signature": "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP",
+            "slot": 2821113,
+            "blockHeight": 2821113,
+            "blockTime": 1792909623000,
+            "version": "legacy"
+          }
+        ]
+      }
+    },
+    {
+      "method": "getTransaction",
+      "params": [
+        {
+          "version": 0,
+          "signature": "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7"
+        }
+      ],
+      "started_unix": 1792909624,
+      "finished_unix": 1792909625,
+      "result": {
+        "version": 0,
+        "context": {
+          "slot": 2821119,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821117,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623996
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "method": "getTransaction",
+      "params": [
+        {
+          "version": 0,
+          "signature": "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ"
+        }
+      ],
+      "started_unix": 1792909625,
+      "finished_unix": 1792909625,
+      "result": {
+        "version": 0,
+        "context": {
+          "slot": 2821121,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821116,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623845
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "method": "getTransaction",
+      "params": [
+        {
+          "version": 0,
+          "signature": "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P"
+        }
+      ],
+      "started_unix": 1792909625,
+      "finished_unix": 1792909625,
+      "result": {
+        "version": 0,
+        "context": {
+          "slot": 2821123,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821115,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623696
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "method": "getTransaction",
+      "params": [
+        {
+          "version": 0,
+          "signature": "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9"
+        }
+      ],
+      "started_unix": 1792909625,
+      "finished_unix": 1792909625,
+      "result": {
+        "version": 0,
+        "context": {
+          "slot": 2821124,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821114,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623544
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "method": "getTransaction",
+      "params": [
+        {
+          "version": 0,
+          "signature": "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP"
+        }
+      ],
+      "started_unix": 1792909625,
+      "finished_unix": 1792909626,
+      "result": {
+        "version": 0,
+        "context": {
+          "slot": 2821126,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "block_height": 2821113,
+        "block_time": null,
+        "transaction": {
+          "signatures": [
+            "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP"
+          ],
+          "message": {
+            "accountKeys": [
+              "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+              "jpRQy1PsAwwFREy9921U8NKtHkv32MnPxYcAUxe6wK3",
+              "CNN4miVg4Vb9r4p1US5KfcBZjGgwxZbqmtM7gX8UASDA",
+              "TokenomicsGovernance11111111111111111111111"
+            ],
+            "header": {
+              "numRequiredSignatures": 1,
+              "numReadonlySignedAccounts": 0,
+              "numReadonlyUnsignedAccounts": 1
+            },
+            "instructions": [
+              {
+                "accounts": [
+                  0,
+                  1,
+                  2
+                ],
+                "data": "11111",
+                "programIdIndex": 3
+              }
+            ]
+          },
+          "validFrom": 1792909623396
+        },
+        "meta": {
+          "err": null,
+          "fee": 0,
+          "logMessages": [
+            "Program TokenomicsGovernance11111111111111111111111 invoke [1]",
+            "Instruction: FreezeStakes (force=false)",
+            "Program TokenomicsGovernance11111111111111111111111 success"
+          ],
+          "innerInstructions": [],
+          "computeUnitsConsumed": 1000
+        }
+      }
+    },
+    {
+      "method": "getSignatureStatuses",
+      "params": [
+        {
+          "version": 0,
+          "signatures": [
+            "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7",
+            "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ",
+            "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P",
+            "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9",
+            "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP"
+          ]
+        }
+      ],
+      "started_unix": 1792909626,
+      "finished_unix": 1792909626,
+      "sdk_result": {
+        "sdk_statuses": [
+          {
+            "slot": 2821129,
+            "executed": true,
+            "err": null
+          },
+          {
+            "slot": 2821129,
+            "executed": true,
+            "err": null
+          },
+          {
+            "slot": 2821129,
+            "executed": true,
+            "err": null
+          },
+          {
+            "slot": 2821129,
+            "executed": true,
+            "err": null
+          },
+          {
+            "slot": 2821129,
+            "executed": true,
+            "err": null
+          }
+        ],
+        "monitor_observations": [
+          {
+            "signature": "5cv38KgppnNwyeiFb9Hc2JAQb4P6zbhYtU9i21wyvNmxukmG4U57j9pYCJWtiwfafkR4c9qhZN4TCrfxB279cvt7",
+            "execution": "Succeeded",
+            "status_reason": "ExecutedWithoutError"
+          },
+          {
+            "signature": "4cSXa4scn5vRztEmBmDCzVXjvDiQaXFLBN1qiUxcDTxJa5P5xGX48DzqXS2j6DLtEHPZts2PvYXS4ueGmGDEzgoZ",
+            "execution": "Succeeded",
+            "status_reason": "ExecutedWithoutError"
+          },
+          {
+            "signature": "2LhuzDiCpU8W9TxXx8z4UfVWSScp5DrR5Zbaf68tKAecEKvkZpUvsXyieGmP9Fnfj2ZGQ2svHdjkCTaiDTqLXN8P",
+            "execution": "Succeeded",
+            "status_reason": "ExecutedWithoutError"
+          },
+          {
+            "signature": "wmJpjL7SYnpBbKUsyvcXwZwQAA5XJ89ACps9fQ2gVCswC1au6dSTFYNiZfC9PFPFRp7bke2gcGNdEJkPpBSEsV9",
+            "execution": "Succeeded",
+            "status_reason": "ExecutedWithoutError"
+          },
+          {
+            "signature": "VFJJCZhnoNDPXtjtTnMVVbgHm7TPfiHgevWLWTmxhSPNPKxessotr6xQZhskyhFrjGCmMLbN7Gm7vhfCp8A65eP",
+            "execution": "Succeeded",
+            "status_reason": "ExecutedWithoutError"
+          }
+        ],
+        "retrieved_unix": 1792909626
+      }
+    },
+    {
+      "method": "getSignaturesForAddress",
+      "params": [
+        {
+          "version": 0,
+          "address": "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+          "config": {
+            "limit": 2
+          }
+        }
+      ],
+      "started_unix": 1792909626,
+      "finished_unix": 1792909626,
+      "result": {
+        "context": {
+          "slot": 2821131,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "value": [
+          {
+            "signature": "4Pbpp9kdtaB1oNAYKE21nHE81QrKCaeyc4MGgnjEdgbJM5H1yPBHDmQ6aPj5LnFkaskbyvQdPKTgBkXtbwrggddZ",
+            "blockHeight": 2821131,
+            "blockTime": 1792909626090
+          },
+          {
+            "signature": "2ohTDAoyu6WhQvQSKJN6uDgfZDUTkoxAUXDFoXupCBzFn7SQUBnfBXSzP4txZCQBJB5bwDiMjYU2XJtiaWSDu4L7",
+            "blockHeight": 2821130,
+            "blockTime": 1792909625939
+          }
+        ]
+      }
+    },
+    {
+      "method": "getSignaturesForAddress",
+      "params": [
+        {
+          "version": 0,
+          "address": "5grwhWabCAiyc7TXc3URVsRssV1sNskfQvJL3yBxGMNF",
+          "config": {
+            "limit": 2,
+            "before": "2ohTDAoyu6WhQvQSKJN6uDgfZDUTkoxAUXDFoXupCBzFn7SQUBnfBXSzP4txZCQBJB5bwDiMjYU2XJtiaWSDu4L7"
+          }
+        }
+      ],
+      "started_unix": 1792909626,
+      "finished_unix": 1792909627,
+      "result": {
+        "context": {
+          "slot": 2821133,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "value": [
+          {
+            "signature": "5uZ5ThXi85f46EqkpWirJi38Z3FsuVXb7VMTKw9USNuUETfbmFGiWAhKHBMjTLmLkLCZQEYGYrjkUwZqs1f6RfNP",
+            "blockHeight": 2821129,
+            "blockTime": 1792909625791
+          },
+          {
+            "signature": "2ZoPP12fULca3pE7nJVkpMGzCNNZvqtXDGtm239WkAHaR2N7awSr6S9Xa5ZVJYiVuDDguSYoY8Xnsxkt7f2E1e4o",
+            "blockHeight": 2821128,
+            "blockTime": 1792909625641
+          }
+        ]
+      }
+    }
+  ],
+  "finished_unix": 1792909627,
+  "offline_regression": {
+    "started_utc": "2026-10-25T06:24:37.162277+00:00",
+    "finished_utc": "2026-10-25T06:25:36.740826+00:00",
+    "status": "passed",
+    "total": 189,
+    "executed": 71,
+    "passed": 71,
+    "failed": 0,
+    "unexecuted_count": 118,
+    "network_verified": true,
+    "tests": [
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::error_exit_code_redacted_json",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::error_exit_code_redacted_json ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::height_and_config_json",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::height_and_config_json ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::invalid_address",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::invalid_address ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::invalid_tx",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::invalid_tx ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::normal_balance",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::normal_balance ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::rpc_and_options_validation",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::rpc_and_options_validation ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::timeout_exit_code",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::timeout_exit_code ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.01s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::tx_absent_unknown",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::tx_absent_unknown ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::tx_confirmed",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::tx_confirmed ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::tx_failed",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::tx_failed ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::tx_unexecuted_unknown",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::tx_unexecuted_unknown ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::cli::tests::zero_balance",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::cli::tests::zero_balance ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::conflicting_duplicate_rejected",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::conflicting_duplicate_rejected ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::detail_failure",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::detail_failure ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::detail_id_mismatch",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::detail_id_mismatch ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::detail_success_and_block_evidence",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::detail_success_and_block_evidence ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::duplicate_transaction",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::duplicate_transaction ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::empty_history",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::empty_history ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::explicit_pagination_requests",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::explicit_pagination_requests ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::finality_remains_unspecified",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::finality_remains_unspecified ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::history_shape_and_count_rejected",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::history_shape_and_count_rejected ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::invalid_inputs_no_query",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::invalid_inputs_no_query ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::multiple_transactions",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::multiple_transactions ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::nonadvancing_cursor_rejected",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::nonadvancing_cursor_rejected ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::null_is_not_absence_proof",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::null_is_not_absence_proof ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::recorded_live_empty_history_shape",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::recorded_live_empty_history_shape ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::query::tests::rpc_errors_and_timeouts",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::query::tests::rpc_errors_and_timeouts ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.02s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::ambiguous_unexecuted_is_unknown",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::ambiguous_unexecuted_is_unknown ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::balance_normal",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::balance_normal ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::balance_zero",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::balance_zero ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::duplicate_tx",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::duplicate_tx ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::invalid_hash_before_rpc",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::invalid_hash_before_rpc ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::malformed_status_count",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::malformed_status_count ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::no_requested_tx_is_not_empty_history",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::no_requested_tx_is_not_empty_history ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::recorded_live_status_remains_unknown",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::recorded_live_status_remains_unknown ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::rpc_error",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::rpc_error ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::rpc_timeout",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::rpc_timeout ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.01s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::tx_failed",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::tx_failed ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::tx_success",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::tx_success ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::tx_unknown",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::tx_unknown ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "monitor::tests::unknown_reasons_preserve_ambiguity",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor::tests::unknown_reasons_preserve_ambiguity ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::concurrent_handles_refused",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pre_sign::lifecycle::persistent::tests::concurrent_handles_refused ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.49s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::absent_directory_not_auto_initialized",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pre_sign::lifecycle::persistent::tests::corruption::absent_directory_not_auto_initialized ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::cross_process_lock_refuses_second_user",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pre_sign::lifecycle::persistent::tests::cross_process_lock_refuses_second_user ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.01s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::connection_failure",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pre_sign::lifecycle::persistent::tests::integration::connection_failure ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.01s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::missing_and_corrupt_files_refused",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pre_sign::lifecycle::persistent::tests::missing_and_corrupt_files_refused ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.01s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::permissions_restricted_and_insecure_file_refused",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pre_sign::lifecycle::persistent::tests::permissions_restricted_and_insecure_file_refused ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.02s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::invalid_inputs",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pre_sign::preparation::tests::invalid_inputs ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::invalid_fee_data_is_rejected_by_cdk_response_type",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pre_sign::tests::invalid_fee_data_is_rejected_by_cdk_response_type ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "lib",
+        "name": "unsigned_tests::invalid_or_missing_address_and_network_rejected",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest unsigned_tests::invalid_or_missing_address_and_network_rejected ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 165 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "monitor_cli_tests::explicit_monitor_and_existing_modes",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest monitor_cli_tests::explicit_monitor_and_existing_modes ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "testnet_tests::explicit_testnet_readonly_mode",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest testnet_tests::explicit_testnet_readonly_mode ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "testnet_tests::testnet_rejects_mutation_flags_and_invalid_address",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest testnet_tests::testnet_rejects_mutation_flags_and_invalid_address ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "tests::amount_override_is_rejected",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest tests::amount_override_is_rejected ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "tests::balance_boundaries",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest tests::balance_boundaries ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "tests::inputs_fail_closed",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest tests::inputs_fail_closed ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "tests::network_override_cannot_enable_sending",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest tests::network_override_cannot_enable_sending ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "tests::ordinary_invocation_is_prepare_only",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest tests::ordinary_invocation_is_prepare_only ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "bin",
+        "name": "tests::send_flags_fail_before_rpc_or_key_access",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest tests::send_flags_fail_before_rpc_or_key_access ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "budget_retains_cursor_and_short_page_terminates",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest budget_retains_cursor_and_short_page_terminates ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "cli_json_and_errors_reuse_existing_monitor",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest cli_json_and_errors_reuse_existing_monitor ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "conflicts_and_cursor_cycles_are_errors",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest conflicts_and_cursor_cycles_are_errors ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "details_preserve_error_and_height",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest details_preserve_error_and_height ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "invalid_inputs_do_not_call_rpc",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest invalid_inputs_do_not_call_rpc ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "missing_and_incomplete_details_do_not_imply_success",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest missing_and_incomplete_details_do_not_imply_success ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "nonempty_history_preserves_provider_order_and_fields",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest nonempty_history_preserves_provider_order_and_fields ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "pagination_deduplicates_boundary_and_finishes",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest pagination_deduplicates_boundary_and_finishes ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "rpc_errors_timeouts_and_empty_history",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest rpc_errors_timeouts_and_empty_history ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.31s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "synthetic_sdk_shapes_and_status_reasons",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest synthetic_sdk_shapes_and_status_reasons ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "test",
+        "name": "typed_history_transaction_error_is_preserved",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest typed_history_transaction_error_is_preserved ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n"
+      },
+      {
+        "target": "example",
+        "name": "tests::candidate_selection_is_bounded_and_explicit",
+        "status": "passed",
+        "exit_code": 0,
+        "output": "\nrunning 1 test\ntest tests::candidate_selection_is_bounded_and_explicit ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n"
+      }
+    ],
+    "unexecuted": [
+      {
+        "target": "bin",
+        "name": "preparation_cli_tests::preparation_mode_requires_all_explicit_fields",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "bin",
+        "name": "tests::canonical_unsigned_transfer",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::abandoned_awaiting_request_cannot_resume",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::checksum_corruption_refused",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::conflicting_temp_file_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::directory_permissions_rejected",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::duplicate_registration_with_valid_checksum",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::file_permissions_rejected",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::invalid_transition_with_valid_checksum",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::malformed_json_redacted",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::matching_temp_file_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::missing_fields_rejected",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::missing_file_not_initialized",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::normal_state_preserved_and_id_blocked",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::truncated_json_preserved",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::unknown_field_never_disclosed",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::unknown_protocol_rejected",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::corruption::unknown_schema_rejected",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::child_process",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::kill_after_response_sync",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::kill_after_signed_sync",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::kill_before_response_sync",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::kill_before_response_write",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::kill_during_validation",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::kill_partial_response_json",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::kill_partial_signed_json",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::missing_file_rejected_without_recreation",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::permissions_rejected_without_modification",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::crash::save_failure_then_fresh_process_rejects_reuse",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::duplicate_and_different_message_id_refused",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::expired_survives_restart",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::final_save_failure_withholds_wire_and_restart_blocks_retry",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::construction_failure",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::dummy_signer_failure",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::execution_failure",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::fee_exceeds_limit",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::insufficient_balance_including_fee",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::missing_fee",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::mock_send_failure_no_retry",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::offline_pipeline_success",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::save_failure_blocks_send",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::timeout_no_retry",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::integration::unknown_result_no_retry",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::normal_save_reload_and_signed_replay",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::registration_io_failure_stops_and_poisons",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::rejected_survives_restart",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::request_not_exposed_on_save_failure",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::persistent::tests::response_not_processed_on_claim_save_failure",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::cancelled_validation_is_terminal",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::clock_failure_rejects_response",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::expired_checks_block_request_creation",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::expiry_during_assembly_never_returns_wire",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::fee_excess_blocks_request_creation",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::ids_are_distinct_within_process",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::network_mismatch_blocks_request_creation",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_amount_tampering",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_double_response_and_signed_request_reuse",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_expired_response_and_reuse",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_fee_display_tampering",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_hash_mismatch",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_invalid_signature",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_message_tampering",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_missing_signature",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_network_tampering",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_protocol_version_mismatch",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_public_key_mismatch",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_recipient_tampering",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_rejected_session_revalidation",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rejects_request_id_mismatch",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::rpc_failure_blocks_request_creation",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::valid_request_fields_come_from_message_and_checks",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::lifecycle::tests::valid_response_builds_local_wire_and_signature_verifies",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::config_mismatch_blocks",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::fee_limit_exceeded",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::insufficient_balance_for_estimate",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::insufficient_balance_for_limit",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::missing_fee_blocks",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::rpc_failure_blocks",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::success_and_never_signed_or_broadcast",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::preparation::tests::zero_missing_and_rpc_error_remain_distinct_in_report",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::backward_and_divergent_clocks_stop",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::clock_read_failure_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::config_change_during_queries_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::fee_over_limit_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::initial_check_expiring_during_rpc_is_rejected",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::insufficient_balance_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::invalid_clock_and_ttl_stop_before_rpc",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::matching_prefix_and_exact_message_succeed",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::missing_fee_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::modified_message_stops_before_rpc",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::overflowing_total_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::prefix_mismatch_stops",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::result_expires_exactly_at_deadline",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::result_valid_before_deadline",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_cannot_renew_old_result_that_expires_during_rpc",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_refreshes_increased_fee_within_original_limit",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_amount_change",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_corrupt_or_missing_report_data",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_fee_limit_excess",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_insufficient_balance",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_message_change",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_network_change",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_public_key_change",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_recipient_change",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_rejects_rpc_errors_and_missing_fee",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::revalidation_success_with_unchanged_state",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "pre_sign::tests::rpc_errors_stop",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "tests::rejects_invalid_addresses_and_same_recipient",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "tests::rejects_invalid_and_malformed_signatures",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "tests::rejects_missing_and_duplicate_signatures",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "tests::rejects_non_testnet_endpoints",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "tests::rejects_signatures_for_different_message_or_encoding",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "tests::rejects_wrong_public_key_and_wrong_signing_key",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "tests::valid_signature_round_trips_exact_message",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "unsigned_tests::deterministic_and_sensitive_to_all_transaction_inputs",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "unsigned_tests::fee_payload_is_message_not_unsigned_envelope",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "unsigned_tests::malformed_unsigned_envelopes_rejected",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      },
+      {
+        "target": "lib",
+        "name": "unsigned_tests::unsigned_fields_and_canonical_wire",
+        "classification": "D",
+        "reason": "excluded_by_audit"
+      }
+    ]
+  },
+  "recording_assessment": {
+    "overall": "PARTIAL PASS",
+    "sdk_compatibility": "partially_verified_monitor_paths_only",
+    "pagination": "two_pages_verified_terminal_not_verified",
+    "old_transaction_lookup_failure_cause": "unconfirmed"
+  }
+}

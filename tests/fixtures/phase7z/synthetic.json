@@ -1,0 +1,191 @@
+{
+  "synthetic": true,
+  "description": "Synthetic response data only. IDs are repeated bytes encoded as base58; no real transaction or cryptographic signature is asserted.",
+  "address": "4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi",
+  "signatures": [
+    "2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2",
+    "3L3RY5sT8K4kyEnqhizwaqxLEbcYvpGrGPNEYRwtbCSUtL6YL86jdrvCbohnP5q8VxQ3qzGmt3W3iQJW97rD7m3",
+    "4VZdodJgBy6dxMgm45zusmRzrPvKtiumu5YrK9RLPJADpzeJzgebxHsoQD4B58FCFS6aGUufKZka56xFiBGpB94"
+  ],
+  "success": {
+    "slot": 120,
+    "executed": true,
+    "err": null
+  },
+  "failure": {
+    "slot": 121,
+    "executed": true,
+    "err": "AccountNotFound"
+  },
+  "unexecuted": {
+    "slot": 122,
+    "executed": false,
+    "err": null
+  },
+  "not_found": null,
+  "detail_success": {
+    "context": {
+      "slot": 150
+    },
+    "block_height": 120,
+    "block_time": null,
+    "transaction": {
+      "signatures": [
+        "2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2"
+      ],
+      "validFrom": 123,
+      "message": {
+        "accountKeys": [
+          "4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi"
+        ],
+        "header": {
+          "numRequiredSignatures": 1,
+          "numReadonlySignedAccounts": 0,
+          "numReadonlyUnsignedAccounts": 0
+        },
+        "instructions": []
+      }
+    },
+    "meta": {
+      "err": null,
+      "fee": 5,
+      "logMessages": null
+    }
+  },
+  "detail_failure": {
+    "context": {
+      "slot": 150
+    },
+    "block_height": 120,
+    "block_time": null,
+    "transaction": {
+      "signatures": [
+        "2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2"
+      ],
+      "validFrom": 123,
+      "message": {
+        "accountKeys": [
+          "4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi"
+        ],
+        "header": {
+          "numRequiredSignatures": 1,
+          "numReadonlySignedAccounts": 0,
+          "numReadonlyUnsignedAccounts": 0
+        },
+        "instructions": []
+      }
+    },
+    "meta": {
+      "err": "AccountNotFound",
+      "fee": 5,
+      "logMessages": null
+    }
+  },
+  "history": {
+    "context": {
+      "slot": 150
+    },
+    "value": [
+      {
+        "signature": "2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2",
+        "blockHeight": 120,
+        "err": null,
+        "blockTime": null
+      },
+      {
+        "signature": "3L3RY5sT8K4kyEnqhizwaqxLEbcYvpGrGPNEYRwtbCSUtL6YL86jdrvCbohnP5q8VxQ3qzGmt3W3iQJW97rD7m3",
+        "blockHeight": 90,
+        "err": null,
+        "blockTime": null
+      },
+      {
+        "signature": "4VZdodJgBy6dxMgm45zusmRzrPvKtiumu5YrK9RLPJADpzeJzgebxHsoQD4B58FCFS6aGUufKZka56xFiBGpB94",
+        "blockHeight": 130,
+        "err": null,
+        "blockTime": null
+      }
+    ]
+  },
+  "page1": {
+    "context": {
+      "slot": 150
+    },
+    "value": [
+      {
+        "signature": "2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2",
+        "blockHeight": 120,
+        "err": null,
+        "blockTime": null
+      },
+      {
+        "signature": "3L3RY5sT8K4kyEnqhizwaqxLEbcYvpGrGPNEYRwtbCSUtL6YL86jdrvCbohnP5q8VxQ3qzGmt3W3iQJW97rD7m3",
+        "blockHeight": 90,
+        "err": null,
+        "blockTime": null
+      }
+    ]
+  },
+  "page2": {
+    "context": {
+      "slot": 150
+    },
+    "value": [
+      {
+        "signature": "3L3RY5sT8K4kyEnqhizwaqxLEbcYvpGrGPNEYRwtbCSUtL6YL86jdrvCbohnP5q8VxQ3qzGmt3W3iQJW97rD7m3",
+        "blockHeight": 90,
+        "err": null,
+        "blockTime": null
+      },
+      {
+        "signature": "4VZdodJgBy6dxMgm45zusmRzrPvKtiumu5YrK9RLPJADpzeJzgebxHsoQD4B58FCFS6aGUufKZka56xFiBGpB94",
+        "blockHeight": 130,
+        "err": null,
+        "blockTime": null
+      }
+    ]
+  },
+  "terminal": {
+    "context": {
+      "slot": 150
+    },
+    "value": []
+  },
+  "short_page": {
+    "context": {
+      "slot": 150
+    },
+    "value": [
+      {
+        "signature": "4VZdodJgBy6dxMgm45zusmRzrPvKtiumu5YrK9RLPJADpzeJzgebxHsoQD4B58FCFS6aGUufKZka56xFiBGpB94",
+        "blockHeight": 130,
+        "err": null,
+        "blockTime": null
+      }
+    ]
+  },
+  "history_failure": {
+    "context": {
+      "slot": 150
+    },
+    "value": [
+      {
+        "signature": "3L3RY5sT8K4kyEnqhizwaqxLEbcYvpGrGPNEYRwtbCSUtL6YL86jdrvCbohnP5q8VxQ3qzGmt3W3iQJW97rD7m3",
+        "blockHeight": 90,
+        "err": "AccountNotFound",
+        "blockTime": null
+      }
+    ]
+  },
+  "incomplete_detail": {
+    "context": {
+      "slot": 150
+    }
+  },
+  "incomplete_status": {
+    "slot": 120
+  },
+  "invalid_signature": "invalid",
+  "invalid_cursor": "invalid",
+  "rpc_error": "synthetic RPC error",
+  "timeout": "pending future"
+}

@@ -47,6 +47,67 @@ pub struct HistoryPage {
     pub next_before: Option<String>,
     pub duplicates_removed: usize,
 }
+/// Bounded aggregation in provider order; no chain ordering or completeness claim.
+#[derive(Debug, Serialize)]
+pub struct HistoryBatch {
+    pub entries: Vec<SignatureInfo>,
+    pub next_before: Option<String>,
+    pub pages_read: usize,
+    pub duplicates_removed: usize,
+}
+pub async fn history_pages(
+    rpc: &impl QueryRpc,
+    address: &str,
+    mut config: GetSignaturesForAddressConfig,
+    max_pages: usize,
+    timeout: Duration,
+) -> Result<HistoryBatch> {
+    if !(1..=100).contains(&max_pages) {
+        return Err("history page budget must be 1..100".into());
+    }
+    tokio::time::timeout(timeout, async {
+        let mut batch = HistoryBatch {
+            entries: vec![],
+            next_before: config.before.clone(),
+            pages_read: 0,
+            duplicates_removed: 0,
+        };
+        let mut cursors = std::collections::HashSet::new();
+        if let Some(cursor) = &config.before {
+            cursors.insert(cursor.clone());
+        }
+        for _ in 0..max_pages {
+            let page = history_page(rpc, address, config.clone(), timeout).await?;
+            batch.pages_read += 1;
+            batch.duplicates_removed += page.duplicates_removed;
+            for entry in page.entries {
+                if let Some(old) = batch
+                    .entries
+                    .iter()
+                    .find(|e| e.signature == entry.signature)
+                {
+                    if serde_json::to_value(old)? != serde_json::to_value(&entry)? {
+                        return Err("conflicting duplicate history entry".into());
+                    }
+                    batch.duplicates_removed += 1;
+                } else {
+                    batch.entries.push(entry);
+                }
+            }
+            batch.next_before = page.next_before;
+            match &batch.next_before {
+                None => break,
+                Some(cursor) if !cursors.insert(cursor.clone()) => {
+                    return Err("history cursor cycle".into());
+                }
+                Some(_) => config.before = batch.next_before.clone(),
+            }
+        }
+        Ok(batch)
+    })
+    .await
+    .map_err(|_| "history RPC timeout")?
+}
 /// Fetches exactly one page. Never silently follows cursors or claims complete history.
 pub async fn history_page(
     rpc: &impl QueryRpc,

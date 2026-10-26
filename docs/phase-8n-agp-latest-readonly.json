@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-26T13:13:10.235732+00:00",
+  "scope": "latest audit tail, separate from historical test window",
+  "operations": "read-only service show and immutable last1000 audit rows",
+  "sudo": false,
+  "rpc": false,
+  "agp": {
+    "active": true,
+    "pid": 188,
+    "start": 422
+  },
+  "latest_audit": {
+    "track_request_samples": 235,
+    "track_request_min_seconds": 0.008123219013214111,
+    "track_request_max_seconds": 0.03680144000099972,
+    "track_request_mean_seconds": 0.019812836213299927,
+    "latest_successful_poll_utc": "2026-10-26T13:13:08.201801+00:00",
+    "scope": "track_state transport duration; not server generation lag or causal impact",
+    "status": "MEASURED",
+    "rows_examined": 1000,
+    "source_bytes": 870899712,
+    "consistency": "stable file metadata/no sidecars; immutable read, not a transactional snapshot"
+  }
+}

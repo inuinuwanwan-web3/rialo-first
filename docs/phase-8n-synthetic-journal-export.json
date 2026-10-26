@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-26T13:25:55.333330+00:00",
+  "synthetic_only": true,
+  "source_files_unchanged": true,
+  "purpose": "bounded evidence export before any future unmount; no restore or Journal write performed",
+  "files": {
+    "journal/observations.json": {
+      "sha256": "3ea2a3f708e98d178e6f89c318d71117c9ed6abc561b74667f715eb9a96cfee1",
+      "raw_utf8": "{\n  \"snapshot\": {\n    \"version\": 1,\n    \"identity\": {\n      \"network\": \"testnet\",\n      \"address\": \"4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi\"\n    },\n    \"limits\": {\n      \"max_records\": 10000,\n      \"max_file_bytes\": 8388608,\n      \"max_rounds\": 1000,\n      \"max_transitions\": 128\n    },\n    \"rounds\": 3,\n    \"last_observed_at_ms\": 3000,\n    \"records\": [\n      {\n        \"signature\": \"2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2\",\n        \"block_height\": 120,\n        \"first_seen_ms\": 1000,\n        \"last_seen_ms\": 3000,\n        \"observations\": 3,\n        \"status_history\": [\n          {\n            \"observed_at_ms\": 1000,\n            \"state\": {\n              \"executed\": false,\n              \"error\": null,\n              \"execution\": \"Unknown\",\n              \"status_reason\": \"UnexecutedOrNotFound\"\n            }\n          }\n        ]\n      }\n    ]\n  },\n  \"sha256\": \"5192696a9fea2b6726f944375e82bb65fc6378f31d33bfb783d26fff0a59b5ab\"\n}"
+    },
+    "inputs/batch-init.json": {
+      "sha256": "3f48d2da4da10453f29d6ca52f8337c60eb6c341a3195e45cc820ba6fdfc587b",
+      "raw_utf8": "{\n  \"identity\": {\n    \"network\": \"testnet\",\n    \"address\": \"4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi\"\n  },\n  \"observed_at_ms\": 1000,\n  \"transactions\": [\n    {\n      \"signature\": \"2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2\",\n      \"block_height\": 120,\n      \"status\": {\n        \"slot\": 999,\n        \"executed\": false,\n        \"err\": null\n      }\n    }\n  ]\n}\n"
+    },
+    "inputs/batch-update.json": {
+      "sha256": "22545a0c259b93ddc2e17dde59477d0d08db3bc3426426bdb933207c38c0f46e",
+      "raw_utf8": "{\n  \"identity\": {\n    \"network\": \"testnet\",\n    \"address\": \"4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi\"\n  },\n  \"observed_at_ms\": 2000,\n  \"transactions\": [\n    {\n      \"signature\": \"2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2\",\n      \"block_height\": 120,\n      \"status\": {\n        \"slot\": 999,\n        \"executed\": false,\n        \"err\": null\n      }\n    }\n  ]\n}\n"
+    },
+    "inputs/batch-recover.json": {
+      "sha256": "550a5a79df24163429818976c671b0fcca3b259b26cd9a0661e367e8a7ef63ce",
+      "raw_utf8": "{\n  \"identity\": {\n    \"network\": \"testnet\",\n    \"address\": \"4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi\"\n  },\n  \"observed_at_ms\": 3000,\n  \"transactions\": [\n    {\n      \"signature\": \"2AXDGYSE4f2sz7tvMMzyHvUfcoJmxudvdhBcmiUSo6ijwfYmfZYsKRxboQMPh3R4kUhXRVdtSXFXMheka4Rc4P2\",\n      \"block_height\": 120,\n      \"status\": {\n        \"slot\": 999,\n        \"executed\": false,\n        \"err\": null\n      }\n    }\n  ]\n}\n"
+    }
+  }
+}

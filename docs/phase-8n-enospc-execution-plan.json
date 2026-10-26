@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "phase": "8N",
+  "state": "DESIGN ONLY; execution not authorized or implemented",
+  "created_utc": "2026-10-26T13:23:56.594738+00:00",
+  "volume": {
+    "path": "/home/pc/rialo-first/.phase8n-xkyabase/volume",
+    "source": "/dev/loop0",
+    "fstype": "ext4",
+    "uuid": "49035b22-d7cf-46a4-b089-c63e06922dee",
+    "raw_image_bytes": 33554432,
+    "image": "/tmp/phase8j-volume-e6bkbrf2/journal.ext4"
+  },
+  "new_scope": "/home/pc/rialo-first/.phase8n-xkyabase/volume/phase8n-enospc-check-01",
+  "new_scope_created": false,
+  "protected_existing_data": [
+    "/tmp/phase8c-live-f9z7xgg4/journal",
+    "/home/pc/rialo-first/.phase8n-xkyabase/volume/phase8n-dummy-check-01",
+    "lost+found: metadata-only review; no access or changes"
+  ],
+  "limits": {
+    "new_files_max": 24,
+    "minimum_free_inodes": 64,
+    "minimum_volume_available_bytes": 16777216,
+    "host_backing_min_free_bytes": 2147483648,
+    "reserve_allocated_bytes": 262144,
+    "fill_payload_attempt_max_bytes": 33554432,
+    "buffer_bytes": 65536,
+    "payload_pacing_bytes_per_second": 1048576,
+    "pacing_is_not_os_io_quota": true,
+    "fsize_hard_bytes": 67108864,
+    "fsize_is_not_the_tested_capacity_boundary": true,
+    "writer_wall_seconds": 60,
+    "cleanup_grace_seconds": 10,
+    "retries": 0,
+    "diagnostic_external_new_json_max_bytes": 65536
+  },
+  "provisional_abort_conditions": [
+    "mount/image/UUID/ownership mismatch",
+    "pre-existing protected hashes change",
+    "AGP not active or PID/start change",
+    "new AGP failed poll/read exception/anomaly",
+    "poll cadence exceeds existing interval+10 second allowance",
+    "track duration exceeds max(1 second,5 times fresh baseline maximum)",
+    "AGP telemetry remains unavailable",
+    "host space below start minimum",
+    "unexpected EIO/EROFS/EFBIG or unregistered child",
+    "writer deadline or write budget exceeded"
+  ],
+  "agp_observation": {
+    "service_sample_seconds": 5,
+    "configured_interval_from_audit_seconds": 30,
+    "baseline": "immediate prior five minutes of existing audit, no RPC",
+    "overlap": "prefer natural poll_start observed before writing; never trigger AGP read or alter its schedule",
+    "no_overlap_result": "UNKNOWN, not PASS",
+    "post_successful_polls_required": 2,
+    "causality": "observed anomaly stops Rialo only; it is not automatically attributed to Rialo"
+  },
+  "steps": [
+    "Present new harness source, exact commands, resource scope and seek new approval before any write",
+    "Revalidate mounted state (not old unmounted-image preflight), current AGP, host space/inodes, exclusive ownership; capture protected hashes",
+    "Acquire common lease through independent Guardian and Worker; create only new scope and synthetic Journal/log/results; prepare inputs before filling",
+    "Allocate/fsync/close new 256KiB diagnostic reserve; record in-memory dev/inode/uid/type; verify actual allocated blocks",
+    "Prove normal Journal create/read/atomic rename and capture committed bytes/hash",
+    "Paced full-buffer sequential writes to new filler only; stop on actual errno28; no sparse seeks/truncate/fallocate filling; <=32MiB attempted",
+    "When full, one bounded control write and one Journal update; require actual ENOSPC control evidence, Journal rejection and old committed bytes/hash intact",
+    "Guardian verifies and releases only own reserve; persist diagnostic evidence; no deletion of prior data",
+    "Close/truncate or unlink only ledger-owned new filler as explicitly approved; fsync; restore usable space; reopen new Journal through existing Rust checks and update once",
+    "Compare all protected hashes, reap known children, verify AGP completion/cadence, report unexecuted/unknown honestly; export new result with O_EXCL",
+    "Only after separate individual approval, normal unmount of exact verified target and read-only no-mount/no-associated-loop checks"
+  ],
+  "unmount": {
+    "executed": false,
+    "separate_approval_required": true,
+    "command_NOT_EXECUTED": [
+      "sudo",
+      "--non-interactive",
+      "/usr/bin/umount",
+      "--",
+      "/home/pc/rialo-first/.phase8n-xkyabase/volume"
+    ],
+    "preconditions": [
+      "new evidence export/hash verification",
+      "no owned workers",
+      "no open FD/cwd holders in obtainable view",
+      "mountpoint/backing image/UUID exact match"
+    ],
+    "forbidden_fallbacks": [
+      "force/lazy unmount",
+      "fsck",
+      "detach all loops",
+      "kill unrelated processes",
+      "delete backing image"
+    ]
+  },
+  "pass_conditions": [
+    "actual block-capacity ENOSPC observed with inodes still available",
+    "atomic rename succeeded on this FS before failure",
+    "old committed new-dummy Journal unchanged on failed update",
+    "reopen after freeing only own space validates and updates",
+    "prior protected Journals/evidence unchanged",
+    "own children zero",
+    "no observed AGP failures/cadence anomalies with natural overlap evidence",
+    "normal separately approved unmount and loop release verified"
+  ],
+  "unknown_conditions": [
+    "no overlap samples",
+    "audit coverage/consistency insufficient",
+    "ENOSPC not reached before limit",
+    "cannot verify holders/teardown",
+    "native resource group not qualified"
+  ],
+  "additional_approval_scope": [
+    "temporarily exhaust this dedicated ext4; existing evidence shares its free pool",
+    "create/delete/truncate ONLY new trial reserve/filler using in-memory ownership ledger",
+    "new bounded diagnostic output outside full filesystem if needed; exact name/command must be reviewed",
+    "normal unmount requires a separate approval, no sudo in write trial"
+  ],
+  "five_minute_gate": [
+    "full capacity+recovery proof",
+    "teardown proof",
+    "fresh exclusive/Guardian/no-residue integration",
+    "actual CPU/memory aggregate resource backend qualified; 8I remains suspended",
+    "AGP overlap/cadence/latency evidence sufficient",
+    "explicit future five-minute approval"
+  ],
+  "not_done_now": [
+    "new test directory creation",
+    "full fill or ENOSPC",
+    "reserve or filler writes/deletes",
+    "sudo/mount/umount/fsck",
+    "GitHub Push"
+  ],
+  "current_phase_status": "PARTIAL PASS / incomplete, not an operational acceptance",
+  "estimate_hours": {
+    "wrapper_and_synthetic_abort_tests": [
+      1,
+      2
+    ],
+    "approved_short_trial_observation_export": [
+      0.5,
+      1
+    ],
+    "unexpected_environment_remediation": "not included"
+  }
+}

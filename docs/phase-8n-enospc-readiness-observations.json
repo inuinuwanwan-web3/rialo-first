@@ -1,0 +1,137 @@
+{
+  "utc": "2026-10-26T13:00:21.494498+00:00",
+  "trial_start": "2026-10-26T12:30:56.562800+00:00",
+  "trial_end_estimated_from_elapsed": "2026-10-26T12:30:57.193965+00:00",
+  "limited_tests": {
+    "passed": 6,
+    "failed": 0,
+    "enospc_tested": false
+  },
+  "existing_journal_unchanged": true,
+  "previous_worker_pids_present": {
+    "150749": false,
+    "150755": false,
+    "150759": false,
+    "150763": false,
+    "150767": false
+  },
+  "sudo_or_mount_operations": 0,
+  "enospc_executed": false,
+  "five_minute_allowed": false,
+  "agp_current": {
+    "active": true,
+    "pid": 188,
+    "start": 422,
+    "memory_bytes": 181362688
+  },
+  "service_metadata": {
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestamp": "Sat 2026-10-24 03:30:40 JST",
+    "ActiveEnterTimestamp": "Sat 2026-10-24 03:30:40 JST"
+  },
+  "audit_window": {
+    "coverage_of_requested_window": true,
+    "utc_ordered": true,
+    "first_record_utc": "2026-10-26T12:25:20.469533+00:00",
+    "last_record_utc": "2026-10-26T12:36:34.089292+00:00",
+    "bounded_rows": 848,
+    "buckets": {
+      "before": {
+        "from": "2026-10-26T12:25:56.562800+00:00",
+        "until": "2026-10-26T12:30:56.562800+00:00",
+        "records": 376,
+        "transport": {
+          "track_request_samples": 88,
+          "track_request_min_seconds": 0.010198422009125352,
+          "track_request_max_seconds": 0.038444504025392234,
+          "track_request_mean_seconds": 0.02128037444378027,
+          "latest_successful_poll_utc": "2026-10-26T12:30:42.914609+00:00",
+          "scope": "track_state transport duration; not server generation lag or causal impact",
+          "status": "MEASURED"
+        },
+        "failed_polls": 0,
+        "read_exceptions": 0,
+        "anomalies": 0,
+        "session_ends": 0
+      },
+      "during": {
+        "from": "2026-10-26T12:30:56.562800+00:00",
+        "until": "2026-10-26T12:30:57.193965+00:00",
+        "records": 0,
+        "transport": {
+          "track_request_samples": 0,
+          "track_request_min_seconds": null,
+          "track_request_max_seconds": null,
+          "track_request_mean_seconds": null,
+          "latest_successful_poll_utc": null,
+          "scope": "track_state transport duration; not server generation lag or causal impact",
+          "status": "UNKNOWN"
+        },
+        "failed_polls": 0,
+        "read_exceptions": 0,
+        "anomalies": 0,
+        "session_ends": 0
+      },
+      "after": {
+        "from": "2026-10-26T12:30:57.193965+00:00",
+        "until": "2026-10-26T12:35:57.193965+00:00",
+        "records": 376,
+        "transport": {
+          "track_request_samples": 88,
+          "track_request_min_seconds": 0.006030339020071551,
+          "track_request_max_seconds": 0.03149120000307448,
+          "track_request_mean_seconds": 0.019001065305928933,
+          "latest_successful_poll_utc": "2026-10-26T12:35:28.343722+00:00",
+          "scope": "track_state transport duration; not server generation lag or causal impact",
+          "status": "MEASURED"
+        },
+        "failed_polls": 0,
+        "read_exceptions": 0,
+        "anomalies": 0,
+        "session_ends": 0
+      }
+    },
+    "cadence": {
+      "checked_transitions": 16,
+      "outside_source_tolerance": 0,
+      "unmatched_boundary_or_unknown_interval": 0,
+      "maximum_schedule_deviation_seconds": 0.06282949601882137,
+      "configured_intervals_seconds": [
+        30.0
+      ],
+      "tolerance": "existing watch_audit rule: interval-0.5 to interval+10 seconds",
+      "status": "MEASURED"
+    },
+    "direct_during_trial_latency": "UNKNOWN",
+    "impact_verdict": "UNKNOWN: observational window does not prove causal absence of impact",
+    "status": "MEASURED",
+    "consistency": "stable metadata and no sidecars; immutable read, not transactional snapshot",
+    "method": "bounded PK lookup using locally ordered UTC, <=10000 rows, <=0.8s SQLite budget"
+  },
+  "service_journal_window": {
+    "status": "BOUNDED",
+    "records": 0,
+    "counts": {
+      "read_error_backoff": 0,
+      "manager_start": 0,
+      "manager_stop": 0,
+      "manager_process_failure": 0
+    },
+    "raw_messages_saved": false,
+    "absence_of_messages_does_not_prove_complete_history": true
+  },
+  "mount": {
+    "filesystems": [
+      {
+        "target": "/home/pc/rialo-first/.phase8n-xkyabase/volume",
+        "source": "/dev/loop0",
+        "fstype": "ext4",
+        "options": "rw,nosuid,nodev,noexec,noatime",
+        "uuid": "49035b22-d7cf-46a4-b089-c63e06922dee"
+      }
+    ]
+  },
+  "available_bytes_now": 28495872,
+  "verdict": "PARTIAL PASS; readiness review only, no full ENOSPC qualification"
+}

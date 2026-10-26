@@ -1,0 +1,126 @@
+{
+  "utc": "2026-10-26T13:23:56.595545+00:00",
+  "limited_validation_passed": 6,
+  "limited_validation_unexpected_failed": 0,
+  "limited_validation_rerun": false,
+  "new_log_analyzer_synthetic_tests_passed": 4,
+  "new_log_analyzer_synthetic_tests_failed": 0,
+  "existing_journal_hash_unchanged": true,
+  "observed_historical_window": {
+    "coverage_of_requested_window": true,
+    "utc_ordered": true,
+    "first_record_utc": "2026-10-26T12:25:20.469533+00:00",
+    "last_record_utc": "2026-10-26T12:36:34.089292+00:00",
+    "bounded_rows": 848,
+    "buckets": {
+      "before": {
+        "from": "2026-10-26T12:25:56.562800+00:00",
+        "until": "2026-10-26T12:30:56.562800+00:00",
+        "records": 376,
+        "transport": {
+          "track_request_samples": 88,
+          "track_request_min_seconds": 0.010198422009125352,
+          "track_request_max_seconds": 0.038444504025392234,
+          "track_request_mean_seconds": 0.02128037444378027,
+          "latest_successful_poll_utc": "2026-10-26T12:30:42.914609+00:00",
+          "scope": "track_state transport duration; not server generation lag or causal impact",
+          "status": "MEASURED"
+        },
+        "failed_polls": 0,
+        "read_exceptions": 0,
+        "anomalies": 0,
+        "session_ends": 0
+      },
+      "during": {
+        "from": "2026-10-26T12:30:56.562800+00:00",
+        "until": "2026-10-26T12:30:57.193965+00:00",
+        "records": 0,
+        "transport": {
+          "track_request_samples": 0,
+          "track_request_min_seconds": null,
+          "track_request_max_seconds": null,
+          "track_request_mean_seconds": null,
+          "latest_successful_poll_utc": null,
+          "scope": "track_state transport duration; not server generation lag or causal impact",
+          "status": "UNKNOWN"
+        },
+        "failed_polls": 0,
+        "read_exceptions": 0,
+        "anomalies": 0,
+        "session_ends": 0
+      },
+      "after": {
+        "from": "2026-10-26T12:30:57.193965+00:00",
+        "until": "2026-10-26T12:35:57.193965+00:00",
+        "records": 376,
+        "transport": {
+          "track_request_samples": 88,
+          "track_request_min_seconds": 0.006030339020071551,
+          "track_request_max_seconds": 0.03149120000307448,
+          "track_request_mean_seconds": 0.019001065305928933,
+          "latest_successful_poll_utc": "2026-10-26T12:35:28.343722+00:00",
+          "scope": "track_state transport duration; not server generation lag or causal impact",
+          "status": "MEASURED"
+        },
+        "failed_polls": 0,
+        "read_exceptions": 0,
+        "anomalies": 0,
+        "session_ends": 0
+      }
+    },
+    "cadence": {
+      "checked_transitions": 16,
+      "outside_source_tolerance": 0,
+      "unmatched_boundary_or_unknown_interval": 0,
+      "maximum_schedule_deviation_seconds": 0.06282949601882137,
+      "configured_intervals_seconds": [
+        30.0
+      ],
+      "tolerance": "existing watch_audit rule: interval-0.5 to interval+10 seconds",
+      "status": "MEASURED"
+    },
+    "direct_during_trial_latency": "UNKNOWN",
+    "impact_verdict": "UNKNOWN: observational window does not prove causal absence of impact",
+    "status": "MEASURED",
+    "consistency": "stable metadata and no sidecars; immutable read, not transactional snapshot",
+    "method": "bounded PK lookup using locally ordered UTC, <=10000 rows, <=0.8s SQLite budget"
+  },
+  "current_agp": {
+    "utc": "2026-10-26T13:13:10.235732+00:00",
+    "scope": "latest audit tail, separate from historical test window",
+    "operations": "read-only service show and immutable last1000 audit rows",
+    "sudo": false,
+    "rpc": false,
+    "agp": {
+      "active": true,
+      "pid": 188,
+      "start": 422
+    },
+    "latest_audit": {
+      "track_request_samples": 235,
+      "track_request_min_seconds": 0.008123219013214111,
+      "track_request_max_seconds": 0.03680144000099972,
+      "track_request_mean_seconds": 0.019812836213299927,
+      "latest_successful_poll_utc": "2026-10-26T13:13:08.201801+00:00",
+      "scope": "track_state transport duration; not server generation lag or causal impact",
+      "status": "MEASURED",
+      "rows_examined": 1000,
+      "source_bytes": 870899712,
+      "consistency": "stable file metadata/no sidecars; immutable read, not a transactional snapshot"
+    }
+  },
+  "phase8n_verdict": "PARTIAL PASS / not complete",
+  "enospc_executed_now": false,
+  "unmount_executed_now": false,
+  "five_minute_allowed": false,
+  "evidence_export": "docs/phase-8n-limited-evidence-export.json",
+  "next_execution_plan": "docs/phase-8n-enospc-execution-plan.json",
+  "evidence_sha256": {
+    "docs/phase-8n-enospc-readiness-observations.json": "4a028455cc713e5e58feccb5faaf4add32097228326a68516074544f760213b9",
+    "docs/phase-8n-agp-latest-readonly.json": "ca684b123df89e77a33f7190a974236ca8094d504c5518f041f43b416910c71a",
+    "docs/phase-8n-limited-evidence-export.json": "88d2ab97b05936ad9c2be2d1a3be45a17dcbe978447f0d68a36438c058e4f6ee",
+    "docs/phase-8n-enospc-execution-plan.json": "ac5660567e349a6f0209eb10e0fe22d3deceb48619dcf5730902217eeaf94239",
+    "scripts/phase8n_log_review.py": "b687ff8b9502d422b58121f3d60b5297beeb07dd454ae2228802dc0ec6d226a1",
+    "scripts/test_phase8n_log_review.py": "c62e8a435ba1d5608d336f0dbd04000faee6e4ea195dcf0c3dae34b4f6ba7732"
+  }
+}

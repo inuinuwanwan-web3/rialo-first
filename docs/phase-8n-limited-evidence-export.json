@@ -1,0 +1,230 @@
+{
+  "utc": "2026-10-26T13:16:14.841500+00:00",
+  "source_scope": "/home/pc/rialo-first/.phase8n-xkyabase/volume/phase8n-dummy-check-01",
+  "purpose": "new evidence export before any future separately approved unmount; source files unchanged",
+  "files": {
+    "results/limited-results.json": {
+      "sha256": "94bae029d285798169dac56ecd696b3b9bcabc5ecd47434500a83816205a9695",
+      "bytes": 6597,
+      "json": {
+        "utc": "2026-10-26T12:30:56.562800+00:00",
+        "scope": "/home/pc/rialo-first/.phase8n-xkyabase/volume/phase8n-dummy-check-01",
+        "checks": [
+          {
+            "id": "A_create_and_read",
+            "status": "PASS"
+          },
+          {
+            "id": "B_atomic_rename",
+            "status": "PASS",
+            "inode_changed": true
+          },
+          {
+            "id": "C_consistency",
+            "status": "PASS"
+          },
+          {
+            "id": "D_failed_write_preserves_commit",
+            "status": "PASS",
+            "expected_worker_exit": 1
+          },
+          {
+            "id": "E_safe_per_file_limit",
+            "status": "PASS",
+            "proof": {
+              "errno": 27,
+              "file_bytes": 512,
+              "hard_limit": 512
+            },
+            "scope": "OS per-file limit; NOT filesystem ENOSPC"
+          },
+          {
+            "id": "F_reopen_and_recover",
+            "status": "PASS"
+          }
+        ],
+        "worker_runs": [
+          {
+            "mode": "init",
+            "pid": 150749,
+            "returncode": 0,
+            "stderr": "{\"network\": {\"mechanism\": \"Linux seccomp\", \"denied_syscalls\": [\"socket\", \"connect\", \"bind\", \"listen\", \"accept\", \"accept4\", \"io_uring_setup\", \"io_uring_enter\", \"io_uring_register\"], \"socket_probes\": \"IPv4/IPv6/Unix EPERM\", \"socketpair_policy\": \"anonymous AF_UNIX local IPC only\", \"verified\": true}, \"landlock\": {\"abi\": 7, \"write_scope\": \"designated directory only\", \"capacity_quota\": false}, \"fsize\": 8192}\n",
+            "stdout": "{\"round\":1,\"unique_observed\":1,\"first_observed\":1,\"reobserved\":0,\"state_changes\":0}\n",
+            "reaped": true
+          },
+          {
+            "mode": "update",
+            "pid": 150755,
+            "returncode": 0,
+            "stderr": "{\"network\": {\"mechanism\": \"Linux seccomp\", \"denied_syscalls\": [\"socket\", \"connect\", \"bind\", \"listen\", \"accept\", \"accept4\", \"io_uring_setup\", \"io_uring_enter\", \"io_uring_register\"], \"socket_probes\": \"IPv4/IPv6/Unix EPERM\", \"socketpair_policy\": \"anonymous AF_UNIX local IPC only\", \"verified\": true}, \"landlock\": {\"abi\": 7, \"write_scope\": \"designated directory only\", \"capacity_quota\": false}, \"fsize\": 8192}\n",
+            "stdout": "{\"round\":2,\"unique_observed\":1,\"first_observed\":0,\"reobserved\":1,\"state_changes\":0}\n",
+            "reaped": true
+          },
+          {
+            "mode": "failure",
+            "pid": 150759,
+            "returncode": 1,
+            "stderr": "{\"network\": {\"mechanism\": \"Linux seccomp\", \"denied_syscalls\": [\"socket\", \"connect\", \"bind\", \"listen\", \"accept\", \"accept4\", \"io_uring_setup\", \"io_uring_enter\", \"io_uring_register\"], \"socket_probes\": \"IPv4/IPv6/Unix EPERM\", \"socketpair_policy\": \"anonymous AF_UNIX local IPC only\", \"verified\": true}, \"landlock\": {\"abi\": 7, \"write_scope\": \"designated directory only\", \"capacity_quota\": false}, \"fsize\": 512}\noffline observation operation stopped; validate input and committed state\n",
+            "stdout": "",
+            "reaped": true
+          },
+          {
+            "mode": "limit-probe",
+            "pid": 150763,
+            "returncode": 0,
+            "stderr": "{\"network\": {\"mechanism\": \"Linux seccomp\", \"denied_syscalls\": [\"socket\", \"connect\", \"bind\", \"listen\", \"accept\", \"accept4\", \"io_uring_setup\", \"io_uring_enter\", \"io_uring_register\"], \"socket_probes\": \"IPv4/IPv6/Unix EPERM\", \"socketpair_policy\": \"anonymous AF_UNIX local IPC only\", \"verified\": true}, \"landlock\": {\"abi\": 7, \"write_scope\": \"designated directory only\", \"capacity_quota\": false}, \"fsize\": 512}\n",
+            "stdout": "{\"errno\": 27, \"file_bytes\": 512, \"hard_limit\": 512}\n",
+            "reaped": true
+          },
+          {
+            "mode": "recover",
+            "pid": 150767,
+            "returncode": 0,
+            "stderr": "{\"network\": {\"mechanism\": \"Linux seccomp\", \"denied_syscalls\": [\"socket\", \"connect\", \"bind\", \"listen\", \"accept\", \"accept4\", \"io_uring_setup\", \"io_uring_enter\", \"io_uring_register\"], \"socket_probes\": \"IPv4/IPv6/Unix EPERM\", \"socketpair_policy\": \"anonymous AF_UNIX local IPC only\", \"verified\": true}, \"landlock\": {\"abi\": 7, \"write_scope\": \"designated directory only\", \"capacity_quota\": false}, \"fsize\": 8192}\n",
+            "stdout": "{\"round\":3,\"unique_observed\":1,\"first_observed\":0,\"reobserved\":1,\"state_changes\":0}\n",
+            "reaped": true
+          }
+        ],
+        "agp_samples": [
+          {
+            "utc": "2026-10-26T12:30:56.569563+00:00",
+            "pid": 188,
+            "start": 422,
+            "memory": 188633088,
+            "cpu_ns": 1413649157000
+          },
+          {
+            "utc": "2026-10-26T12:30:56.802638+00:00",
+            "pid": 188,
+            "start": 422,
+            "memory": 188633088,
+            "cpu_ns": 1413649157000
+          },
+          {
+            "utc": "2026-10-26T12:30:56.909374+00:00",
+            "pid": 188,
+            "start": 422,
+            "memory": 188633088,
+            "cpu_ns": 1413649157000
+          },
+          {
+            "utc": "2026-10-26T12:30:56.990624+00:00",
+            "pid": 188,
+            "start": 422,
+            "memory": 188633088,
+            "cpu_ns": 1413649215000
+          },
+          {
+            "utc": "2026-10-26T12:30:57.070650+00:00",
+            "pid": 188,
+            "start": 422,
+            "memory": 188633088,
+            "cpu_ns": 1413649215000
+          },
+          {
+            "utc": "2026-10-26T12:30:57.184462+00:00",
+            "pid": 188,
+            "start": 422,
+            "memory": 188633088,
+            "cpu_ns": 1413649215000
+          },
+          {
+            "utc": "2026-10-26T12:30:57.191434+00:00",
+            "pid": 188,
+            "start": 422,
+            "memory": 188633088,
+            "cpu_ns": 1413649215000
+          }
+        ],
+        "enospc_attempted": false,
+        "five_minute_allowed": false,
+        "mount": {
+          "target": "/home/pc/rialo-first/.phase8n-xkyabase/volume",
+          "source": "/dev/loop0",
+          "fstype": "ext4",
+          "options": "rw,nosuid,nodev,noexec,noatime",
+          "uuid": "49035b22-d7cf-46a4-b089-c63e06922dee"
+        },
+        "available_before": 28549120,
+        "known_existing_journal_hash_before": "06597f6fcabd37df66e9a2ecaebc90d4c6a9766640a4a6eb4f2423548ca9305c",
+        "existing_journal_writes": false,
+        "logical_budget_bytes": 262144,
+        "budget_mechanism": "application monitor, not directory quota",
+        "parent_landlock": {
+          "abi": 7,
+          "write_scope": "designated directory only",
+          "capacity_quota": false
+        },
+        "available_after": 28512256,
+        "scope_logical_bytes_before_report": 17672,
+        "known_existing_journal_hash_after": "06597f6fcabd37df66e9a2ecaebc90d4c6a9766640a4a6eb4f2423548ca9305c",
+        "known_existing_journal_unchanged": true,
+        "children": [],
+        "volume_entries_after": [
+          "lost+found",
+          "phase8n-dummy-check-01"
+        ],
+        "source_code_unchanged": true,
+        "passed": 6,
+        "failed": 0,
+        "not_run": 0,
+        "elapsed_seconds": 0.6311652370204683,
+        "phase_verdict": "PARTIAL PASS; full-volume ENOSPC and unmount not tested",
+        "approval_scope_completed": true
+      }
+    },
+    "results/postcheck.json": {
+      "sha256": "f3960326fe70ecb506f2d7d682875f1f181c68b2dd9df7d6085d82d61d81bd51",
+      "bytes": 747,
+      "json": {
+        "utc": "2026-10-26T12:38:27.942069+00:00",
+        "uid": 1000,
+        "passed": 6,
+        "unexpected_failed": 0,
+        "expected_failed_write_worker_exit": 1,
+        "os_per_file_limit_errno": 27,
+        "enospc_tested": false,
+        "worker_pids_present": {
+          "150749": false,
+          "150755": false,
+          "150759": false,
+          "150763": false,
+          "150767": false
+        },
+        "known_prior_journal_unchanged": true,
+        "agp": {
+          "active": true,
+          "pid": 188,
+          "start": 422,
+          "memory_bytes": 190414848
+        },
+        "mount_still_present": true,
+        "unmount_attempted": false,
+        "volume_root_entries": [
+          "lost+found",
+          "phase8n-dummy-check-01"
+        ],
+        "phase8n_complete": false,
+        "five_minute_allowed": false,
+        "phase_verdict": "PARTIAL PASS / NOT a Phase8N overall PASS"
+      }
+    },
+    "results/limited-report.md": {
+      "sha256": "d45e43af87fc95a1c90bd65bc9559dad309d949e44aee413395ec13a7b7f21bb",
+      "bytes": 2033,
+      "text": "# Phase 8N 限定書込み検証\n\n承認範囲6項目成功、予期しない失敗0件。実行時間約0.63秒。\nA 新規合成Journal作成/読取り、B atomic renameのinode置換、C データ整合性、D 意図した書込み拒否後の旧commit保持、E OSの1file上限、F 正常上限で再open/復旧を確認。\n正常Worker上限8192bytes、失敗Workerと合成fileの上限512bytes。DのRust CLI exit1は期待した拒否であり、試験の予期しない失敗ではない。別の小さいfileでerrno27 EFBIG、file長512bytesを実測。\n実ENOSPCやvolume満杯試験は行っていない。256KiB合計予算はアプリ監視であり、FS全体quotaの実証ではない。\n\nWorker5件はwait回収済み。既知の旧Journalの内容hashは前後一致。親/WorkerにLandlockを適用し、専用scope以外のfile書込みを制限、Workerにはseccompのnetwork拒否を適用した。\nAGPは試験前中後とpostcheckでPID188/start422、稼働を確認。取得遅延/監視空白への影響は未測定で、影響なし全般をPASSにしない。\nvolume直下はlost+foundと今回の新規directoryだけ。削除/変更は今回の合成Journal更新と自動pending後片付けに限定し、以前から存在したJournalやAGP dataを変更していない。専用backing imageのFS data/metadataはこの承認済書込みに伴い変わる。\n結果とコードは全てこのscope内に新規作成した。既存のcode/reportを書き換えず、検証fileも削除せず保持。\nsudo/mount/umount/fsck、RPC、wallet/認証情報、5分間試験、GitHub操作は実施していない。\n\n総合PARTIAL PASSは未完了を意味し、Phase8N合格ではない。実FS総容量境界とENOSPC時の保持/復旧、mount解除、AGP遅延への影響は未検証。\n5分間負荷試験には移行不可。実ENOSPCが必要なら新規対象・最大書込み・reserve/復旧方法を別計画で提示して承認を得る必要がある。今回はここで停止する。\n"
+    },
+    "limited_validation.py": {
+      "sha256": "5f96002bc584a666ea1fb9c35cd07e56f76bb4d77cb0b4aa4e05851b23a9fffc",
+      "bytes": 14445,
+      "text": "#!/usr/bin/env python3\n\"\"\"One-shot approved non-filling ext4 validation. No sudo/mount/umount/RPC.\"\"\"\nimport datetime\nimport errno\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport resource\nimport signal\nimport stat\nimport subprocess\nimport sys\nimport time\n\nREPO = Path('/home/pc/rialo-first')\nVOLUME = REPO / '.phase8n-xkyabase/volume'\nSCOPE = VOLUME / 'phase8n-dummy-check-01'\nIMAGE = Path('/tmp/phase8j-volume-e6bkbrf2/journal.ext4')\nUUID = '49035b22-d7cf-46a4-b089-c63e06922dee'\nOLD = Path('/tmp/phase8c-live-f9z7xgg4/journal/observations.json')\nBUDGET = 256 * 1024\nMIN_FREE = 16 * 1024 * 1024\nsys.path.insert(0, str(REPO / 'scripts'))\nfrom phase8g_safety_runner import ReadOnlyAgp\nfrom phase8l_control import WorkerLease, CONTROL, inherited_lease\nfrom phase8k_safety import restrict_writes\nfrom phase7z_regression import block_network\n\ndef digest(path):\n    return hashlib.sha256(path.read_bytes()).hexdigest()\n\ndef mount_check(scope_present=True):\n    r = subprocess.run(['/usr/bin/findmnt','--json','--mountpoint',str(VOLUME),\n                        '--output','TARGET,SOURCE,FSTYPE,OPTIONS,UUID'],\n                       capture_output=True,text=True,timeout=2)\n    rows = json.loads(r.stdout).get('filesystems',[]) if r.returncode == 0 else []\n    if len(rows) != 1:\n        raise RuntimeError('ambiguous mount view')\n    row = rows[0]\n    options = set(row['options'].split(','))\n    if (row['source'] != '/dev/loop0' or row['fstype'] != 'ext4' or row['uuid'] != UUID\n        or row['target'] != str(VOLUME) or not {'rw','nosuid','nodev','noexec','noatime'} <= options\n        or 'ro' in options):\n        raise RuntimeError('mount mismatch')\n    if Path('/sys/block/loop0/loop/backing_file').read_text().strip() != str(IMAGE):\n        raise RuntimeError('backing image mismatch')\n    m = IMAGE.lstat()\n    if (not stat.S_ISREG(m.st_mode) or m.st_uid != 1000 or m.st_nlink != 1\n        or m.st_size != 33554432 or m.st_ino != 257979):\n        raise RuntimeError('image identity mismatch')\n    if sorted(p.name for p in VOLUME.iterdir()) != sorted(['lost+found'] + ([SCOPE.name] if scope_present else [])):\n        raise RuntimeError('unexpected volume data')\n    free = os.statvfs(VOLUME).f_bavail * os.statvfs(VOLUME).f_frsize\n    if free < MIN_FREE:\n        raise RuntimeError('less than 16MiB free; stop without filling')\n    return row, free\n\ndef logical_bytes():\n    total = 0\n    count = 0\n    for current, dirs, files in os.walk(SCOPE, followlinks=False):\n        for name in dirs + files:\n            m = (Path(current)/name).lstat()\n            count += 1\n            if count > 32 or stat.S_ISLNK(m.st_mode):\n                raise RuntimeError('unreviewed scope entries')\n            if stat.S_ISREG(m.st_mode):\n                total += m.st_size\n            elif not stat.S_ISDIR(m.st_mode):\n                raise RuntimeError('nonregular scope entry')\n    if total > BUDGET:\n        raise RuntimeError('256KiB application budget exceeded')\n    return total\n\ndef exclusive(path, value):\n    data = (json.dumps(value,ensure_ascii=False,indent=2)+'\\n').encode()\n    if logical_bytes() + len(data) > BUDGET:\n        raise RuntimeError('result exceeds application budget')\n    fd = os.open(path,os.O_CREAT|os.O_EXCL|os.O_WRONLY|os.O_NOFOLLOW,0o600)\n    with os.fdopen(fd,'wb') as f:\n        f.write(data)\n        f.flush()\n        os.fsync(f.fileno())\n\ndef worker(mode, fd):\n    if mode not in ('init','update','failure','recover','limit-probe'):\n        raise RuntimeError('unknown fixed mode')\n    inherited_lease(CONTROL,fd)\n    network = block_network()\n    resource.setrlimit(resource.RLIMIT_AS,(128*1024*1024,128*1024*1024))\n    resource.setrlimit(resource.RLIMIT_CPU,(2,3))\n    cap = 512 if mode in ('failure','limit-probe') else 8192\n    resource.setrlimit(resource.RLIMIT_FSIZE,(cap,cap))\n    signal.signal(signal.SIGXFSZ,signal.SIG_IGN)\n    os.nice(10)\n    os.sched_setaffinity(0,{max(os.sched_getaffinity(0))})\n    guard = restrict_writes(SCOPE)\n    os.write(2,(json.dumps({'network':network,'landlock':guard,'fsize':cap})+'\\n').encode())\n    if mode == 'limit-probe':\n        path = SCOPE/'logs/file-limit.bin'\n        caught = None\n        try:\n            fd = os.open(path,os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)\n            with os.fdopen(fd,'wb') as f:\n                f.write(b'x'*2048)\n                f.flush()\n                os.fsync(f.fileno())\n        except OSError as e:\n            caught = e.errno\n        proof = {'errno':caught,'file_bytes':path.stat().st_size,'hard_limit':cap}\n        print(json.dumps(proof))\n        return 0 if caught == errno.EFBIG and path.stat().st_size <= cap else 1\n    fixture = json.loads((REPO/'tests/fixtures/phase7z/synthetic.json').read_text())\n    batch = 'recover' if mode in ('failure','recover') else mode\n    command = [str(REPO/'target/debug/phase8a_journal'),'--network','testnet',\n               '--address',fixture['address'],'--state-dir',str(SCOPE/'journal'),\n               '--input',str(SCOPE/'inputs'/('batch-'+batch+'.json'))]\n    if mode == 'init':\n        command.append('--init')\n    os.execve(command[0],command,{'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','HOME':str(SCOPE)})\n\ndef main():\n    if os.geteuid() != 1000 or Path(__file__).resolve() != SCOPE/'limited_validation.py':\n        raise RuntimeError('fixed UID/path required')\n    if sorted(p.name for p in SCOPE.iterdir()) != ['limited_validation.py','prepared.json']:\n        raise RuntimeError('one-shot: scope contains prior data; refuse')\n    prep = json.loads((SCOPE/'prepared.json').read_text())\n    m = SCOPE.lstat()\n    if ((m.st_dev,m.st_ino) != tuple(prep['scope_identity']) or m.st_uid != 1000\n        or stat.S_IMODE(m.st_mode) != 0o700 or digest(Path(__file__)) != prep['code_sha256']):\n        raise RuntimeError('scope identity mismatch')\n    started = time.monotonic()\n    report = {'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),\n              'scope':str(SCOPE),'checks':[],'worker_runs':[],'agp_samples':[],\n              'enospc_attempted':False,'five_minute_allowed':False}\n    mount, before_free = mount_check()\n    report['mount'] = mount\n    report['available_before'] = before_free\n    before_old = digest(OLD) if OLD.is_file() else None\n    report['known_existing_journal_hash_before'] = before_old\n    report['existing_journal_writes'] = False\n    report['logical_budget_bytes'] = BUDGET\n    report['budget_mechanism'] = 'application monitor, not directory quota'\n    expected_agent = (188,422)\n    def health():\n        a = ReadOnlyAgp().read()\n        if not a.active or (a.pid,a.start) != expected_agent or a.memory > 512*1024*1024:\n            raise RuntimeError('AGP state mismatch; stop this trial only')\n        report['agp_samples'].append({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),\n                                     'pid':a.pid,'start':a.start,'memory':a.memory,'cpu_ns':a.cpu_ns})\n    def bounded():\n        if time.monotonic()-started > 25:\n            raise RuntimeError('trial deadline before next operation')\n        logical_bytes()\n        _, free = mount_check()\n        if before_free-free > 1024*1024:\n            raise RuntimeError('more than 1MiB available-space drop; stop')\n    current_case = 'preflight'\n    with WorkerLease() as lease:\n        with lease.worker():\n            health()\n            parent_guard = restrict_writes(SCOPE)\n            report['parent_landlock'] = parent_guard\n            try:\n                for name in ('inputs','logs','results'):\n                    (SCOPE/name).mkdir(mode=0o700)\n                fixture = json.loads((REPO/'tests/fixtures/phase7z/synthetic.json').read_text())\n                for name, at in [('init',1000),('update',2000),('recover',3000)]:\n                    exclusive(SCOPE/'inputs'/('batch-'+name+'.json'),\n                              {'identity':{'network':'testnet','address':fixture['address']},\n                               'observed_at_ms':at,\n                               'transactions':[{'signature':fixture['signatures'][0],'block_height':120,\n                                                'status':{'slot':999,'executed':False,'err':None}}]})\n                def run(mode, expected):\n                    bounded()\n                    command = [sys.executable,'-B',str(SCOPE/'limited_validation.py'),\n                               '--worker',mode,str(lease.fd)]\n                    child = subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE,\n                                             text=True,close_fds=True,pass_fds=(lease.fd,),\n                                             env={'PATH':'/usr/bin:/bin','PYTHONDONTWRITEBYTECODE':'1','HOME':str(SCOPE)})\n                    try:\n                        out, err = child.communicate(timeout=min(4,max(.1,28-(time.monotonic()-started))))\n                    except BaseException:\n                        child.kill()\n                        child.wait(timeout=2)\n                        raise\n                    report['worker_runs'].append({'mode':mode,'pid':child.pid,'returncode':child.returncode,\n                                                  'stderr':err[:2000],'stdout':out[:3000],'reaped':True})\n                    if child.returncode != expected:\n                        raise RuntimeError('unexpected fixed worker exit: '+mode)\n                    health()\n                    bounded()\n                    return json.loads(out) if out.strip() else None\n                active = SCOPE/'journal/observations.json'\n                current_case = 'A_create_and_read'\n                first = run('init',0)\n                initial = json.loads(active.read_text())\n                assert first['round']==1 and len(initial['snapshot']['records'])==1\n                report['checks'].append({'id':current_case,'status':'PASS'})\n                before = active.stat()\n                lock_inode = (SCOPE/'journal/observations.lock').stat().st_ino\n                current_case = 'B_atomic_rename'\n                second = run('update',0)\n                after = active.stat()\n                assert before.st_dev==after.st_dev and before.st_ino!=after.st_ino\n                assert (SCOPE/'journal/observations.lock').stat().st_ino==lock_inode\n                assert not (SCOPE/'journal/observations.pending').exists()\n                report['checks'].append({'id':current_case,'status':'PASS','inode_changed':True})\n                current_case = 'C_consistency'\n                snapshot = json.loads(active.read_text())['snapshot']\n                record = snapshot['records'][0]\n                assert snapshot['version']==1 and snapshot['rounds']==2\n                assert record['signature']==fixture['signatures'][0] and record['block_height']==120\n                assert record['observations']==2 and record['first_seen_ms']==1000 and record['last_seen_ms']==2000\n                assert record['status_history']==initial['snapshot']['records'][0]['status_history']\n                report['checks'].append({'id':current_case,'status':'PASS'})\n                current_case = 'D_failed_write_preserves_commit'\n                committed = active.read_bytes()\n                old_inode = active.stat().st_ino\n                run('failure',1)\n                assert active.read_bytes()==committed and active.stat().st_ino==old_inode\n                assert not (SCOPE/'journal/observations.pending').exists()\n                report['checks'].append({'id':current_case,'status':'PASS','expected_worker_exit':1})\n                current_case = 'E_safe_per_file_limit'\n                proof = run('limit-probe',0)\n                assert proof['errno']==errno.EFBIG and proof['file_bytes']<=512\n                report['checks'].append({'id':current_case,'status':'PASS','proof':proof,\n                                         'scope':'OS per-file limit; NOT filesystem ENOSPC'})\n                current_case = 'F_reopen_and_recover'\n                recovered = run('recover',0)\n                assert recovered['round']==3\n                assert json.loads(active.read_text())['snapshot']['records'][0]['observations']==3\n                report['checks'].append({'id':current_case,'status':'PASS'})\n            except Exception as e:\n                report['checks'].append({'id':current_case,'status':'FAIL','error_type':type(e).__name__,\n                                         'message':str(e)[:500]})\n            finally:\n                try:\n                    health()\n                    _, report['available_after'] = mount_check()\n                    report['scope_logical_bytes_before_report'] = logical_bytes()\n                    report['known_existing_journal_hash_after'] = digest(OLD) if OLD.is_file() else None\n                    report['known_existing_journal_unchanged'] = before_old is not None and before_old==report['known_existing_journal_hash_after']\n                    report['children'] = Path('/proc/self/task',str(os.getpid()),'children').read_text().split()\n                    report['volume_entries_after'] = sorted(p.name for p in VOLUME.iterdir())\n                    report['source_code_unchanged'] = digest(Path(__file__))==prep['code_sha256']\n                except Exception as e:\n                    report['safety_error'] = {'type':type(e).__name__,'message':str(e)[:300]}\n                report['passed'] = sum(x['status']=='PASS' for x in report['checks'])\n                report['failed'] = sum(x['status']=='FAIL' for x in report['checks'])\n                report['not_run'] = 6-report['passed']-report['failed']\n                report['elapsed_seconds'] = time.monotonic()-started\n                report['phase_verdict'] = 'PARTIAL PASS; full-volume ENOSPC and unmount not tested'\n                report['approval_scope_completed'] = (report['passed']==6 and report['failed']==0\n                    and not report.get('children') and report.get('known_existing_journal_unchanged') is True\n                    and 'safety_error' not in report)\n                exclusive(SCOPE/'results/limited-results.json',report)\n    print(json.dumps(report,ensure_ascii=False))\n    return 0 if report['approval_scope_completed'] else 1\n\nif __name__ == '__main__':\n    if len(sys.argv)==4 and sys.argv[1]=='--worker':\n        raise SystemExit(worker(sys.argv[2],int(sys.argv[3])))\n    if len(sys.argv)!=1:\n        raise SystemExit('fixed one-shot probe only')\n    raise SystemExit(main())\n"
+    }
+  },
+  "current_synthetic_journal": {
+    "sha256": "3ea2a3f708e98d178e6f89c318d71117c9ed6abc561b74667f715eb9a96cfee1",
+    "version": 1,
+    "rounds": 3,
+    "records": 1
+  },
+  "not_a_backup_of_real_wallet_or_secret_data": true
+}

@@ -2,6 +2,7 @@
 name = "rialo-first"
 version = "0.1.0"
 edition = "2024"
+default-run = "rialo-first"
 
 [dependencies]
 rialo-cdk = "=0.18.1"

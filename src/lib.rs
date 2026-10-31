@@ -1,4 +1,5 @@
 //! External-signature assembly and opt-in read-only pre-sign RPC checks. No wallet access.
+pub mod account_readonly;
 pub mod monitor;
 pub mod pre_sign;
 pub mod status_readonly;

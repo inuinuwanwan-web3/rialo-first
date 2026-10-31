@@ -1,0 +1,175 @@
+{
+  "recorded_utc": "2026-10-31T10:17:08.115591+00:00",
+  "assessment": "Offline PASS; online PARTIAL (explicit null/not_found processed; live present-account metadata unverified)",
+  "sdk_version": "0.18.1",
+  "new_passed": 13,
+  "existing_passed": 21,
+  "total_passed": 34,
+  "total_failed": 0,
+  "suites": [
+    {
+      "name": "account-unit",
+      "passed": 1,
+      "failed": 0,
+      "tests": [
+        "account_readonly::tests::official_request_uses_versioned_address_and_bounded_slice"
+      ],
+      "log_sha256": "97dc310c864176c9054338861c5f1c0be769584b33729d229b1ebbf6256b2e70"
+    },
+    {
+      "name": "account-integration",
+      "passed": 12,
+      "failed": 0,
+      "tests": [
+        "cli_defaults_to_validation_and_rejects_unsafe_or_duplicate_options",
+        "explicit_null_is_not_found_without_retry",
+        "invalid_input_never_calls_rpc",
+        "invalid_owner_cannot_be_reported_as_verified_metadata",
+        "data_cap_is_enforced_before_and_after_decode",
+        "metadata_and_bounded_data_are_available_without_serializing_payload",
+        "malformed_base64_and_data_container_are_rejected",
+        "sdk_errors_keep_codes_but_discard_messages_and_bodies",
+        "rpc_error_is_classified_and_never_retried",
+        "missing_or_malformed_required_fields_are_not_absence",
+        "unknown_encoding_is_rejected_without_guessing",
+        "timeout_cancels_pending_request_without_retry"
+      ],
+      "log_sha256": "45d22b1ecff4ba84ea2a15bff4790191ac185f011a9a34763ab00e90e331deb0"
+    },
+    {
+      "name": "status-regression",
+      "passed": 9,
+      "failed": 0,
+      "tests": [
+        "cli_rejects_missing_values_unknown_flags_and_repeated_timeout",
+        "cli_defaults_to_validation_and_has_no_endpoint_or_write_options",
+        "rpc_failure_is_not_retried",
+        "count_or_version_mismatch_is_rejected",
+        "wire_slots_typed_errors_and_input_order_are_preserved",
+        "malformed_or_null_results_never_imply_success_or_absence",
+        "invalid_inputs_make_zero_requests",
+        "maximum_batch_uses_one_request",
+        "timeout_cancels_request_without_retry"
+      ],
+      "log_sha256": "8d3448d101d325b738cfb4f66fa9fc2b220a4f20791decdb3feabfcaefabcac1"
+    },
+    {
+      "name": "cli-regression",
+      "passed": 12,
+      "failed": 0,
+      "tests": [
+        "monitor::cli::tests::invalid_address",
+        "monitor::cli::tests::invalid_tx",
+        "monitor::cli::tests::error_exit_code_redacted_json",
+        "monitor::cli::tests::height_and_config_json",
+        "monitor::cli::tests::rpc_and_options_validation",
+        "monitor::cli::tests::normal_balance",
+        "monitor::cli::tests::tx_absent_unknown",
+        "monitor::cli::tests::tx_failed",
+        "monitor::cli::tests::tx_confirmed",
+        "monitor::cli::tests::zero_balance",
+        "monitor::cli::tests::tx_unexecuted_unknown",
+        "monitor::cli::tests::timeout_exit_code"
+      ],
+      "log_sha256": "2ca76015a583ff866c833ca8481cea8b73ac38cc49facbc7081ccdecd1fdb88e"
+    }
+  ],
+  "cli_smoke": [
+    {
+      "case": "help",
+      "exit_code": 0
+    },
+    {
+      "case": "default_validation_only",
+      "exit_code": 0
+    },
+    {
+      "case": "write_option_rejected",
+      "exit_code": 2
+    }
+  ],
+  "online": {
+    "recorded_utc": "2026-10-31T10:15:20.366611+00:00",
+    "method": "getAccountInfo",
+    "rpc": "http://devnet.rialo.io:4100",
+    "request_attempts": 1,
+    "automatic_retries": 0,
+    "exit_code": 0,
+    "account_source": "docs/2026-10-11-testnet-transfer-e2e.md:21,80",
+    "result": {
+      "network": "devnet",
+      "rpc": "http://devnet.rialo.io:4100",
+      "report": {
+        "address": "FAyTs54yLpZ4KRHot8dVpJaoJJAibwkfEi9ck3NjHVc6",
+        "context": {
+          "slot": 6096321,
+          "api_version": "0.23.0-alpha.0"
+        },
+        "status": "not_found",
+        "account": null
+      }
+    },
+    "error": null
+  },
+  "isolation": {
+    "network_block": "existing Linux seccomp helper with socket probes applied to all builds/tests/smokes",
+    "cargo_offline_locked": true,
+    "dedicated_home_tmp": true,
+    "build_jobs": 2
+  },
+  "preservation": {
+    "baseline_files_checked": 274,
+    "changed_existing_files": [
+      "src/lib.rs"
+    ],
+    "prior_changes_preserved": true,
+    "agp_and_services_unchanged": true
+  },
+  "source_sha256": {
+    "src/lib.rs": "a30206e745308187e75113a94637087874042bdcc4afeb6d38fce778e173fa4a",
+    "src/account_readonly.rs": "9cb06acc598d5fbed434d521e917fe4e6238cca44903850062c731e172b9e9f2",
+    "src/bin/devnet_account.rs": "11389c648da3fe67776784dc147573f00c7b75fe8122870ece2197be6e7df011",
+    "tests/account_readonly.rs": "9523158aa73d3192189f612083f6ab5b1b41830b2d3852621ca99a5208be40ac"
+  },
+  "checks": {
+    "new_rustfmt_check": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "data_policy": {
+    "slice_offset": 0,
+    "max_decoded_bytes": 4096,
+    "raw_data_serialized_or_printed": false,
+    "library_raw_access": "explicit in-memory data() only",
+    "transport_body_memory_cap": "not enforced by this SDK adapter"
+  },
+  "unverified": [
+    "live present-account Owner/Executable/Data",
+    "live encoding and server dataSlice enforcement",
+    "live error and timeout cases",
+    "HTTP/JSON memory bound for oversized server responses"
+  ],
+  "agp_operations": 0,
+  "telegram_sends": 0,
+  "signing_or_transactions": 0,
+  "github_commit_push": 0,
+  "notion_writes": 0,
+  "final_investigation": {
+    "assessment": "BLOCKED",
+    "rpc_requests": 0,
+    "reason": "Existing DevNet successful transaction record contains a signature and status but no sender/recipient/related account address; the previously queried account was not_found",
+    "additional_searches_or_rpc_attempts": 0,
+    "not_a_functional_failure": true
+  },
+  "phase_closure": {
+    "development": "CLOSED with explicit unverified live normal path",
+    "offline": "PASS: new13 + existing21 = 34, failed0; CLI3 separate",
+    "initial_online": "PARTIAL: DevNet getAccountInfo worked and explicit null processed",
+    "final_investigation": "BLOCKED: insufficient account provenance",
+    "live_present_account_owner_executable_data_context": "UNVERIFIED",
+    "sdk_entire_http_response_memory_bound": "NOT GUARANTEED",
+    "revalidation_condition": "Only if a public DevNet account address with independent provenance and existence evidence becomes available in separate work, and a bounded read-only query is authorized",
+    "repeat_same_search_or_query": false,
+    "new_tests_or_rpc_for_recording": 0
+  },
+  "historical_fields_scope": "Original suites, online result, and zero-operation counters describe development/initial verification before this separately authorized Notion/GitHub publication; final_investigation and phase_closure are later recording annotations."
+}

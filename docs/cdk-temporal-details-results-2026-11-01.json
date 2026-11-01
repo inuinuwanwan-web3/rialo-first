@@ -1,0 +1,201 @@
+{
+  "date": "2026-11-01",
+  "assessment": "PASS (offline development only)",
+  "new_tests_passed": 21,
+  "existing_tests_passed": 87,
+  "total_tests_passed": 108,
+  "failed_tests": 0,
+  "suites": {
+    "temporal_details": 21,
+    "offline_analysis": 31,
+    "observation_metadata": 15,
+    "readonly_cli": 5,
+    "completion_review": 2,
+    "legacy_import": 16,
+    "common_report_library": 18
+  },
+  "offline_build": "PASS",
+  "validation_scope": "Byte-identical isolated src/tests/Cargo snapshot, offline locked cargo and inherited Linux seccomp",
+  "initial_compile_failure": "Existing phase8a_journal could not resolve journal module in shared build artifacts; no tests ran; full matching isolated-source snapshot passed without unrelated source edits",
+  "opt_in": "--temporal-details",
+  "schema": "Existing analysis_schema_version 1.0 retained; optional temporal_details_version 1.0; original common report schema unchanged",
+  "synthetic_example": {
+    "analysis_schema_version": "1.0",
+    "input_files": 2,
+    "total_reports": 2,
+    "duplicates_skipped": 0,
+    "success": 1,
+    "not_found": 1,
+    "errors": 0,
+    "blocked": 0,
+    "unverified": 0,
+    "by_status": {
+      "not_found": 1,
+      "success": 1
+    },
+    "by_network": {
+      "devnet": 2
+    },
+    "by_operation": {
+      "account_lookup": 2
+    },
+    "first_observed_utc": "1970-01-01T00:00:02.000Z",
+    "last_observed_utc": "1970-01-01T00:00:04.000Z",
+    "incomparable_reports": 0,
+    "incomparable_reason": "missing_target_or_non_observation_or_history_without_address",
+    "comparisons": [
+      {
+        "target": "devnet|account_lookup|11111111111111111111111111111111|observation_completed_at_utc",
+        "comparable": true,
+        "from": "1970-01-01T00:00:02.000Z",
+        "to": "1970-01-01T00:00:04.000Z",
+        "changed": true,
+        "before": {
+          "status": "not_found",
+          "context_slot": 1,
+          "observed": null
+        },
+        "after": {
+          "status": "success",
+          "context_slot": 2,
+          "observed": {
+            "owner": "11111111111111111111111111111111",
+            "executable": false,
+            "balance_kelvin": 7,
+            "rent_epoch": 0,
+            "space": 0,
+            "data": {
+              "returned_bytes": 0,
+              "requested_max_bytes": 4096,
+              "requested_offset": 0
+            }
+          }
+        },
+        "temporal": {
+          "time_basis": "observation_completed_at_utc",
+          "interval_ms": 2000,
+          "slot_change": {
+            "direction": "increased",
+            "magnitude": 1
+          },
+          "status_changed": true,
+          "account_presence_before": "absent",
+          "account_presence_after": "present",
+          "query_outcome_before": "successful_response",
+          "query_outcome_after": "successful_response",
+          "inference": "field_differences_only"
+        }
+      }
+    ],
+    "temporal_details_version": "1.0"
+  },
+  "real_saved_data_check": {
+    "reports": 2,
+    "same_target": true,
+    "comparable_pairs": 0,
+    "reason": "One report-generation timestamp basis and one observation-completion basis; kept separate",
+    "result": {
+      "analysis_schema_version": "1.0",
+      "input_files": 2,
+      "total_reports": 2,
+      "duplicates_skipped": 0,
+      "success": 0,
+      "not_found": 2,
+      "errors": 0,
+      "blocked": 0,
+      "unverified": 0,
+      "by_status": {
+        "not_found": 2
+      },
+      "by_network": {
+        "devnet": 2
+      },
+      "by_operation": {
+        "account_lookup": 2
+      },
+      "first_observed_utc": "2026-11-01T05:59:48.109Z",
+      "last_observed_utc": "2026-11-01T07:07:47.316Z",
+      "incomparable_reports": 0,
+      "incomparable_reason": "missing_target_or_non_observation_or_history_without_address",
+      "comparisons": [
+        {
+          "target": "devnet|account_lookup|11111111111111111111111111111111",
+          "comparable": false,
+          "reason": "single_observation"
+        },
+        {
+          "target": "devnet|account_lookup|11111111111111111111111111111111|observation_completed_at_utc",
+          "comparable": false,
+          "reason": "single_observation"
+        }
+      ],
+      "temporal_details_version": "1.0"
+    },
+    "source_sha256": [
+      "1f74d14c753acb0a8c48d648350deb16701e8549b66eadeee795180320b72f5f",
+      "36318a0409df6ea62749e7c2d03894d8422c431f9be85bdbbf2818892c14fa0b"
+    ]
+  },
+  "new_rpc_requests": 0,
+  "production_files_changed": [
+    "src/offline_reports/mod.rs",
+    "src/bin/report_analysis.rs"
+  ],
+  "all_other_prior_files_unchanged": true,
+  "source_sha256": {
+    "src/offline_reports/mod.rs": "204cd80b552e2319db0b4360fc5980400de664c6baf6260e01ad0974e17ed4c4",
+    "src/bin/report_analysis.rs": "d9994e5bd68ecb447998eea771273e16de7169df8fbf1ed2bd650bc84adb3af2",
+    "tests/temporal_details.rs": "1b3160faac930c46294556959000e003b0eb0c3047771abdba5d0e1ee3ec33bb"
+  },
+  "validation_logs_sha256": {
+    "temporal-final-0.log": "fb52b6b61ad36d2c793c1ff181cc8155acea1b7766f73ff35ee6654d58c2f3e2",
+    "temporal-final-1.log": "d1a4a8df2329fbd99ad22bd0b47a53a77cb4290709458231c84b465ffd0998bd",
+    "temporal-final-2.log": "e1d68b2fa3b6e0aaba6aed9c046a5e3afea90070a1c9cc3d8ea9247b57e85bfd"
+  },
+  "unverified": [
+    "Live same-basis multi-observation comparison",
+    "Clock synchronization and timestamp authenticity",
+    "Worst-case RSS/CPU",
+    "Arbitrary input confidentiality",
+    "Root shared-build cache cause not exhaustively diagnosed"
+  ],
+  "github_notion_writes": 0,
+  "final_validation": {
+    "date": "2026-11-01",
+    "current_source_snapshot_tests": {
+      "new": 21,
+      "existing": 87,
+      "passed": 108,
+      "failed": 0
+    },
+    "current_source_compile": "PASS in byte-identical isolated complete source snapshot",
+    "publication_tests": {
+      "new": 21,
+      "existing": 56,
+      "passed": 77,
+      "failed": 0
+    },
+    "publication_compile_and_build": "PASS",
+    "publication_scope": "Only temporal comparator, existing report_analysis CLI, self-contained 21-test file, report and result JSON. Earlier observation producers/importer and unrelated source changes excluded. Observation metadata parsing/grouping is included as a required comparator prerequisite.",
+    "count_difference": "31 tests belong to unpublished observation-metadata suite15 and legacy importer suite16; run on current local snapshot only, not claimed present on remote main",
+    "requested_filename_difference": "src/bin/temporal_analysis.rs does not exist; implemented CLI is src/bin/report_analysis.rs; no duplicate CLI created",
+    "test_fixture_change": "Same synthetic fixture values inlined in publication test to remove unpublished fixture dependencies",
+    "helper_visibility": "Unrelated importer-specific pub(crate) changes not included; publication helper functions retain original private visibility",
+    "real_data_comparison": "UNVERIFIED; no same-time-basis real pair",
+    "source_hash_scope": "Original source_sha256 above describes current local development tree. Published hashes below distinguish visibility and self-contained test adjustments.",
+    "published_source_sha256": {
+      "src/offline_reports/mod.rs": "f5b5b57ca18c70565b149ad576ba83b07e7a46f003061a2ea332c9a12429a07e",
+      "src/bin/report_analysis.rs": "d9994e5bd68ecb447998eea771273e16de7169df8fbf1ed2bd650bc84adb3af2",
+      "tests/temporal_details.rs": "0865999b21a65f8ac80157ac0922d60268fcd4395d1a52edbcf98a239577065b"
+    },
+    "logs_sha256": {
+      "rialo-temporal-audit-0.log": "09393714bfb0f0645c13aa03e4f379526eeabdcd6fb46177a94bfe24167f9389",
+      "rialo-temporal-audit-1.log": "326167db7a9d34d05108cb824fae59fc16d6457ab8edeff8dd79a659cbf83f89",
+      "rialo-temporal-audit-2.log": "ee8ae13a68e189b8ea4d0a055f87055cadff7daeabce5ad2bb7a94c66694d3d5",
+      "rialo-temporal-publication-0.log": "4d3c297b15d024a6c97d6782ca631d0802c85ddf65fa2703fd8fb038af5737ca",
+      "rialo-temporal-publication-1.log": "f779197dd90ee6d446bd4156e6e12fd6630d71a6e2619bf09343bd2834192721",
+      "rialo-temporal-publication-2.log": "18da4d47de5db6de2055d79fb9e1257053a693b979bd6266da49406f195e208c"
+    },
+    "historical_cache_failure": "No compile errors in both final verification environments; no unrelated source edits. Root shared cache failure mechanism not exhaustively diagnosed."
+  }
+}

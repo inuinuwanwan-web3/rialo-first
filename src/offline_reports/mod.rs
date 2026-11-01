@@ -130,6 +130,69 @@ fn selected(v: &Value, keys: &[&str]) -> R<Value> {
     }
     Ok(Value::Object(out))
 }
+fn comparison_time(v: &Value) -> &str {
+    v.get("observation_completed_at_utc")
+        .and_then(Value::as_str)
+        .unwrap_or_else(|| v["timestamp_utc"].as_str().unwrap())
+}
+fn validate_observation(v: &Value) -> R<()> {
+    let fields = [
+        "observation_started_at_utc",
+        "observation_completed_at_utc",
+        "record_created_at_utc",
+        "source",
+    ];
+    if !fields.iter().any(|k| v.get(*k).is_some()) {
+        return Ok(());
+    }
+    if fields.iter().any(|k| v.get(*k).is_none()) {
+        return Err("incomplete_observation_metadata");
+    }
+    let created = v["record_created_at_utc"]
+        .as_str()
+        .ok_or("invalid_observation_metadata")?;
+    if !timestamp(created) || v["timestamp_utc"] != created {
+        return Err("invalid_observation_metadata");
+    }
+    let start = &v["observation_started_at_utc"];
+    let end = &v["observation_completed_at_utc"];
+    for t in [start, end] {
+        if !t.is_null() && !t.as_str().is_some_and(timestamp) {
+            return Err("invalid_observation_metadata");
+        }
+    }
+    if !end.is_null() && start.is_null() {
+        return Err("invalid_observation_metadata");
+    }
+    if start.as_str().is_some_and(|t| t > created)
+        || end.as_str().is_some_and(|t| t > created)
+        || start.as_str().zip(end.as_str()).is_some_and(|(a, b)| a > b)
+    {
+        return Err("invalid_observation_metadata");
+    }
+    if ["success", "not_found"].contains(&v["status"].as_str().unwrap_or(""))
+        && (start.is_null() || end.is_null())
+    {
+        return Err("incomplete_observation_metadata");
+    }
+    let source = &v["source"];
+    if v["network"] != "devnet"
+        || source["kind"] != "configured_rpc"
+        || source["endpoint"] != "http://devnet.rialo.io:4100"
+        || !["sdk", "bounded_http"].contains(&source["transport"].as_str().unwrap_or(""))
+    {
+        return Err("invalid_observation_source");
+    }
+    let method = match v["operation"].as_str() {
+        Some("account_lookup") => "getAccountInfo",
+        Some("transaction_status") => "getSignatureStatuses",
+        _ => return Err("invalid_observation_source"),
+    };
+    if source["rpc_method"] != method {
+        return Err("invalid_observation_source");
+    }
+    Ok(())
+}
 fn parse(bytes: &[u8]) -> R<Value> {
     depth(bytes)?;
     let v: Value = serde_json::from_slice(bytes).map_err(|_| "invalid_json")?;
@@ -195,6 +258,7 @@ fn parse(bytes: &[u8]) -> R<Value> {
     {
         return Err("inconsistent_absence");
     }
+    validate_observation(&v)?;
     Ok(v)
 }
 fn add(
@@ -208,19 +272,30 @@ fn add(
     if *count > MAX_POINTS {
         return Err("point_limit");
     }
-    let key = format!(
+    let mut key = format!(
         "{}|{}|{}",
         v["network"].as_str().unwrap(),
         v["operation"].as_str().unwrap(),
         id
     );
+    if v.get("observation_completed_at_utc")
+        .is_some_and(Value::is_string)
+    {
+        key.push_str("|observation_completed_at_utc");
+    }
     map.entry(key).or_default().push(Point {
-        time: v["timestamp_utc"].as_str().unwrap().into(),
+        time: comparison_time(v).into(),
         fields: json!({"status":v["status"],"context_slot":v["context"]["slot"],"observed":fields}),
     });
     Ok(())
 }
 pub fn analyze(paths: &[String]) -> R<Value> {
+    analyze_inner(paths, false)
+}
+pub fn analyze_with_details(paths: &[String]) -> R<Value> {
+    analyze_inner(paths, true)
+}
+fn analyze_inner(paths: &[String], details: bool) -> R<Value> {
     if paths.is_empty() || paths.len() > MAX_FILES {
         return Err("file_count_limit");
     }
@@ -300,7 +375,7 @@ pub fn analyze(paths: &[String]) -> R<Value> {
         *operations
             .entry(v["operation"].as_str().unwrap().into())
             .or_default() += 1;
-        times.push(v["timestamp_utc"].as_str().unwrap().to_owned());
+        times.push(comparison_time(&v).to_owned());
         if !["success", "not_found"].contains(&status) {
             unavailable += 1;
             continue;
@@ -405,13 +480,24 @@ pub fn analyze(paths: &[String]) -> R<Value> {
             if frequency[&a.time] > 1 || frequency[&b.time] > 1 {
                 comparisons.push(json!({"target":target,"comparable":false,"reason":"same_timestamp","timestamp_utc":a.time}));
             } else {
-                comparisons.push(json!({"target":target,"comparable":true,"from":a.time,"to":b.time,"changed":a.fields!=b.fields,"before":a.fields,"after":b.fields}));
+                let mut comparison = json!({"target":target,"comparable":true,"from":a.time,"to":b.time,"changed":a.fields!=b.fields,"before":a.fields,"after":b.fields});
+                if details {
+                    comparison["temporal"] = temporal_details(
+                        a,
+                        b,
+                        target.ends_with("|observation_completed_at_utc"),
+                        target.contains("|account_lookup|"),
+                    )?;
+                }
+                comparisons.push(comparison);
             }
         }
     }
-    Ok(
-        json!({"analysis_schema_version":"1.0","input_files":paths.len(),"total_reports":count,"duplicates_skipped":duplicates,"success":statuses.get("success").copied().unwrap_or(0),"not_found":statuses.get("not_found").copied().unwrap_or(0),"errors":(["rpc_error","http_error","timeout"].iter().map(|s|statuses.get(*s).copied().unwrap_or(0)).sum::<usize>()),"blocked":statuses.get("blocked").copied().unwrap_or(0),"unverified":statuses.get("unverified").copied().unwrap_or(0),"by_status":statuses,"by_network":networks,"by_operation":operations,"first_observed_utc":times.first(),"last_observed_utc":times.last(),"incomparable_reports":unavailable,"incomparable_reason":"missing_target_or_non_observation_or_history_without_address","comparisons":comparisons}),
-    )
+    let mut result = json!({"analysis_schema_version":"1.0","input_files":paths.len(),"total_reports":count,"duplicates_skipped":duplicates,"success":statuses.get("success").copied().unwrap_or(0),"not_found":statuses.get("not_found").copied().unwrap_or(0),"errors":(["rpc_error","http_error","timeout"].iter().map(|s|statuses.get(*s).copied().unwrap_or(0)).sum::<usize>()),"blocked":statuses.get("blocked").copied().unwrap_or(0),"unverified":statuses.get("unverified").copied().unwrap_or(0),"by_status":statuses,"by_network":networks,"by_operation":operations,"first_observed_utc":times.first(),"last_observed_utc":times.last(),"incomparable_reports":unavailable,"incomparable_reason":"missing_target_or_non_observation_or_history_without_address","comparisons":comparisons});
+    if details {
+        result["temporal_details_version"] = json!("1.0");
+    }
+    Ok(result)
 }
 pub fn render(v: &Value, json_mode: bool) -> R<String> {
     let output = if json_mode {
@@ -463,4 +549,67 @@ pub fn render(v: &Value, json_mode: bool) -> R<String> {
         return Err("output_size_limit");
     }
     Ok(output)
+}
+
+fn timestamp_millis(s: &str) -> R<u64> {
+    if !timestamp(s) {
+        return Err("invalid_timestamp");
+    }
+    let n = |a: usize, b: usize| s[a..b].parse::<u64>().map_err(|_| "invalid_timestamp");
+    let year = n(0, 4)?;
+    let month = n(5, 7)?;
+    let leap = |y: u64| y % 4 == 0 && (y % 100 != 0 || y % 400 == 0);
+    let days_before = |y: u64| {
+        let z = y - 1;
+        365 * z + z / 4 - z / 100 + z / 400
+    };
+    let mut days = days_before(year) - days_before(1970);
+    for m in 1..month {
+        days += match m {
+            1 | 3 | 5 | 7 | 8 | 10 | 12 => 31,
+            4 | 6 | 9 | 11 => 30,
+            2 => {
+                if leap(year) {
+                    29
+                } else {
+                    28
+                }
+            }
+            _ => return Err("invalid_timestamp"),
+        };
+    }
+    days += n(8, 10)? - 1;
+    Ok((((days * 24 + n(11, 13)?) * 60 + n(14, 16)?) * 60 + n(17, 19)?) * 1000 + n(20, 23)?)
+}
+fn temporal_details(a: &Point, b: &Point, observed: bool, account: bool) -> R<Value> {
+    let interval = timestamp_millis(&b.time)?
+        .checked_sub(timestamp_millis(&a.time)?)
+        .ok_or("invalid_time_order")?;
+    let (direction, magnitude) = match (
+        a.fields["context_slot"].as_u64(),
+        b.fields["context_slot"].as_u64(),
+    ) {
+        (Some(x), Some(y)) if y > x => ("increased", Some(y - x)),
+        (Some(x), Some(y)) if y < x => ("decreased", Some(x - y)),
+        (Some(_), Some(_)) => ("unchanged", Some(0)),
+        _ => ("unknown", None),
+    };
+    let presence = |p: &Point| {
+        if !account {
+            "not_applicable"
+        } else {
+            match p.fields["status"].as_str() {
+                Some("not_found") => "absent",
+                Some("success") if p.fields["observed"].is_object() => "present",
+                _ => "unknown",
+            }
+        }
+    };
+    let evidence = |p: &Point| match p.fields["status"].as_str() {
+        Some("success" | "not_found") => "successful_response",
+        _ => "unverified",
+    };
+    Ok(
+        json!({"time_basis":if observed{"observation_completed_at_utc"}else{"timestamp_utc_report_creation"},"interval_ms":interval,"slot_change":{"direction":direction,"magnitude":magnitude},"status_changed":a.fields["status"]!=b.fields["status"],"account_presence_before":presence(a),"account_presence_after":presence(b),"query_outcome_before":evidence(a),"query_outcome_after":evidence(b),"inference":"field_differences_only"}),
+    )
 }

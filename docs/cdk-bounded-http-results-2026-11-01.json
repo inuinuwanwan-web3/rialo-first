@@ -1,0 +1,237 @@
+{
+  "recorded_utc": "2026-11-01T04:45:43.926514+00:00",
+  "assessment": "PASS for offline bounded transport development; DevNet live unverified",
+  "dependency": {
+    "direct_added": "reqwest =0.12.28",
+    "features": [
+      "json",
+      "rustls-tls"
+    ],
+    "default_features": false,
+    "lock_change": "root rialo-first reqwest edge only",
+    "package_versions_checksums_and_other_dependency_tables_unchanged": true,
+    "new_downloads": 0
+  },
+  "body_limits": {
+    "kind": "synthetic official-shape account JSON-RPC envelope, not live measurement",
+    "decoded_data_bytes": 4096,
+    "base64_chars": 5464,
+    "envelope_bytes": 5685,
+    "default_body_limit": 1048576,
+    "max_configurable_body_limit": 8388608
+  },
+  "compression_policy": "Request identity, disable automatic decompression, reject every non-identity Content-Encoding before reading body; no compressed success support",
+  "timeout_defaults_seconds": {
+    "connect": 3,
+    "read": 3,
+    "total": 10
+  },
+  "allowlist": [
+    "getAccountInfo"
+  ],
+  "new_unique_tests_passed": 25,
+  "existing_tests_passed": 22,
+  "final_unique_tests_passed": 47,
+  "unresolved_failures": 0,
+  "execution_history": {
+    "total_executions": 48,
+    "passed_executions": 47,
+    "initial_failed_executions": 1,
+    "reason": "Synchronous test-server thread join blocked runtime connection cleanup after an expected timeout",
+    "fix": "Test fixture drops client and asynchronously awaits closure before join; production transport unchanged",
+    "rerun": "Only the failed test was rerun and passed"
+  },
+  "suites": [
+    {
+      "name": "transport-first",
+      "passed": 24,
+      "failed": 1,
+      "log_sha256": "3bf51d2e323b6b46aa5f1727993b10a9faaae6398f8cfacbfc2ef28b6d26984d",
+      "passed_names": [
+        "bounded_http::tests::cli_transport_flags_are_explicit_and_default_sdk_is_unchanged",
+        "bounded_http::tests::absent_account_reuses_existing_classification",
+        "bounded_http::tests::compressed_expansion_is_prevented_by_rejecting_compressed_responses",
+        "bounded_http::tests::configuration_is_finite_and_public_endpoint_is_fixed",
+        "bounded_http::tests::chunked_exact_limit_is_accepted",
+        "bounded_http::tests::connection_failure_is_not_retried",
+        "bounded_http::tests::forbidden_methods_are_rejected_before_connecting",
+        "bounded_http::tests::invalid_content_length_fails_closed",
+        "bounded_http::tests::http_4xx_and_5xx_are_distinct_from_rpc_errors",
+        "bounded_http::tests::invalid_json_is_not_rpc_success",
+        "bounded_http::tests::json_rpc_error_keeps_only_numeric_code",
+        "bounded_http::tests::normal_small_response_and_wire_request",
+        "bounded_http::tests::no_content_length_is_counted_not_assumed_safe",
+        "bounded_http::tests::oversized_error_body_obeys_the_same_limit",
+        "bounded_http::tests::overstated_length_and_early_eof_is_transport_error",
+        "bounded_http::tests::present_account_report_and_data_match_existing_path",
+        "bounded_http::tests::redirects_are_rejected_and_destination_is_not_contacted",
+        "bounded_http::tests::response_exactly_at_limit_is_accepted",
+        "bounded_http::tests::reading_timeout_cancels_delayed_response",
+        "bounded_http::tests::understated_length_truncating_json_is_rejected",
+        "bounded_http::tests::valid_declared_message_does_not_parse_trailing_connection_bytes",
+        "bounded_http::tests::wrong_id_or_version_and_ambiguous_envelopes_are_rejected",
+        "bounded_http::tests::declared_one_byte_over_limit_is_rejected_before_body_read",
+        "bounded_http::tests::chunked_overflow_actually_closes_before_full_body_is_sent"
+      ],
+      "failed_names": [
+        "bounded_http::tests::total_timeout_stops_a_continuously_trickling_body"
+      ]
+    },
+    {
+      "name": "timeout-fixture-correction",
+      "passed": 1,
+      "failed": 0,
+      "log_sha256": "7881ed90c0a3373b70cea2d596d8552af725a5fd1383c678237c5e3768b58624",
+      "passed_names": [
+        "bounded_http::tests::total_timeout_stops_a_continuously_trickling_body"
+      ]
+    },
+    {
+      "name": "account-unit",
+      "passed": 1,
+      "failed": 0,
+      "passed_names": [
+        "account_readonly::tests::official_request_uses_versioned_address_and_bounded_slice"
+      ],
+      "log_sha256": "e5e3c7bbc57544dfc754ca4a4f62fa973d089623e4bc9ff2f218124274a7fc4f"
+    },
+    {
+      "name": "account-regression",
+      "passed": 12,
+      "failed": 0,
+      "passed_names": [
+        "cli_defaults_to_validation_and_rejects_unsafe_or_duplicate_options",
+        "explicit_null_is_not_found_without_retry",
+        "invalid_input_never_calls_rpc",
+        "invalid_owner_cannot_be_reported_as_verified_metadata",
+        "data_cap_is_enforced_before_and_after_decode",
+        "metadata_and_bounded_data_are_available_without_serializing_payload",
+        "rpc_error_is_classified_and_never_retried",
+        "malformed_base64_and_data_container_are_rejected",
+        "sdk_errors_keep_codes_but_discard_messages_and_bodies",
+        "missing_or_malformed_required_fields_are_not_absence",
+        "unknown_encoding_is_rejected_without_guessing",
+        "timeout_cancels_pending_request_without_retry"
+      ],
+      "log_sha256": "13931dc4ba83626e53ab0138e8c94fbc5ef256accdebe195cf079756df8a4370"
+    },
+    {
+      "name": "status-regression",
+      "passed": 9,
+      "failed": 0,
+      "passed_names": [
+        "cli_rejects_missing_values_unknown_flags_and_repeated_timeout",
+        "cli_defaults_to_validation_and_has_no_endpoint_or_write_options",
+        "count_or_version_mismatch_is_rejected",
+        "rpc_failure_is_not_retried",
+        "wire_slots_typed_errors_and_input_order_are_preserved",
+        "malformed_or_null_results_never_imply_success_or_absence",
+        "invalid_inputs_make_zero_requests",
+        "maximum_batch_uses_one_request",
+        "timeout_cancels_request_without_retry"
+      ],
+      "log_sha256": "ed20d871e2015810e8d87ec34f514c626bbceb6bb24f516911c85a10ffad0184"
+    }
+  ],
+  "cli_smoke": [
+    {
+      "case": "sdk_default",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "case": "bounded_default",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "case": "bounded_custom",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "case": "zero_rejected",
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "case": "limit_without_optin_rejected",
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "case": "help",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    }
+  ],
+  "checks": {
+    "cargo_check_offline_locked": "PASS",
+    "rustfmt": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "network_scope": {
+    "live_devnet_requests": 0,
+    "transport_tests": "127.0.0.1 synthetic servers only; approved execution outside socket-denying sandbox",
+    "regressions_cli_builds": "existing seccomp socket-denial filter",
+    "sandbox_socket_probe": "Denied before any tests; not a test failure"
+  },
+  "preservation": {
+    "changed_existing_files": [
+      "src/lib.rs",
+      "src/account_readonly.rs",
+      "src/bin/devnet_account.rs",
+      "Cargo.toml",
+      "Cargo.lock"
+    ],
+    "sdk_source_and_agp_telegram_files_unchanged": true,
+    "prior_monitor_journal_and_other_changes_preserved": true
+  },
+  "source_sha256": {
+    "Cargo.toml": "ca488e2f1c13afea2374d70d498d84958dff1795ef0154084a88a32d97b38765",
+    "Cargo.lock": "93087d17366157583b524169a69eaecf35e1a6f5e1972fda6adfc87f9ee566cc",
+    "src/lib.rs": "69f2038233f65085403d1032fd95ccc35a18ccb2489c84171bf1034e9c8a831d",
+    "src/account_readonly.rs": "c19a40901b863a9518ba7a3b91a219f7560b358dca276d67533b6d62af94fb4d",
+    "src/bin/devnet_account.rs": "1679a44f63014ecad629458fcf608b0696f1a7668b0e4559cd6295947be62f53",
+    "src/bounded_http.rs": "13759b8f5b7c6d4cced797ef08535f024907ad08986af2de49653215b92303b2",
+    "src/bounded_http/tests.rs": "6fdb352eb749387c74633522f3634de062d7e2e4fb8763055d05c1b334a3e499",
+    "tests/fixtures/http/oversized.json.gz": "1c662dfce717be7719002e7bb25ee3d1e70ef3cec0d2c843c8bee08489ff8594"
+  },
+  "limitations": [
+    "Bound is HTTP-framed body bytes buffered by adapter, not all TCP traffic",
+    "Valid JSON within understated Content-Length can be accepted; trailing connection bytes are not parsed or pooled",
+    "Not a process RSS or JSON-tree allocation limit",
+    "Timeout is not synchronous parser CPU preemption",
+    "Non-identity compressed responses intentionally unsupported",
+    "Live DevNet path and full-server compatibility unverified"
+  ],
+  "github_commit_push": 0,
+  "notion_writes": 0,
+  "service_operations": 0,
+  "signing_or_transaction_sends": 0,
+  "historical_scope": "Original assessment, source hashes, suite counts and zero-operation counters describe the initial offline development; later numeric instrumentation, single live query and publication are recorded separately below.",
+  "final_online_verification": {
+    "assessment": "PASS for bounded Transport interoperability using a not_found response",
+    "result_file": "cdk-bounded-http-online-2026-11-01.json",
+    "rpc_attempts": 1,
+    "automatic_retries": 0,
+    "http_status": 200,
+    "body_bytes": 106,
+    "body_limit": 1048576,
+    "context_slot": 6544974,
+    "present_account_normal_case": "UNVERIFIED"
+  },
+  "numeric_receipt_verification": {
+    "new_test": "bounded_http::tests::numeric_receipt_matches_validated_http_body_without_payload",
+    "passed": 1,
+    "failed": 0,
+    "log_sha256": "004a0a124b3908268bc6c7de412dd8c3140cec1d06dddf68e3a4491b4abbbf53",
+    "existing_tests_rerun": 0,
+    "aggregate_unique_passed_across_steps": 48,
+    "source_sha256": {
+      "src/bounded_http.rs": "9ab7ccef95e938e612a03b1eee95c5d7662b91b84b8926d5823016fc3dd70417",
+      "src/bounded_http/tests.rs": "1a6853829d3761b756859905e2a103497fde5b234b778b63acf59c3a11d867db",
+      "src/bin/devnet_account.rs": "46413ccfad1d76eb7c47053abd6af8758234fbff89408bbf73e7010d57cb8e38"
+    }
+  }
+}

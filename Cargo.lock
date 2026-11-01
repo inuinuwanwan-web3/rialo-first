@@ -3302,6 +3302,7 @@ dependencies = [
  "base64",
  "bincode",
  "ed25519-dalek",
+ "reqwest",
  "rialo-cdk",
  "rialo-s-message",
  "serde",

@@ -1,0 +1,33 @@
+{
+  "started_utc": "2026-11-01T04:57:15.793048+00:00",
+  "rpc": "http://devnet.rialo.io:4100",
+  "method": "getAccountInfo",
+  "transport": "bounded_http",
+  "rpc_attempts": 1,
+  "automatic_retries": 0,
+  "body_limit": 1048576,
+  "exit_code": 0,
+  "result": {
+    "network": "devnet",
+    "rpc": "http://devnet.rialo.io:4100",
+    "report": {
+      "address": "FAyTs54yLpZ4KRHot8dVpJaoJJAibwkfEi9ck3NjHVc6",
+      "context": {
+        "slot": 6544974,
+        "api_version": "0.23.0-alpha.0"
+      },
+      "status": "not_found",
+      "account": null
+    },
+    "http_receipt": {
+      "http_status": 200,
+      "body_bytes": 106,
+      "body_limit": 1048576,
+      "request_id": 1,
+      "jsonrpc_version": "2.0"
+    }
+  },
+  "error": null,
+  "assessment": "PASS",
+  "finished_utc": "2026-11-01T04:57:16.732837+00:00"
+}

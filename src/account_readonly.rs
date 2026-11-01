@@ -25,6 +25,11 @@ pub enum AccountError {
     MalformedResponse,
     UnsupportedEncoding,
     DataLimit,
+    ResponseTooLarge { limit: usize },
+    MethodNotAllowed,
+    InvalidRpcEnvelope,
+    UnsupportedContentEncoding,
+    Redirect { status: u16 },
 }
 impl From<RialoError> for AccountError {
     fn from(error: RialoError) -> Self {
@@ -60,7 +65,7 @@ impl AccountRpc for HttpRpcClient {
             .map_err(AccountError::from)
     }
 }
-fn request_params(address: &Pubkey) -> Value {
+pub(crate) fn request_params(address: &Pubkey) -> Value {
     let config = GetAccountInfoConfig {
         data_slice: Some(DataSliceConfig {
             offset: 0,

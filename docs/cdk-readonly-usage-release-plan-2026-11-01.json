@@ -1,0 +1,320 @@
+{
+  "date": "2026-11-01",
+  "assessment": "PARTIAL",
+  "latest_verified_github_main": "91eb15622884448a32dc21fa697aa9d2f799c8de",
+  "scope": "Finite existing evidence corpus; development validation is not ongoing production usage; no lifetime totals claimed",
+  "usage": {
+    "A": {
+      "scope": "DevNet development validation, not business production",
+      "verified_account_query_calls": 4,
+      "targets_per_call": 1,
+      "query_success_not_found": 4,
+      "unexpected_query_failures_recorded": 0,
+      "existing_account_balance_retrieval_success": 0,
+      "input_request_json_bytes": null,
+      "rpc_body_bytes_known": [
+        106,
+        106,
+        106
+      ],
+      "oldest_rpc_body_bytes": null,
+      "report_stdout_json_bytes": null,
+      "scheduled_interval": null,
+      "latest_observation_interval_ms": 1037,
+      "latest_external_capture_wall_ms": 1044.029,
+      "prior_bounded_capture_seconds": 0.939789,
+      "known_report_generation_gap_ms": 4079207,
+      "gap_scope": "Two report generation times, not acquisition interval/frequency or required SLA",
+      "required_response_time": null
+    },
+    "B": {
+      "scope": "DevNet development validation",
+      "getSignatureStatuses_calls": 1,
+      "signatures_per_call": 1,
+      "successful_query_calls": 1,
+      "failed_query_calls_recorded": 0,
+      "executed_transaction_evidence": 1,
+      "input_request_json_bytes": null,
+      "output_rpc_json_bytes": null,
+      "elapsed_response_time": null,
+      "scheduled_interval": null,
+      "required_response_time": null,
+      "testnet_reference": {
+        "getSignatureStatuses_calls": 1,
+        "signatures": 5,
+        "not_in_devnet_count": true
+      }
+    },
+    "C": {
+      "devnet_getSignaturesForAddress_calls_confirmed": 0,
+      "devnet_use_count": "UNRECORDED; zero found is not proof of never executed",
+      "devnet_feed_getTransactions_reference_calls": 1,
+      "feed_returned_transactions": 1,
+      "feed_is_not_address_history": true,
+      "testnet_references": {
+        "live_validation_history_calls": 2,
+        "live_validation_rows": [
+          2,
+          2
+        ],
+        "bounded_history_calls": 2,
+        "bounded_history_rows": [
+          2,
+          0
+        ],
+        "bounded_batch_coarse_seconds": 2,
+        "timing_note": "integer seconds from saved timestamps, not millisecond latency; not DevNet"
+      },
+      "input_json_wire_bytes": null,
+      "output_json_wire_bytes": null,
+      "execution_interval": null,
+      "required_response_time": null
+    },
+    "D": {
+      "continuous_devnet_monitor_runs": "UNRECORDED",
+      "periodic_frequency": null,
+      "batch_size": null,
+      "response_time": null,
+      "independent_success_failure_counts": null,
+      "alias_note": "Existing DevNet status CLI refers to B; not a second independent RPC execution",
+      "sdk_monitor_note": "Testnet single snapshot is not periodic DevNet monitoring"
+    },
+    "E": {
+      "business_production_runs": "UNRECORDED",
+      "offline_performance_process_executions": 66,
+      "performance_cases": 22,
+      "trials_per_case": 3,
+      "exit0": 21,
+      "expected_exit2": 45,
+      "unexpected_failures": 0,
+      "prior_offline_acceptance_cases": 19,
+      "acceptance_not_reexecuted": true,
+      "scope_note": "No global lifetime call count; unit-test child-process executions not exhaustively counted",
+      "interval": "No recorded business schedule; benchmark repetitions are not operating frequency",
+      "examples": [
+        {
+          "name": "10_reports",
+          "input_files": 10,
+          "input_total_bytes": 2391,
+          "median_wall_seconds": 0.005461,
+          "max_peak_rss_kib": 3212,
+          "output_json_bytes": 8916
+        },
+        {
+          "name": "maximum_64_files_8mib",
+          "input_files": 64,
+          "input_total_bytes": 8388608,
+          "median_wall_seconds": 0.127505,
+          "max_peak_rss_kib": 3892,
+          "output_json_bytes": 58866
+        },
+        {
+          "name": "empty_file",
+          "input_files": 1,
+          "input_total_bytes": 0,
+          "median_wall_seconds": 0.003989,
+          "max_peak_rss_kib": 3072,
+          "output_json_bytes": 55
+        },
+        {
+          "name": "empty_json_object",
+          "input_files": 1,
+          "input_total_bytes": 2,
+          "median_wall_seconds": 0.003458,
+          "max_peak_rss_kib": 3060,
+          "output_json_bytes": 61
+        },
+        {
+          "name": "dense_json_value_under_1mib",
+          "input_files": 1,
+          "input_total_bytes": 800265,
+          "median_wall_seconds": 0.188593,
+          "max_peak_rss_kib": 31972,
+          "output_json_bytes": 753
+        },
+        {
+          "name": "4096_points_output_cap",
+          "input_files": 16,
+          "input_total_bytes": 723271,
+          "median_wall_seconds": 0.613623,
+          "max_peak_rss_kib": 52328,
+          "output_json_bytes": 60
+        }
+      ],
+      "required_response_time": null
+    }
+  },
+  "proposal_comparison": [
+    {
+      "requested": "10 files <=50ms",
+      "classification": "提案値のみ",
+      "debug_reference_ms": 5.461,
+      "release_result": "UNVERIFIED"
+    },
+    {
+      "requested": "64 files8MiB <=500ms",
+      "classification": "提案値のみ",
+      "debug_reference_ms": 127.505,
+      "release_result": "UNVERIFIED"
+    },
+    {
+      "requested": "empty JSON <=1s",
+      "classification": "根拠不足",
+      "correction": "Original1s proposal is for dense800265-byte JSON, not empty JSON",
+      "empty_file_debug_ms": 3.989,
+      "empty_object_debug_ms": 3.458
+    },
+    {
+      "requested": ">4096 <=2s safe rejection",
+      "classification": "根拠不足",
+      "correction": "Original2s proposal is exactly4096 comparison points rejected by output_size_limit; >4096 comparison points is a different point_limit condition; report files max64",
+      "exact4096_debug_ms": 613.623
+    },
+    {
+      "requested": "RSS64MiB",
+      "classification": "提案値のみ",
+      "debug_max_kib": 52328,
+      "scope": "Candidate threshold for selected offline profiles; not whole-process guarantee"
+    }
+  ],
+  "release_plan": {
+    "status": "PROVISIONAL; not executed; operational demand/SLO still unknown",
+    "target": "report_analysis offline aggregation/comparison only",
+    "profile": "release offline locked build, no RPC",
+    "core_profiles": [
+      {
+        "fixture": "10_reports",
+        "input_files": 10,
+        "input_bytes": 2391,
+        "reference_debug_output_bytes": 8916,
+        "trials": 20,
+        "candidate_median_ms": 50,
+        "candidate_rss_kib": 65536,
+        "expected": "success",
+        "status": "PROVISIONAL: workload is synthetic, not actual business demand"
+      },
+      {
+        "fixture": "maximum_64_files_8mib",
+        "input_files": 64,
+        "input_bytes": 8388608,
+        "reference_debug_output_bytes": 58866,
+        "trials": 20,
+        "candidate_median_ms": 500,
+        "candidate_rss_kib": 65536,
+        "expected": "success for padded fixture",
+        "status": "PROVISIONAL: workload is synthetic, not actual business demand"
+      },
+      {
+        "fixture": "dense_json_value_under_1mib",
+        "input_files": 1,
+        "input_bytes": 800265,
+        "reference_debug_output_bytes": 753,
+        "trials": 20,
+        "candidate_median_ms": 1000,
+        "candidate_rss_kib": 65536,
+        "expected": "success",
+        "status": "PROVISIONAL: workload is synthetic, not actual business demand"
+      },
+      {
+        "fixture": "4096_points_output_cap",
+        "input_files": 16,
+        "input_bytes": 723271,
+        "reference_debug_output_bytes": 60,
+        "trials": 20,
+        "candidate_median_ms": 2000,
+        "candidate_rss_kib": 65536,
+        "expected": "output_size_limit",
+        "status": "PROVISIONAL: workload is synthetic, not actual business demand"
+      },
+      {
+        "fixture": "100_reports_rejected",
+        "input_files": 100,
+        "input_bytes": 23992,
+        "reference_debug_output_bytes": 59,
+        "trials": 20,
+        "candidate_median_ms": 100,
+        "candidate_rss_kib": 65536,
+        "expected": "file_count_limit",
+        "status": "PROVISIONAL: workload is synthetic, not actual business demand"
+      },
+      {
+        "fixture": "1000_reports_rejected",
+        "input_files": 1000,
+        "input_bytes": 240893,
+        "reference_debug_output_bytes": 59,
+        "trials": 20,
+        "candidate_median_ms": 100,
+        "candidate_rss_kib": 65536,
+        "expected": "file_count_limit",
+        "status": "PROVISIONAL: workload is synthetic, not actual business demand"
+      }
+    ],
+    "planned_core_executions": 120,
+    "timing": "GNU time peak child RSS KiB plus monotonic wall; startup/guard included; independent processes; warm cache, no cache flushing",
+    "guard": {
+      "address_space_bytes": 268435456,
+      "cpu_seconds": 5,
+      "wall_seconds": 12,
+      "initial_mem_available_kib": 1048576,
+      "stage_mem_available_kib": 524288,
+      "network": "seccomp denied"
+    },
+    "timeout_budget_only_seconds": 1440,
+    "timeout_budget_note": "120x12s configured maximum sum excluding build; not measured duration forecast; stop on first anomaly",
+    "success_criteria": "20/20 expected results and deterministic output per profile; median within candidate limit and all RSS <=65536KiB. All are candidate acceptance criteria, not achieved production SLA.",
+    "p95": "19th sorted value of20 samples reported only",
+    "failure_stop": "Unexpected exit/signal/panic, wrong result, output/privacy violation, memory availability threshold or timeout breach: stop load; retain sanitized evidence; no retries or limit relaxation",
+    "additional_controls": [
+      {
+        "input": "empty file0bytes or object2bytes",
+        "expected": "invalid_json / unsupported_schema",
+        "median_slo_ms": null,
+        "note": "Not substituted for dense1s proposal"
+      },
+      {
+        "input": "4097 comparison points in17 files, <=8MiB",
+        "expected": "point_limit",
+        "json_size": "UNRECORDED until fixture archived; not tested now",
+        "median_slo_ms": null,
+        "note": "Separate from exact4096 output-cap workload"
+      }
+    ],
+    "runner_gap": "Current runner hardcodes debug/3 repeats; minimal binary/repeat parameterization only in next separately authorized implementation",
+    "out_of_scope": [
+      "A-D network performance",
+      "Production service cadence",
+      "Raising64-file limit",
+      "Actual100/1000 report success"
+    ]
+  },
+  "validation": {
+    "passed": 4,
+    "failed": 0,
+    "new_tests_added": 0,
+    "prior_tests_reused_not_repeated": 63,
+    "new_rpc_requests": 0,
+    "logs_sha256": {
+      "usage-validation-0.log": "d7000e2913ecd5e6900c3669d2c7b53ae9ae2f82d2c6c039dbcb778389d2657a",
+      "usage-validation-1.log": "2bfb185e0c7d5dd74f3a65c6fe88ae8175fe9d859953a0c8743cb922b5896db7",
+      "usage-validation-2.log": "13ce4d4d90c59e658e43e04bb91ddd170294e40b02414a3e38c17643ad920894",
+      "usage-validation-3.log": "3d142cf2700c1eb4fca6a067536ba9cef5e26cebcb6db4f2052a5cc3bf04f2c0"
+    }
+  },
+  "source_sha256": {
+    "docs/cdk-readonly-operational-budget-2026-11-01.md": "0dc21884145269349fb804f2d5aca225b5a3a17a977b4814fdfa3da5b8501dea",
+    "docs/cdk-readonly-operational-budget-2026-11-01.json": "3cb7b91614a952e419e4a7bc133c562f9f37e28b0c46676ed579007176488daa",
+    "docs/cdk-readonly-performance-results-2026-11-01.json": "6e8bead126f3ac654a62e4213058a30abc5387905d9b12f5d468c8edde1d05fd",
+    "docs/cdk-devnet-account-results-2026-10-31.json": "d9c5c8dae6d06ff9eb5cfb9ead0984df0f2d326ac8edee2175d3fc33a7c9bdf2",
+    "docs/cdk-bounded-http-online-2026-11-01.json": "6147dc6d2d30ef602f2305513a85488225910d14a924c584fbe8761885bc8f78",
+    "docs/cdk-devnet-status-online-2026-10-30.json": "60dcec22732c9d4be574993a1cc0555b55ebf332bd99adb1ce1cc2791dd4b2de",
+    "docs/phase-7z-live-testnet-results.json": "bc11639856519dc5c0a7e00257d62ea3d95ec893bb77a3dbecedd1bb67610db7",
+    "docs/phase-7z-bounded-history-results.json": "863f67ee4a77527f6a60449d2048734e62ff91a0ed399b0fed8ff2c02dc7537f",
+    "docs/cdk-observation-online-evidence-2026-11-01.json": "c3c238e04e335a391c3129214fd018d548ed51b4058921fdad04d2a5daf9d198"
+  },
+  "production_code_changes": false,
+  "github_notion_writes": 0,
+  "transient_evidence_sha256": {
+    "common_report_capture": "1f74d14c753acb0a8c48d648350deb16701e8549b66eadeee795180320b72f5f",
+    "observation_metadata_capture": "36318a0409df6ea62749e7c2d03894d8422c431f9be85bdbbf2818892c14fa0b"
+  }
+}

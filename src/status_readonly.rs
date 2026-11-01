@@ -35,6 +35,16 @@ pub struct StatusReport {
     pub transactions: Vec<TransactionObservation>,
 }
 
+/// Typed timeout for output adapters; preserves the legacy error text and Result API.
+#[derive(Debug)]
+pub struct StatusTimeout;
+impl std::fmt::Display for StatusTimeout {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "status RPC timeout")
+    }
+}
+impl std::error::Error for StatusTimeout {}
+
 /// Validate before constructing a live client. Duplicates are rejected, not reordered.
 pub fn validate(signatures: &[String], timeout: Duration) -> Result<Vec<Signature>> {
     if !(1..=256).contains(&signatures.len()) {
@@ -94,7 +104,7 @@ pub async fn query(
         })
     })
     .await
-    .map_err(|_| "status RPC timeout")?
+    .map_err(|_| StatusTimeout)?
 }
 
 /// New standalone CLI only; existing monitor and Journal interfaces are unchanged.

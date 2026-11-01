@@ -1,17 +1,21 @@
 //! Testnet-only CLI boundary. Errors never print provider response bodies or input values.
 use super::{MonitorRpc, snapshot, validate_request};
+use crate::readonly_report::{self as common, Failure, Network, Operation, Report, Transport};
 use crate::{Result, TESTNET_RPC};
 use rialo_cdk::{RpcClient, rpc::HttpRpcClient};
 use std::time::Duration;
+use std::time::SystemTime;
 
 #[derive(Debug, PartialEq)]
 pub struct Options {
     address: String,
     tx_ids: Vec<String>,
     timeout: Duration,
+    unified: bool,
 }
 impl Options {
     pub fn parse(args: &[String]) -> Result<Self> {
+        let (args, unified) = common::split_json(args).map_err(|_| "duplicate json option")?;
         let (mut address, mut timeout, mut rpc) = (None, None, None);
         let mut tx_ids = Vec::new();
         let mut iter = args.iter();
@@ -45,6 +49,7 @@ impl Options {
             address,
             tx_ids,
             timeout: timeout.unwrap_or(Duration::from_secs(30)),
+            unified,
         })
     }
 }
@@ -74,6 +79,20 @@ pub async fn execute(options: &Options, rpc: &impl ConfigRpc) -> Output {
     let result = tokio::time::timeout(options.timeout, async {
         let prefix = rpc.config_prefix().await?;
         let snapshot = snapshot(rpc, &options.address, &options.tx_ids, options.timeout).await?;
+        if options.unified {
+            let output = common::finish(
+                Report::monitor(
+                    Network::Testnet,
+                    &snapshot,
+                    Some(prefix),
+                    Transport::Sdk,
+                    SystemTime::now(),
+                ),
+                Network::Testnet,
+                Operation::BalanceStatusSnapshot,
+            );
+            return Ok((output.stdout, if output.failed { 1 } else { 0 }));
+        }
         let mut value = serde_json::to_value(snapshot)?;
         value["network_config_prefix"] = serde_json::json!(prefix);
         value["rpc"] = serde_json::json!(TESTNET_RPC);
@@ -83,17 +102,38 @@ pub async fn execute(options: &Options, rpc: &impl ConfigRpc) -> Output {
                 tx["execution"] = serde_json::json!("Confirmed");
             }
         }
-        Ok::<_, Box<dyn std::error::Error>>(serde_json::to_string_pretty(&value)?)
+        Ok::<_, Box<dyn std::error::Error>>((serde_json::to_string_pretty(&value)?, 0))
     })
     .await;
     match result {
-        Ok(Ok(stdout)) => Output {
-            code: 0,
+        Ok(Ok((stdout, code))) => Output {
+            code,
             stdout,
             stderr: String::new(),
         },
+        Err(_) if options.unified => unified_failure(Failure::timeout()),
+        Ok(Err(error)) if options.unified => unified_failure(Failure::error(error.as_ref())),
         Err(_) => failure("monitor RPC timeout"),
         Ok(Err(_)) => failure("monitor RPC or response error"),
+    }
+}
+fn unified_failure(error: Failure) -> Output {
+    let output = common::finish(
+        Report::failure(
+            Network::Testnet,
+            Operation::BalanceStatusSnapshot,
+            error,
+            Transport::Sdk,
+            true,
+            SystemTime::now(),
+        ),
+        Network::Testnet,
+        Operation::BalanceStatusSnapshot,
+    );
+    Output {
+        code: 1,
+        stdout: output.stdout,
+        stderr: String::new(),
     }
 }
 pub async fn run(options: &Options) -> Output {

@@ -162,6 +162,27 @@ async fn main() {
     let mode = match parse(&std::env::args().skip(1).collect::<Vec<_>>()) {
         Ok(mode) => mode,
         Err(e) => {
+            if std::env::args().nth(1).as_deref() == Some("--testnet-monitor")
+                && std::env::args().any(|a| a == "--json")
+            {
+                use rialo_first::readonly_report::{
+                    self as common, Failure, Network, Operation, Report, Transport,
+                };
+                let output = common::finish(
+                    Report::failure(
+                        Network::Testnet,
+                        Operation::BalanceStatusSnapshot,
+                        Failure::blocked(),
+                        Transport::Sdk,
+                        false,
+                        SystemTime::now(),
+                    ),
+                    Network::Testnet,
+                    Operation::BalanceStatusSnapshot,
+                );
+                println!("{}", output.stdout);
+                std::process::exit(2);
+            }
             if std::env::args().nth(1).as_deref() == Some("--testnet-prepare-transfer") {
                 println!(
                     "Network: Testnet\nRPC: {}\nFrom: UNKNOWN\nTo: UNKNOWN\nAmount: UNKNOWN\nAmount Unit: kelvin\nBalance: UNKNOWN\nBalance Unit: kelvin\nFee Limit: UNKNOWN\nFee Limit Unit: kelvin\nEstimated Fee: UNKNOWN\nValidation Result: PREPARATION BLOCKED\nBlocking Reasons: 入力検証失敗\nSignature Status: NOT EXECUTED\nBroadcast Status: NOT EXECUTED",
@@ -183,7 +204,7 @@ async fn main() {
     }
     if mode == Mode::Help {
         println!(
-            "Testnet Monitor (JSON): --testnet-monitor --address PUBLIC_KEY [--tx-hash BASE58_SIGNATURE] [--timeout-secs 1..30] [--rpc https://testnet.rialo.io/]\nTestnet準備: --testnet-prepare-transfer --from PUBLIC_KEY --to PUBLIC_KEY --amount-kelvin INTEGER --fee-limit-kelvin INTEGER\nTestnet読取: rialo-first --testnet-readonly [--address PUBLIC_KEY]\n準備専用: rialo-first --from PUBLIC_KEY --to PUBLIC_KEY\nRPC確認: rialo-first --rpc-check\n従来DevNet準備は金額固定0.001 RLO。Testnet準備はkelvin整数指定。鍵読取・署名・送信なし。"
+            "Testnet Monitor (JSON): --testnet-monitor --address PUBLIC_KEY [--tx-hash BASE58_SIGNATURE] [--timeout-secs 1..30] [--rpc https://testnet.rialo.io/] [--json]\nTestnet準備: --testnet-prepare-transfer --from PUBLIC_KEY --to PUBLIC_KEY --amount-kelvin INTEGER --fee-limit-kelvin INTEGER\nTestnet読取: rialo-first --testnet-readonly [--address PUBLIC_KEY]\n準備専用: rialo-first --from PUBLIC_KEY --to PUBLIC_KEY\nRPC確認: rialo-first --rpc-check\n従来DevNet準備は金額固定0.001 RLO。Testnet準備はkelvin整数指定。鍵読取・署名・送信なし。"
         );
         return;
     }

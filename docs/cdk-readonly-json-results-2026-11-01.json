@@ -1,0 +1,278 @@
+{
+  "recorded_utc": "2026-11-01T05:22:25.228251+00:00",
+  "assessment": "PASS for selected offline READ ONLY report adapters and opt-in CLIs; new-format live validation unverified",
+  "schema_version": "1.0",
+  "targets": {
+    "cli": [
+      "Testnet balance/status monitor",
+      "DevNet transaction status",
+      "DevNet account lookup (SDK and bounded HTTP)"
+    ],
+    "library_only": [
+      "history page",
+      "history batch",
+      "transaction detail"
+    ],
+    "unchanged_out_of_scope": [
+      "legacy human rpc-check/testnet-readonly/preparation",
+      "diagnostic examples",
+      "offline Journal CLI"
+    ]
+  },
+  "limits": {
+    "serialized_json_bytes": 1048576,
+    "list_entries": 256,
+    "truncated_history_cursor": "null",
+    "not_a_process_or_http_receive_memory_bound": true
+  },
+  "tests": {
+    "new_unique_passed": 23,
+    "existing_unique_passed": 45,
+    "total_unique_passed": 68,
+    "failed": 0,
+    "total_executions": 73,
+    "targeted_repeat_executions": 5,
+    "suites": [
+      {
+        "name": "new-library",
+        "target": "lib",
+        "passed": 16,
+        "failed": 0,
+        "tests": [
+          "readonly_report::tests::account_projection_omits_provider_strings_and_raw_data",
+          "readonly_report::tests::balance_snapshot_does_not_relabel_height_as_context_slot",
+          "readonly_report::tests::empty_history_and_batch_have_no_false_absence_or_snapshot_claim",
+          "readonly_report::tests::json_flag_is_opt_in_and_duplicates_are_blocked",
+          "readonly_report::tests::all_error_states_preserve_only_codes_and_fixed_reasons",
+          "readonly_report::tests::invalid_public_fields_and_inconsistent_absence_fail_closed",
+          "readonly_report::tests::not_found_is_a_completed_query_with_null_account_not_transport_failure",
+          "readonly_report::tests::utc_handles_epoch_leap_centuries_and_rejects_unrepresentable_time",
+          "readonly_report::tests::schema_network_operation_and_utc_are_machine_readable",
+          "readonly_report::tests::unverified_never_claims_an_executed_query_or_online_pass",
+          "readonly_report::tests::status_adapter_preserves_individual_slots_and_context_separately",
+          "readonly_report::tests::unified_monitor_errors_remain_machine_readable_and_redacted",
+          "readonly_report::tests::transaction_detail_drops_message_logs_and_arbitrary_metadata",
+          "readonly_report::tests::unified_monitor_reuses_rpc_count_and_keeps_legacy_output",
+          "readonly_report::tests::entry_limit_is_explicit_and_suppresses_unsafe_resume_cursor",
+          "readonly_report::tests::writer_exact_boundary_and_one_byte_over_never_emit_partial_json"
+        ],
+        "log_sha256": "b0c775345b4015e47bbc9d7b3fad95631fe2eac100395c37f3ed9d476a6453a4"
+      },
+      {
+        "name": "new-cli",
+        "target": "test:readonly_report_cli",
+        "passed": 5,
+        "failed": 0,
+        "tests": [
+          "account_legacy_sdk_and_bounded_dry_outputs_are_preserved",
+          "account_json_mode_never_claims_dry_run_success",
+          "status_json_and_legacy_outputs_are_separate",
+          "status_and_monitor_parse_errors_are_json_without_rpc",
+          "account_invalid_inputs_and_duplicate_json_are_sanitized_json"
+        ],
+        "log_sha256": "3804346eb7078adffd81e310b966a5f904bc9c7a12f04fa918a28c9863051be8"
+      },
+      {
+        "name": "review-monitor",
+        "target": "lib",
+        "passed": 2,
+        "failed": 0,
+        "tests": [
+          "readonly_report::tests::unified_monitor_errors_remain_machine_readable_and_redacted",
+          "readonly_report::tests::unified_monitor_reuses_rpc_count_and_keeps_legacy_output"
+        ],
+        "log_sha256": "80f54af0d782d068fc9e9a8846b2587246d37f2c1215c8bfaf795b69caaaa650"
+      },
+      {
+        "name": "review-height",
+        "target": "lib",
+        "passed": 1,
+        "failed": 0,
+        "tests": [
+          "readonly_report::tests::balance_snapshot_does_not_relabel_height_as_context_slot"
+        ],
+        "log_sha256": "445dab76af1d89b021ef0d31ff5e0a6265961bc2b88012a3c30f62d4608a8a12"
+      },
+      {
+        "name": "review-status",
+        "target": "lib",
+        "passed": 1,
+        "failed": 0,
+        "tests": [
+          "readonly_report::tests::status_adapter_preserves_individual_slots_and_context_separately"
+        ],
+        "log_sha256": "ec7464215d3547d6dd16c541eec81c3726362fa4e3e526f9f89f56f97463a294"
+      },
+      {
+        "name": "legacy-monitor",
+        "target": "lib",
+        "passed": 12,
+        "failed": 0,
+        "tests": [
+          "monitor::cli::tests::invalid_address",
+          "monitor::cli::tests::invalid_tx",
+          "monitor::cli::tests::error_exit_code_redacted_json",
+          "monitor::cli::tests::height_and_config_json",
+          "monitor::cli::tests::rpc_and_options_validation",
+          "monitor::cli::tests::normal_balance",
+          "monitor::cli::tests::tx_absent_unknown",
+          "monitor::cli::tests::tx_confirmed",
+          "monitor::cli::tests::tx_failed",
+          "monitor::cli::tests::zero_balance",
+          "monitor::cli::tests::tx_unexecuted_unknown",
+          "monitor::cli::tests::timeout_exit_code"
+        ],
+        "log_sha256": "0e931ae6883eb21d1c215bd37e115da3552bd8e718638afddafce69c654fa585"
+      },
+      {
+        "name": "legacy-account-unit",
+        "target": "lib",
+        "passed": 1,
+        "failed": 0,
+        "tests": [
+          "account_readonly::tests::official_request_uses_versioned_address_and_bounded_slice"
+        ],
+        "log_sha256": "38d984ed0524d67b2feba0f5a42a5b624d369d5672ae38816d094502a1fe8870"
+      },
+      {
+        "name": "legacy-account",
+        "target": "test:account_readonly",
+        "passed": 12,
+        "failed": 0,
+        "tests": [
+          "cli_defaults_to_validation_and_rejects_unsafe_or_duplicate_options",
+          "invalid_input_never_calls_rpc",
+          "explicit_null_is_not_found_without_retry",
+          "data_cap_is_enforced_before_and_after_decode",
+          "invalid_owner_cannot_be_reported_as_verified_metadata",
+          "metadata_and_bounded_data_are_available_without_serializing_payload",
+          "malformed_base64_and_data_container_are_rejected",
+          "sdk_errors_keep_codes_but_discard_messages_and_bodies",
+          "rpc_error_is_classified_and_never_retried",
+          "missing_or_malformed_required_fields_are_not_absence",
+          "unknown_encoding_is_rejected_without_guessing",
+          "timeout_cancels_pending_request_without_retry"
+        ],
+        "log_sha256": "029e75968ca06a6488df48fe459053df301975c4a206323f0dd75c1d19c60b14"
+      },
+      {
+        "name": "legacy-status",
+        "target": "test:status_readonly",
+        "passed": 9,
+        "failed": 0,
+        "tests": [
+          "cli_defaults_to_validation_and_has_no_endpoint_or_write_options",
+          "cli_rejects_missing_values_unknown_flags_and_repeated_timeout",
+          "count_or_version_mismatch_is_rejected",
+          "rpc_failure_is_not_retried",
+          "wire_slots_typed_errors_and_input_order_are_preserved",
+          "malformed_or_null_results_never_imply_success_or_absence",
+          "invalid_inputs_make_zero_requests",
+          "maximum_batch_uses_one_request",
+          "timeout_cancels_request_without_retry"
+        ],
+        "log_sha256": "59193928d0f1ad8047158dae188442e904b8dbb6681df900cfe6ca63a05afc87"
+      },
+      {
+        "name": "legacy-phase7z",
+        "target": "test:phase_7z_monitor",
+        "passed": 11,
+        "failed": 0,
+        "tests": [
+          "nonempty_history_preserves_provider_order_and_fields",
+          "pagination_deduplicates_boundary_and_finishes",
+          "invalid_inputs_do_not_call_rpc",
+          "budget_retains_cursor_and_short_page_terminates",
+          "typed_history_transaction_error_is_preserved",
+          "conflicts_and_cursor_cycles_are_errors",
+          "details_preserve_error_and_height",
+          "missing_and_incomplete_details_do_not_imply_success",
+          "cli_json_and_errors_reuse_existing_monitor",
+          "synthetic_sdk_shapes_and_status_reasons",
+          "rpc_errors_timeouts_and_empty_history"
+        ],
+        "log_sha256": "0a60ac8c0673e52cd1adc9ab795ceddb9b3a4b79d534d512b2575bc73fcc2151"
+      },
+      {
+        "name": "typed-timeout",
+        "target": "lib",
+        "passed": 1,
+        "failed": 0,
+        "tests": [
+          "readonly_report::tests::status_timeout_is_typed_without_parsing_provider_messages"
+        ],
+        "log_sha256": "e6ebc4177bbe9e2966f378f4f59b47f1a0e9b6b083aa31d97147a9f54dd21eb5"
+      },
+      {
+        "name": "query-vs-execution",
+        "target": "lib",
+        "passed": 1,
+        "failed": 0,
+        "tests": [
+          "readonly_report::tests::query_success_is_separate_from_transaction_execution_failure"
+        ],
+        "log_sha256": "cadee85e57408dbc068211f7fcd2dff2a9ce04293fe2c37906ac657e7690a02e"
+      },
+      {
+        "name": "status-timeout-regression",
+        "target": "test:status_readonly",
+        "passed": 1,
+        "failed": 0,
+        "tests": [
+          "timeout_cancels_request_without_retry"
+        ],
+        "log_sha256": "6f106d663fb0f5efe2a92a4bf6637fc03830b7c9d2236071524ca4563e859e2a"
+      }
+    ]
+  },
+  "isolation": {
+    "network_block": "inherited existing Linux seccomp with IPv4/IPv6/Unix socket-creation EPERM probes",
+    "all_builds_tests_and_cli_subprocesses_filtered": true,
+    "dedicated_home_tmp": true,
+    "cargo_offline_locked": true
+  },
+  "preservation": {
+    "changed_existing_files": [
+      "src/bin/devnet_account.rs",
+      "src/bin/devnet_status.rs",
+      "src/lib.rs",
+      "src/main.rs",
+      "src/monitor/cli.rs",
+      "src/status_readonly.rs"
+    ],
+    "bounded_http_transport_unchanged": true,
+    "account_query_unchanged": true,
+    "cargo_toml_and_lock_unchanged": true,
+    "agp_service_files_unchanged": 68,
+    "sdk_rust_files_unchanged": 69,
+    "prior_uncommitted_work_preserved": true
+  },
+  "source_sha256": {
+    "src/readonly_report.rs": "62873b00a197f9d1b73bf8ef39f6125b7a6f75398da0d2d91a6bc84b195be078",
+    "src/readonly_report/tests.rs": "a87edcaa358e5451f7f35b4ce55a7e80924961e73c4b64be2d23bdb4ca08d242",
+    "tests/readonly_report_cli.rs": "a2906ba7ae586263d4ff63f17c0c44527529607ca24e1e7753336028646156df",
+    "src/lib.rs": "0d4e47368d9276f2efaa084004a80639ea1f8a89f66db86b5cd84dfff7937496",
+    "src/main.rs": "3e23bca1a79c8b6e5dfc26b20da5c2d3c6c1cf663c952c3b2ade12191cb6c64b",
+    "src/monitor/cli.rs": "0694317cd3577f281d4622e604d58377a29c90643a82a7d7919c1c013d0e1288",
+    "src/bin/devnet_account.rs": "d58ab6980db51ce8b7fc27a1f039188e4ff46328711e0eba8e11d90f786cea6e",
+    "src/bin/devnet_status.rs": "b58d055bcd5e305abd42d50d325ca0cf1835d972217b4181889167c5a3eb8b5b",
+    "src/status_readonly.rs": "f9b94de6d39ef204661603087740916821e3bf987d2477420f557cc19324ffc7"
+  },
+  "checks": {
+    "rustfmt": "PASS",
+    "git_diff_check": "PASS",
+    "cargo_check_offline_locked": "PASS"
+  },
+  "unverified": [
+    "New-format live DevNet/Testnet execution",
+    "Human/diagnostic CLI formats outside selected scope",
+    "Process RSS/JSON tree/HTTP body caps for unchanged SDK path",
+    "Prior live present-account metadata remains unverified"
+  ],
+  "new_dependencies": 0,
+  "devnet_requests": 0,
+  "service_operations": 0,
+  "signing_or_transaction_sends": 0,
+  "github_commit_push": 0,
+  "notion_writes": 0
+}

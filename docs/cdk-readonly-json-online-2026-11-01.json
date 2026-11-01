@@ -1,0 +1,68 @@
+{
+  "verification_date": "2026-11-01",
+  "assessment": "PASS",
+  "scope": "Common JSON conversion of one bounded DevNet getAccountInfo not_found response",
+  "source_implementation_commit": "03911e9b18ee16e7b9cf15456d12b6e24016572e",
+  "rpc": "http://devnet.rialo.io:4100",
+  "method": "getAccountInfo",
+  "rpc_requests": 1,
+  "automatic_retries": 0,
+  "timeout_seconds": 10,
+  "http_body_limit_bytes": 1048576,
+  "http_status": 200,
+  "http_body_bytes": 106,
+  "jsonrpc_version": "2.0",
+  "request_id": 1,
+  "rpc_id_consistency": "PASS (validated by bounded transport before receipt)",
+  "rpc_result": "success; account absent",
+  "common_json": {
+    "schema_version": "1.0",
+    "network": "devnet",
+    "operation": "account_lookup",
+    "timestamp_utc": "2026-11-01T05:59:48.109Z",
+    "status": "not_found",
+    "context": {
+      "slot": 6568878
+    },
+    "error": null,
+    "transport": "bounded_http",
+    "query_attempted": true,
+    "verification": "not_asserted"
+  },
+  "data_summary": {
+    "account": null,
+    "public_address_provenance": "Previously successful bounded DevNet query; address omitted from publication as unnecessary"
+  },
+  "json_validation": {
+    "required_fields": true,
+    "schema": true,
+    "network": true,
+    "operation": true,
+    "utc": true,
+    "context_slot": true,
+    "status": true,
+    "error_null": true,
+    "http_200": true,
+    "rpc_version": true,
+    "body_limit": true,
+    "bounded": true,
+    "attempted": true,
+    "data_consistent": true
+  },
+  "cli_exit_code": 0,
+  "cli_stderr_bytes": 0,
+  "offline_tests": {
+    "new_passed": 23,
+    "existing_passed": 45,
+    "total_passed": 68,
+    "failed": 0,
+    "rerun_for_recording": false
+  },
+  "additional_rpc_for_recording": 0,
+  "unverified": [
+    "Live present-account Owner/Executable/Data",
+    "Other query types online conversion",
+    "Live oversized responses; process-wide memory limit"
+  ],
+  "agp_changes": false
+}

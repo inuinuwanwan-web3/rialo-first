@@ -1,0 +1,1111 @@
+{
+  "date": "2026-11-01",
+  "assessment": "PARTIAL",
+  "reason": "Supported-bound workloads and all negative tests passed; 100/1000 report processing is outside max64 and was rejected, not benchmarked as successful processing. Near-OOM testing intentionally not performed.",
+  "environment": {
+    "os": "Linux",
+    "architecture": "x86_64",
+    "memory_initial_kib": {
+      "MemTotal": 8051344,
+      "MemAvailable": 6645672
+    },
+    "memory_final_kib": {
+      "MemTotal": 8051344,
+      "MemAvailable": 6547208
+    },
+    "cgroup_memory_limit": "UNVERIFIED: cgroup memory.max/current files unavailable",
+    "binary_profile": "dev debug build",
+    "binary_sha256": "4051e8546a17ac48f9d54f4e43ed296d1daf750ccf423df31492341665318e77"
+  },
+  "safety": {
+    "child_address_space_limit_bytes": 268435456,
+    "cpu_seconds_limit": 5,
+    "wall_timeout_seconds": 12,
+    "core_dump_limit": 0,
+    "minimum_initial_mem_available_kib": 1048576,
+    "minimum_stage_mem_available_kib": 524288,
+    "network": "Inherited Linux seccomp; no RPC/HTTP; all synthetic local data"
+  },
+  "method": "GNU time peak RSS of CLI child only (KiB); Python wall time includes process launch/guard; 3 independent executions per case, deterministic output hashes compared",
+  "cases": [
+    {
+      "name": "10_reports",
+      "input_files": 10,
+      "input_total_bytes": 2391,
+      "expected_exit": 0,
+      "expected_reason": null,
+      "trials": [
+        {
+          "wall_seconds": 0.006517,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3084,
+          "exit_code": 0,
+          "output_bytes": 8916,
+          "output_sha256": "26082b0e0e3f4c2494499e452dfd181e5364573bbeafb18b02859d25c50ced10",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.005383,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3212,
+          "exit_code": 0,
+          "output_bytes": 8916,
+          "output_sha256": "26082b0e0e3f4c2494499e452dfd181e5364573bbeafb18b02859d25c50ced10",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.005461,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3192,
+          "exit_code": 0,
+          "output_bytes": 8916,
+          "output_sha256": "26082b0e0e3f4c2494499e452dfd181e5364573bbeafb18b02859d25c50ced10",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.005461,
+      "max_peak_rss_kib": 3212,
+      "output_reproducible": true,
+      "accepted_unique_reports": 10,
+      "duplicate_reports": 0,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "100_reports_rejected",
+      "input_files": 100,
+      "input_total_bytes": 23992,
+      "expected_exit": 2,
+      "expected_reason": "file_count_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.003795,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3076,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003289,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3028,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.00334,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3028,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.00334,
+      "max_peak_rss_kib": 3076,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "1000_reports_rejected",
+      "input_files": 1000,
+      "input_total_bytes": 240893,
+      "expected_exit": 2,
+      "expected_reason": "file_count_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.004445,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3272,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003899,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3220,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003837,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3148,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003899,
+      "max_peak_rss_kib": 3272,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "maximum_64_files_8mib",
+      "input_files": 64,
+      "input_total_bytes": 8388608,
+      "expected_exit": 0,
+      "expected_reason": null,
+      "trials": [
+        {
+          "wall_seconds": 0.12781,
+          "gnu_time_seconds": 0.12,
+          "peak_rss_kib": 3848,
+          "exit_code": 0,
+          "output_bytes": 58866,
+          "output_sha256": "2f6fe64baaa7be0ca60558d86fdb7bf485a39c08ec6df723fe4e3c9584110a98",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.126672,
+          "gnu_time_seconds": 0.12,
+          "peak_rss_kib": 3856,
+          "exit_code": 0,
+          "output_bytes": 58866,
+          "output_sha256": "2f6fe64baaa7be0ca60558d86fdb7bf485a39c08ec6df723fe4e3c9584110a98",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.127505,
+          "gnu_time_seconds": 0.12,
+          "peak_rss_kib": 3892,
+          "exit_code": 0,
+          "output_bytes": 58866,
+          "output_sha256": "2f6fe64baaa7be0ca60558d86fdb7bf485a39c08ec6df723fe4e3c9584110a98",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.127505,
+      "max_peak_rss_kib": 3892,
+      "output_reproducible": true,
+      "accepted_unique_reports": 64,
+      "duplicate_reports": 0,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "exact_single_1mib",
+      "input_files": 1,
+      "input_total_bytes": 1048576,
+      "expected_exit": 0,
+      "expected_reason": null,
+      "trials": [
+        {
+          "wall_seconds": 0.018465,
+          "gnu_time_seconds": 0.01,
+          "peak_rss_kib": 4040,
+          "exit_code": 0,
+          "output_bytes": 753,
+          "output_sha256": "632536a59fd4f133667f138794f32df752e0c1f97f7c59787ab7e9a0e0de5a1b",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.018968,
+          "gnu_time_seconds": 0.01,
+          "peak_rss_kib": 3972,
+          "exit_code": 0,
+          "output_bytes": 753,
+          "output_sha256": "632536a59fd4f133667f138794f32df752e0c1f97f7c59787ab7e9a0e0de5a1b",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.018362,
+          "gnu_time_seconds": 0.01,
+          "peak_rss_kib": 4012,
+          "exit_code": 0,
+          "output_bytes": 753,
+          "output_sha256": "632536a59fd4f133667f138794f32df752e0c1f97f7c59787ab7e9a0e0de5a1b",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.018465,
+      "max_peak_rss_kib": 4040,
+      "output_reproducible": true,
+      "accepted_unique_reports": 1,
+      "duplicate_reports": 0,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "empty_file",
+      "input_files": 1,
+      "input_total_bytes": 0,
+      "expected_exit": 2,
+      "expected_reason": "invalid_json",
+      "trials": [
+        {
+          "wall_seconds": 0.004064,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3040,
+          "exit_code": 2,
+          "output_bytes": 55,
+          "output_sha256": "8b95ae383ec55472679856c8a03a100c65beb6143c3c6b339ace1e480e605b04",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003989,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3012,
+          "exit_code": 2,
+          "output_bytes": 55,
+          "output_sha256": "8b95ae383ec55472679856c8a03a100c65beb6143c3c6b339ace1e480e605b04",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003553,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3072,
+          "exit_code": 2,
+          "output_bytes": 55,
+          "output_sha256": "8b95ae383ec55472679856c8a03a100c65beb6143c3c6b339ace1e480e605b04",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003989,
+      "max_peak_rss_kib": 3072,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "empty_json_object",
+      "input_files": 1,
+      "input_total_bytes": 2,
+      "expected_exit": 2,
+      "expected_reason": "unsupported_schema",
+      "trials": [
+        {
+          "wall_seconds": 0.003439,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3060,
+          "exit_code": 2,
+          "output_bytes": 61,
+          "output_sha256": "72306cca3f5e69c568c7bcb14e3aabd0ec718517d1aaad79cce8a455f6a78ec2",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003458,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3048,
+          "exit_code": 2,
+          "output_bytes": 61,
+          "output_sha256": "72306cca3f5e69c568c7bcb14e3aabd0ec718517d1aaad79cce8a455f6a78ec2",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003688,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3008,
+          "exit_code": 2,
+          "output_bytes": 61,
+          "output_sha256": "72306cca3f5e69c568c7bcb14e3aabd0ec718517d1aaad79cce8a455f6a78ec2",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003458,
+      "max_peak_rss_kib": 3060,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "malformed_json",
+      "input_files": 1,
+      "input_total_bytes": 1,
+      "expected_exit": 2,
+      "expected_reason": "invalid_json",
+      "trials": [
+        {
+          "wall_seconds": 0.003722,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3096,
+          "exit_code": 2,
+          "output_bytes": 55,
+          "output_sha256": "8b95ae383ec55472679856c8a03a100c65beb6143c3c6b339ace1e480e605b04",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003582,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2992,
+          "exit_code": 2,
+          "output_bytes": 55,
+          "output_sha256": "8b95ae383ec55472679856c8a03a100c65beb6143c3c6b339ace1e480e605b04",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003798,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3124,
+          "exit_code": 2,
+          "output_bytes": 55,
+          "output_sha256": "8b95ae383ec55472679856c8a03a100c65beb6143c3c6b339ace1e480e605b04",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003722,
+      "max_peak_rss_kib": 3124,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "missing_context",
+      "input_files": 1,
+      "input_total_bytes": 218,
+      "expected_exit": 2,
+      "expected_reason": "missing_fields",
+      "trials": [
+        {
+          "wall_seconds": 0.003571,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2988,
+          "exit_code": 2,
+          "output_bytes": 57,
+          "output_sha256": "f790389fa9cbc20bb2b52bdac8ea5ccaf7b0f2d23d085685a1f496472d558f3a",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003646,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3144,
+          "exit_code": 2,
+          "output_bytes": 57,
+          "output_sha256": "f790389fa9cbc20bb2b52bdac8ea5ccaf7b0f2d23d085685a1f496472d558f3a",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003449,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2920,
+          "exit_code": 2,
+          "output_bytes": 57,
+          "output_sha256": "f790389fa9cbc20bb2b52bdac8ea5ccaf7b0f2d23d085685a1f496472d558f3a",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003571,
+      "max_peak_rss_kib": 3144,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "per_file_1mib_plus_one",
+      "input_files": 1,
+      "input_total_bytes": 1048577,
+      "expected_exit": 2,
+      "expected_reason": "file_size_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.003767,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2952,
+          "exit_code": 2,
+          "output_bytes": 58,
+          "output_sha256": "fc98f5d2d722731d16c0dfc3c4425d532378b81c8a7a05e2e3a785e4a151b7b2",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003427,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3104,
+          "exit_code": 2,
+          "output_bytes": 58,
+          "output_sha256": "fc98f5d2d722731d16c0dfc3c4425d532378b81c8a7a05e2e3a785e4a151b7b2",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003422,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3044,
+          "exit_code": 2,
+          "output_bytes": 58,
+          "output_sha256": "fc98f5d2d722731d16c0dfc3c4425d532378b81c8a7a05e2e3a785e4a151b7b2",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003427,
+      "max_peak_rss_kib": 3104,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "65_files",
+      "input_files": 65,
+      "input_total_bytes": 15535,
+      "expected_exit": 2,
+      "expected_reason": "file_count_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.003854,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3060,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003614,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3020,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003486,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3124,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003614,
+      "max_peak_rss_kib": 3124,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "total_over_8mib",
+      "input_files": 65,
+      "input_total_bytes": 8519680,
+      "expected_exit": 2,
+      "expected_reason": "file_count_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.003587,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3016,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003756,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3104,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003508,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2840,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8913fe6ff6babb49a1479100268f25dda94acbf2a8df0fe2147aa1632dded7ac",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003587,
+      "max_peak_rss_kib": 3104,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "total_9mib_9files",
+      "input_files": 9,
+      "input_total_bytes": 9437184,
+      "expected_exit": 2,
+      "expected_reason": "total_size_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.116403,
+          "gnu_time_seconds": 0.11,
+          "peak_rss_kib": 5172,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8c83f1a1cb367424e58b01e8809c460fe25ed3a74dbee3e7feb9bf3a761c3f9c",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.114702,
+          "gnu_time_seconds": 0.11,
+          "peak_rss_kib": 5048,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8c83f1a1cb367424e58b01e8809c460fe25ed3a74dbee3e7feb9bf3a761c3f9c",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.116301,
+          "gnu_time_seconds": 0.11,
+          "peak_rss_kib": 5020,
+          "exit_code": 2,
+          "output_bytes": 59,
+          "output_sha256": "8c83f1a1cb367424e58b01e8809c460fe25ed3a74dbee3e7feb9bf3a761c3f9c",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.116301,
+      "max_peak_rss_kib": 5172,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "duplicates",
+      "input_files": 10,
+      "input_total_bytes": 2390,
+      "expected_exit": 0,
+      "expected_reason": null,
+      "trials": [
+        {
+          "wall_seconds": 0.004924,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3076,
+          "exit_code": 0,
+          "output_bytes": 754,
+          "output_sha256": "78ef69b234bc849568dda499adcae01ae16e694d0548c0fe75f71dc294b92f4b",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.004337,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2952,
+          "exit_code": 0,
+          "output_bytes": 754,
+          "output_sha256": "78ef69b234bc849568dda499adcae01ae16e694d0548c0fe75f71dc294b92f4b",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.004412,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3060,
+          "exit_code": 0,
+          "output_bytes": 754,
+          "output_sha256": "78ef69b234bc849568dda499adcae01ae16e694d0548c0fe75f71dc294b92f4b",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.004412,
+      "max_peak_rss_kib": 3076,
+      "output_reproducible": true,
+      "accepted_unique_reports": 1,
+      "duplicate_reports": 9,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "invalid_timestamp",
+      "input_files": 1,
+      "input_total_bytes": 239,
+      "expected_exit": 2,
+      "expected_reason": "invalid_timestamp",
+      "trials": [
+        {
+          "wall_seconds": 0.003591,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3000,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "952f73083038aa96ce210bdb9e426459c0c12a61ab07190bdd3dcbb96e9ce87d",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003496,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2952,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "952f73083038aa96ce210bdb9e426459c0c12a61ab07190bdd3dcbb96e9ce87d",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003426,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2952,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "952f73083038aa96ce210bdb9e426459c0c12a61ab07190bdd3dcbb96e9ce87d",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003496,
+      "max_peak_rss_kib": 3000,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "reversed_order",
+      "input_files": 10,
+      "input_total_bytes": 2391,
+      "expected_exit": 0,
+      "expected_reason": null,
+      "trials": [
+        {
+          "wall_seconds": 0.006128,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3220,
+          "exit_code": 0,
+          "output_bytes": 8916,
+          "output_sha256": "26082b0e0e3f4c2494499e452dfd181e5364573bbeafb18b02859d25c50ced10",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.005979,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3212,
+          "exit_code": 0,
+          "output_bytes": 8916,
+          "output_sha256": "26082b0e0e3f4c2494499e452dfd181e5364573bbeafb18b02859d25c50ced10",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.00581,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3244,
+          "exit_code": 0,
+          "output_bytes": 8916,
+          "output_sha256": "26082b0e0e3f4c2494499e452dfd181e5364573bbeafb18b02859d25c50ced10",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.005979,
+      "max_peak_rss_kib": 3244,
+      "output_reproducible": true,
+      "accepted_unique_reports": 10,
+      "duplicate_reports": 0,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "different_accounts",
+      "input_files": 2,
+      "input_total_bytes": 489,
+      "expected_exit": 0,
+      "expected_reason": null,
+      "trials": [
+        {
+          "wall_seconds": 0.003811,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3064,
+          "exit_code": 0,
+          "output_bytes": 915,
+          "output_sha256": "4f9421e509224ccc3acb6706415bd754c38421a7bad1773cec8b02f221a699ae",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003973,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3088,
+          "exit_code": 0,
+          "output_bytes": 915,
+          "output_sha256": "4f9421e509224ccc3acb6706415bd754c38421a7bad1773cec8b02f221a699ae",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003949,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3092,
+          "exit_code": 0,
+          "output_bytes": 915,
+          "output_sha256": "4f9421e509224ccc3acb6706415bd754c38421a7bad1773cec8b02f221a699ae",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003949,
+      "max_peak_rss_kib": 3092,
+      "output_reproducible": true,
+      "accepted_unique_reports": 2,
+      "duplicate_reports": 0,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "dense_json_value_under_1mib",
+      "input_files": 1,
+      "input_total_bytes": 800265,
+      "expected_exit": 0,
+      "expected_reason": null,
+      "trials": [
+        {
+          "wall_seconds": 0.191659,
+          "gnu_time_seconds": 0.18,
+          "peak_rss_kib": 31972,
+          "exit_code": 0,
+          "output_bytes": 753,
+          "output_sha256": "632536a59fd4f133667f138794f32df752e0c1f97f7c59787ab7e9a0e0de5a1b",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.188593,
+          "gnu_time_seconds": 0.18,
+          "peak_rss_kib": 31896,
+          "exit_code": 0,
+          "output_bytes": 753,
+          "output_sha256": "632536a59fd4f133667f138794f32df752e0c1f97f7c59787ab7e9a0e0de5a1b",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.185543,
+          "gnu_time_seconds": 0.18,
+          "peak_rss_kib": 31880,
+          "exit_code": 0,
+          "output_bytes": 753,
+          "output_sha256": "632536a59fd4f133667f138794f32df752e0c1f97f7c59787ab7e9a0e0de5a1b",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.188593,
+      "max_peak_rss_kib": 31972,
+      "output_reproducible": true,
+      "accepted_unique_reports": 1,
+      "duplicate_reports": 0,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "excessive_nesting",
+      "input_files": 1,
+      "input_total_bytes": 328,
+      "expected_exit": 2,
+      "expected_reason": "nesting_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.004056,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3080,
+          "exit_code": 2,
+          "output_bytes": 56,
+          "output_sha256": "37f30fd38b01c7f80822716ac6a7c777c47f0f37e81b947a6e73fe292eae6cc0",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003794,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3092,
+          "exit_code": 2,
+          "output_bytes": 56,
+          "output_sha256": "37f30fd38b01c7f80822716ac6a7c777c47f0f37e81b947a6e73fe292eae6cc0",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.00389,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2952,
+          "exit_code": 2,
+          "output_bytes": 56,
+          "output_sha256": "37f30fd38b01c7f80822716ac6a7c777c47f0f37e81b947a6e73fe292eae6cc0",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.00389,
+      "max_peak_rss_kib": 3092,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "oversized_integer",
+      "input_files": 1,
+      "input_total_bytes": 258,
+      "expected_exit": 2,
+      "expected_reason": "invalid_number",
+      "trials": [
+        {
+          "wall_seconds": 0.003546,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3040,
+          "exit_code": 2,
+          "output_bytes": 57,
+          "output_sha256": "df1aebfe882cb471b02bdf2960f4734b7e91e60743244959376ce69860d8034b",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.003545,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 2972,
+          "exit_code": 2,
+          "output_bytes": 57,
+          "output_sha256": "df1aebfe882cb471b02bdf2960f4734b7e91e60743244959376ce69860d8034b",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.00364,
+          "gnu_time_seconds": 0.0,
+          "peak_rss_kib": 3016,
+          "exit_code": 2,
+          "output_bytes": 57,
+          "output_sha256": "df1aebfe882cb471b02bdf2960f4734b7e91e60743244959376ce69860d8034b",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.003546,
+      "max_peak_rss_kib": 3040,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "4096_points_output_cap",
+      "input_files": 16,
+      "input_total_bytes": 723271,
+      "expected_exit": 2,
+      "expected_reason": "output_size_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.603449,
+          "gnu_time_seconds": 0.6,
+          "peak_rss_kib": 52328,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "adb876f33c3b1f98003617a6d093abbc297aaf5a279ef9f1dcad6a9666ea8d98",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.614173,
+          "gnu_time_seconds": 0.61,
+          "peak_rss_kib": 52292,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "adb876f33c3b1f98003617a6d093abbc297aaf5a279ef9f1dcad6a9666ea8d98",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.613623,
+          "gnu_time_seconds": 0.61,
+          "peak_rss_kib": 52268,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "adb876f33c3b1f98003617a6d093abbc297aaf5a279ef9f1dcad6a9666ea8d98",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.613623,
+      "max_peak_rss_kib": 52328,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "4096_points_legacy_output_cap",
+      "input_files": 16,
+      "input_total_bytes": 723271,
+      "expected_exit": 2,
+      "expected_reason": "output_size_limit",
+      "trials": [
+        {
+          "wall_seconds": 0.466088,
+          "gnu_time_seconds": 0.46,
+          "peak_rss_kib": 30952,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "adb876f33c3b1f98003617a6d093abbc297aaf5a279ef9f1dcad6a9666ea8d98",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.467263,
+          "gnu_time_seconds": 0.46,
+          "peak_rss_kib": 30840,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "adb876f33c3b1f98003617a6d093abbc297aaf5a279ef9f1dcad6a9666ea8d98",
+          "passed": true
+        },
+        {
+          "wall_seconds": 0.460801,
+          "gnu_time_seconds": 0.45,
+          "peak_rss_kib": 30844,
+          "exit_code": 2,
+          "output_bytes": 60,
+          "output_sha256": "adb876f33c3b1f98003617a6d093abbc297aaf5a279ef9f1dcad6a9666ea8d98",
+          "passed": true
+        }
+      ],
+      "median_wall_seconds": 0.466088,
+      "max_peak_rss_kib": 30952,
+      "output_reproducible": true,
+      "accepted_unique_reports": null,
+      "duplicate_reports": null,
+      "internal_json_parse_success_count": null,
+      "internal_json_parse_failure_count": null,
+      "parser_count_note": "UNVERIFIED: CLI has no per-file parser telemetry. Accepted counts are CLI output, not inferred parser-call instrumentation.",
+      "input_files_unchanged": true,
+      "passed": true
+    }
+  ],
+  "new_validation_cases_passed": 22,
+  "new_validation_cases_failed": 0,
+  "trial_executions": 66,
+  "max_peak_rss_kib": 52328,
+  "all_outputs_reproducible": true,
+  "unverified": [
+    "Successful processing of 100/1000 report files (unsupported)",
+    "Internal per-file JSON parser counters",
+    "Approaching actual process/host OOM",
+    "Worst-case across all JSON structures",
+    "Process-wide memory guarantee",
+    "Release-build performance",
+    "HTTP live performance"
+  ],
+  "production_code_changes": false,
+  "new_rpc_requests": 0,
+  "github_notion_writes": 0,
+  "existing_tests": {
+    "passed": 108,
+    "failed": 0,
+    "suites": {
+      "temporal_details": 21,
+      "offline_analysis": 31,
+      "observation_metadata": 15,
+      "readonly_cli": 5,
+      "completion_review": 2,
+      "legacy_import": 16,
+      "common_report_library": 18
+    },
+    "compile": "PASS",
+    "offline_build": "PASS",
+    "validation_scope": "Byte-identical complete source/test snapshot; no unrelated source or cache edits"
+  },
+  "existing_files_unchanged": true,
+  "production_improvement": "None: controlled outcomes and no crash observed under measured inputs; no performance SLO or process RSS guarantee asserted",
+  "source_sha256": {
+    "src/offline_reports/mod.rs": "204cd80b552e2319db0b4360fc5980400de664c6baf6260e01ad0974e17ed4c4",
+    "src/readonly_report.rs": "a5c71ddfd31b46ff68f5cbf863d7e1df4c6957854e51ba32d5554dd980a5ca57",
+    "src/bounded_http.rs": "9ab7ccef95e938e612a03b1eee95c5d7662b91b84b8926d5823016fc3dd70417",
+    "src/bin/report_analysis.rs": "d9994e5bd68ecb447998eea771273e16de7169df8fbf1ed2bd650bc84adb3af2",
+    "scripts/cdk_readonly_performance.py": "c7ae3ba8f1b2d7f4e7f0b2893ff58e3d04f37640dee8a42cbb372a7d4d1869d5"
+  },
+  "regression_logs_sha256": {
+    "performance-regression-0.log": "3be8406c454ea7d2d0ce8e54d846de8cf3191d018144f6954f3859b9d9668e5c",
+    "performance-regression-1.log": "f15483b6d71a1a8085083b933d46010327ae4c668e87e61562c4be9dcdd7bacc",
+    "performance-regression-2.log": "18da4d47de5db6de2055d79fb9e1257053a693b979bd6266da49406f195e208c"
+  },
+  "scope_note": "Largest total-byte case uses whitespace padding; it is a transport/input-budget boundary case, not the densest possible 8MiB JSON graph. Dense-value and comparison-point cases measure separate allocation risks.",
+  "final_recording": {
+    "date": "2026-11-01",
+    "assessment": "PARTIAL",
+    "requested_rss_correction": {
+      "user_summary_approx_mib": 3.8,
+      "scope_of_3_8_mib": "Only maximum_64_files_8mib workload:3892KiB",
+      "actual_overall_max_rss_kib": 52328,
+      "actual_overall_max_rss_approx_mib": 51.1,
+      "reason": "Overall maximum measured at4096 comparison points with temporal details; all trial values checked"
+    },
+    "verification": "22 cases/66 trials, all expected outcomes,108 existing tests0 failures, input/output caps, median/max calculations, output hashes, source/log hashes verified",
+    "tests_rerun": false,
+    "tests_omission_reason": "Production sources and runner unchanged; sufficient successful logs and hashes. No repeat benchmark or regression run needed.",
+    "public_files": 3,
+    "base_main": "e9ab197e0b8f053131e462fa8c37c5aa44041ad3",
+    "scope": "Historical measurement on byte-identical local complete-source snapshot; this commit publishes measurement script and documentation only, not uncommitted previous-phase producers/importer",
+    "production_source_changes": false,
+    "new_rpc_requests": 0
+  }
+}

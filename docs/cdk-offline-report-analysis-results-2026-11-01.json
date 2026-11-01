@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-01",
+  "assessment": "PASS (offline development)",
+  "new_tests_passed": 31,
+  "existing_cli_tests_passed": 5,
+  "unique_total_passed": 36,
+  "failed_tests": 0,
+  "test_executions": 61,
+  "initial_build_error": "new json! macro expression syntax; corrected before tests executed",
+  "network": "Linux seccomp denies socket/connect/bind/listen; cargo --offline --locked",
+  "devnet_requests": 0,
+  "dependencies_added": 0,
+  "existing_files_changed": [],
+  "limits": {
+    "input_files": 64,
+    "per_file_bytes": 1048576,
+    "total_input_bytes": 8388608,
+    "json_depth": 32,
+    "comparison_points": 4096,
+    "transaction_entries_per_report": 256,
+    "output_bytes_excluding_final_newline": 1048576
+  },
+  "source_sha256": {
+    "src/bin/report_analysis.rs": "ea0efb1b8ac10a8f95678e4be063271934456882f0bb5fb8dcdb54dd777676c5",
+    "src/offline_reports/mod.rs": "ee0022391098198c9dccb61bb6871f45749064122a702f81144bd29dd1de3583",
+    "tests/offline_report_analysis.rs": "d92a5ca7907e667edd48e0785eb434705babe7002f9d2a98d9893710ac8be232"
+  },
+  "logs_sha256": {
+    "/tmp/rialo-offline-analysis-tests.log": "717b49f207cdf60f091161c77a19bc242ed42e1f3134b04767cf7fbd95feddb9",
+    "/tmp/rialo-offline-analysis-final.log": "278d6c4694ce16a45dc5ae305414f1d861db20f30412c60381fc85d98588c263"
+  },
+  "unverified": [
+    "process RSS/CPU worst-case profiling",
+    "concurrent malicious filesystem replacement",
+    "live data; not required for offline utility"
+  ],
+  "publication_validation": {
+    "date": "2026-11-01",
+    "base_main": "6ad67b2ca98567cf3b4e844827eed32e21628422",
+    "new_tests_passed": 31,
+    "existing_cli_tests_passed": 5,
+    "total_passed": 36,
+    "failed": 0,
+    "rustfmt_check": "PASS",
+    "offline_locked_build": "PASS",
+    "staged_diff_check": "PASS",
+    "dependency_changes": false,
+    "network_guard": "Linux seccomp inherited by cargo and CLI subprocesses",
+    "full_suite_rerun": false,
+    "full_suite_omission_reason": "Only new binary/module and tests added; relevant 36 tests exercised on remote-main publication copy",
+    "logs_sha256": {
+      "0.log": "cf0d60a52cde0a51f285d9400f0ebe9119982cb1ec65e56e9d9cd8fe41381508",
+      "1.log": "ee8ae13a68e189b8ea4d0a055f87055cadff7daeabce5ad2bb7a94c66694d3d5"
+    }
+  }
+}

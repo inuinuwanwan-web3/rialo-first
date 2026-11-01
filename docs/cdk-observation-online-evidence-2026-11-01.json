@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-01",
+  "assessment": "PASS for one live not_found observation metadata response",
+  "source_evidence_sha256": "36318a0409df6ea62749e7c2d03894d8422c431f9be85bdbbf2818892c14fa0b",
+  "rpc_requests": 1,
+  "automatic_retries": 0,
+  "http_status": 200,
+  "jsonrpc_version": "2.0",
+  "request_id": 1,
+  "rpc_id_consistency": "validated by bounded transport; receipt id1",
+  "body_bytes": 106,
+  "body_limit_bytes": 1048576,
+  "report_metadata": {
+    "schema_version": "1.0",
+    "network": "devnet",
+    "operation": "account_lookup",
+    "timestamp_utc": "2026-11-01T07:07:47.316Z",
+    "status": "not_found",
+    "context": {
+      "slot": 6584270
+    },
+    "error": null,
+    "transport": "bounded_http",
+    "observation_started_at_utc": "2026-11-01T07:07:46.279Z",
+    "observation_completed_at_utc": "2026-11-01T07:07:47.316Z",
+    "record_created_at_utc": "2026-11-01T07:07:47.316Z",
+    "source": {
+      "kind": "configured_rpc",
+      "endpoint": "http://devnet.rialo.io:4100",
+      "rpc_method": "getAccountInfo",
+      "transport": "bounded_http"
+    }
+  },
+  "data_summary": {
+    "account": null,
+    "address": "omitted from publication; same public target verified in original evidence"
+  },
+  "facts_matched": {
+    "rpc_requests": true,
+    "http": true,
+    "jsonrpc": true,
+    "retries": true,
+    "body_bytes": true,
+    "body_limit": true,
+    "not_found": true,
+    "slot": true,
+    "source": true
+  },
+  "meaning": "not_found is valid RPC success and explicit absence, not successful retrieval of an existing account",
+  "new_rpc_requests_for_this_review": 0
+}
